@@ -4,7 +4,7 @@ Every file in `dataset/00_raw/` is extracted **byte-exact** from a pinned npm re
 
 - **Items:** 50
 - **Distinct upstream packages:** 50
-- **Total size:** 189,491 bytes (7,149 lines)
+- **Total size:** 218,132 bytes (8,127 lines)
 
 Every item is a self-contained CommonJS module: no ESM syntax, no relative imports, no external dependencies. Verify with `node verify_dataset.js`.
 
@@ -19,9 +19,9 @@ Every item is a self-contained CommonJS module: no ESM syntax, no relative impor
 | 3 | `func_03_levenshtein.js` | [`js-levenshtein`](https://github.com/gustf/js-levenshtein) | `1.1.6` | [`index.js`](https://cdn.jsdelivr.net/npm/js-levenshtein@1.1.6/index.js) | MIT |
 | 4 | `func_04_damerauLevenshtein.js` | [`damerau-levenshtein`](https://github.com/tad-lispy/node-damerau-levenshtein) | `1.0.8` | [`index.js`](https://cdn.jsdelivr.net/npm/damerau-levenshtein@1.0.8/index.js) | BSD-2-Clause |
 | 5 | `func_05_unionFind.js` | [`union-find`](https://github.com/mikolalysenko/union-find) | `1.0.2` | [`index.js`](https://cdn.jsdelivr.net/npm/union-find@1.0.2/index.js) | MIT |
-| 6 | `func_06_naturalCompare.js` | [`natural-compare`](https://github.com/litejs/natural-compare-lite) | `1.4.0` | [`index.js`](https://cdn.jsdelivr.net/npm/natural-compare@1.4.0/index.js) | MIT |
+| 6 | `func_06_naturalCompare.js` | [`string-natural-compare`](https://github.com/nwoltman/string-natural-compare) | `3.0.1` | [`natural-compare.js`](https://cdn.jsdelivr.net/npm/string-natural-compare@3.0.1/natural-compare.js) | MIT |
 | 7 | `func_07_toposort.js` | [`toposort`](https://github.com/marcelklehr/toposort) | `2.0.2` | [`index.js`](https://cdn.jsdelivr.net/npm/toposort@2.0.2/index.js) | MIT |
-| 8 | `func_08_topsort.js` | [`topsort`](https://github.com/samuelneff/topsort) | `0.0.2` | [`lib/topsort.js`](https://cdn.jsdelivr.net/npm/topsort@0.0.2/lib/topsort.js) | n/a |
+| 8 | `func_08_deque.js` | [`denque`](https://github.com/invertase/denque) | `2.1.0` | [`index.js`](https://cdn.jsdelivr.net/npm/denque@2.1.0/index.js) | Apache-2.0 |
 | 9 | `func_09_dijkstra.js` | [`dijkstrajs`](https://github.com/tcort/dijkstrajs) | `1.0.3` | [`dijkstra.js`](https://cdn.jsdelivr.net/npm/dijkstrajs@1.0.3/dijkstra.js) | MIT |
 | 10 | `func_10_priorityQueue.js` | [`priorityqueuejs`](https://github.com/janogonzalez/priorityqueuejs) | `2.0.0` | [`index.js`](https://cdn.jsdelivr.net/npm/priorityqueuejs@2.0.0/index.js) | MIT |
 | 11 | `func_11_sortedArray.js` | [`sorted-array-functions`](https://github.com/mafintosh/sorted-array-functions) | `1.3.0` | [`index.js`](https://cdn.jsdelivr.net/npm/sorted-array-functions@1.3.0/index.js) | MIT |
@@ -76,7 +76,7 @@ Every item is a self-contained CommonJS module: no ESM syntax, no relative impor
 | 45 | `func_45_crc32.js` | [`js-crc`](https://github.com/emn178/js-crc) | `0.3.1` | [`src/crc.js`](https://cdn.jsdelivr.net/npm/js-crc@0.3.1/src/crc.js) | MIT |
 | 46 | `func_46_base32.js` | [`hi-base32`](https://github.com/emn178/hi-base32) | `0.5.1` | [`src/base32.js`](https://cdn.jsdelivr.net/npm/hi-base32@0.5.1/src/base32.js) | MIT |
 | 47 | `func_47_rc4.js` | [`rc4`](https://github.com/phadej/rc4) | `0.1.5` | [`rc4.js`](https://cdn.jsdelivr.net/npm/rc4@0.1.5/rc4.js) | MIT |
-| 48 | `func_48_murmurhash.js` | [`murmurhash`](https://github.com/perezd/node-murmurhash) | `2.0.1` | [`murmurhash.js`](https://cdn.jsdelivr.net/npm/murmurhash@2.0.1/murmurhash.js) | MIT |
+| 48 | `func_48_sha3.js` | [`js-sha3`](https://github.com/emn178/js-sha3) | `0.9.3` | [`src/sha3.js`](https://cdn.jsdelivr.net/npm/js-sha3@0.9.3/src/sha3.js) | MIT |
 | 49 | `func_49_bitTwiddle.js` | [`bit-twiddle`](https://github.com/mikolalysenko/bit-twiddle) | `1.0.2` | [`twiddle.js`](https://cdn.jsdelivr.net/npm/bit-twiddle@1.0.2/twiddle.js) | MIT |
 | 50 | `func_50_hashSum.js` | [`hash-sum`](https://github.com/bevacqua/hash-sum) | `2.0.0` | [`hash-sum.js`](https://cdn.jsdelivr.net/npm/hash-sum@2.0.0/hash-sum.js) | MIT |
 
@@ -157,16 +157,15 @@ Tarball URLs are what `fetch_dataset.py` actually downloads. `tarball_sha1` is t
 
 ### 6. `func_06_naturalCompare.js`
 
-- **Package:** `natural-compare@1.4.0` ([npm](https://www.npmjs.com/package/natural-compare/v/1.4.0))
-- **Entry path in package:** `index.js`
-- **Direct file link:** https://cdn.jsdelivr.net/npm/natural-compare@1.4.0/index.js
-- **Mirror:** https://unpkg.com/natural-compare@1.4.0/index.js
-- **Repository:** https://github.com/litejs/natural-compare-lite
-- **Homepage:** https://github.com/litejs/natural-compare-lite#readme
-- **Tarball:** https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz
-- **Tarball SHA-1:** `4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7`
-- **File SHA-256:** `15f5c6fd3086eb01f2beede34bf23a84f3ca2b9f4a87ec86c1bfc2045b99c6e3`
-- **Size:** 1,303 bytes / 58 lines
+- **Package:** `string-natural-compare@3.0.1` ([npm](https://www.npmjs.com/package/string-natural-compare/v/3.0.1))
+- **Entry path in package:** `natural-compare.js`
+- **Direct file link:** https://cdn.jsdelivr.net/npm/string-natural-compare@3.0.1/natural-compare.js
+- **Mirror:** https://unpkg.com/string-natural-compare@3.0.1/natural-compare.js
+- **Repository:** https://github.com/nwoltman/string-natural-compare
+- **Tarball:** https://registry.npmjs.org/string-natural-compare/-/string-natural-compare-3.0.1.tgz
+- **Tarball SHA-1:** `7a42d58474454963759e8e8b7ae63d71c1e7fdf4`
+- **File SHA-256:** `1fb70fd9e52b881802633a3891f3eb0dd1576c776e3ea9e9f5596fd4c8f93412`
+- **Size:** 3,421 bytes / 140 lines
 - **License:** MIT
 
 ### 7. `func_07_toposort.js`
@@ -183,18 +182,19 @@ Tarball URLs are what `fetch_dataset.py` actually downloads. `tarball_sha1` is t
 - **Size:** 2,270 bytes / 99 lines
 - **License:** MIT
 
-### 8. `func_08_topsort.js`
+### 8. `func_08_deque.js`
 
-- **Package:** `topsort@0.0.2` ([npm](https://www.npmjs.com/package/topsort/v/0.0.2))
-- **Entry path in package:** `lib/topsort.js`
-- **Direct file link:** https://cdn.jsdelivr.net/npm/topsort@0.0.2/lib/topsort.js
-- **Mirror:** https://unpkg.com/topsort@0.0.2/lib/topsort.js
-- **Repository:** https://github.com/samuelneff/topsort
-- **Tarball:** https://registry.npmjs.org/topsort/-/topsort-0.0.2.tgz
-- **Tarball SHA-1:** `2e5e0ee8a1439417f101d5b9b2d035e620263321`
-- **File SHA-256:** `9eae643fbc37b73b2f4878d07c1eefe7a91870d8cc8b84fe9bc0560b1d0a9eed`
-- **Size:** 3,174 bytes / 111 lines
-- **License:** n/a
+- **Package:** `denque@2.1.0` ([npm](https://www.npmjs.com/package/denque/v/2.1.0))
+- **Entry path in package:** `index.js`
+- **Direct file link:** https://cdn.jsdelivr.net/npm/denque@2.1.0/index.js
+- **Mirror:** https://unpkg.com/denque@2.1.0/index.js
+- **Repository:** https://github.com/invertase/denque
+- **Homepage:** https://docs.page/invertase/denque
+- **Tarball:** https://registry.npmjs.org/denque/-/denque-2.1.0.tgz
+- **Tarball SHA-1:** `e93e1a6569fb5e66f16a3c2a2964617d349d6ab1`
+- **File SHA-256:** `61e3335c88fa7415d0b0522ca2cbeed17b7a9b4911aa1e41d1006a2e782e553e`
+- **Size:** 12,497 bytes / 482 lines
+- **License:** Apache-2.0
 
 ### 9. `func_09_dijkstra.js`
 
@@ -718,18 +718,17 @@ Tarball URLs are what `fetch_dataset.py` actually downloads. `tarball_sha1` is t
 - **Size:** 4,633 bytes / 205 lines
 - **License:** MIT
 
-### 48. `func_48_murmurhash.js`
+### 48. `func_48_sha3.js`
 
-- **Package:** `murmurhash@2.0.1` ([npm](https://www.npmjs.com/package/murmurhash/v/2.0.1))
-- **Entry path in package:** `murmurhash.js`
-- **Direct file link:** https://cdn.jsdelivr.net/npm/murmurhash@2.0.1/murmurhash.js
-- **Mirror:** https://unpkg.com/murmurhash@2.0.1/murmurhash.js
-- **Repository:** https://github.com/perezd/node-murmurhash
-- **Homepage:** https://github.com/perezd/node-murmurhash#readme
-- **Tarball:** https://registry.npmjs.org/murmurhash/-/murmurhash-2.0.1.tgz
-- **Tarball SHA-1:** `4097720e08cf978872194ad84ea5be2dec9b610f`
-- **File SHA-256:** `21d38582478f661800ab47d444df4ab5e527fde303c348198642c71e47f8b225`
-- **Size:** 4,096 bytes / 138 lines
+- **Package:** `js-sha3@0.9.3` ([npm](https://www.npmjs.com/package/js-sha3/v/0.9.3))
+- **Entry path in package:** `src/sha3.js`
+- **Direct file link:** https://cdn.jsdelivr.net/npm/js-sha3@0.9.3/src/sha3.js
+- **Mirror:** https://unpkg.com/js-sha3@0.9.3/src/sha3.js
+- **Repository:** https://github.com/emn178/js-sha3
+- **Tarball:** https://registry.npmjs.org/js-sha3/-/js-sha3-0.9.3.tgz
+- **Tarball SHA-1:** `f0209432b23a66a0f6c7af592c26802291a75c2a`
+- **File SHA-256:** `6378cc474ad0a0db3e88c0c67b7bd4a154e1b318f44dbbd13927f6e220efaa38`
+- **Size:** 21,296 bytes / 663 lines
 - **License:** MIT
 
 ### 49. `func_49_bitTwiddle.js`

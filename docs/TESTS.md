@@ -1,8 +1,8 @@
 # The Test Oracle — Official Upstream Suites
 
-**Status:** `50 / 50` suites pass against `dataset/00_raw`. 7 488 assertions, none
-skipped. Overall oracle strength (mutation score) **76 %**. The Ground Truth Rule
-of paper Section 4 is met.
+**Status:** `50 / 50` suites pass against `dataset/00_raw`. 8 593 Jest blocks,
+**106 438 assertions executed**, 2 declared-skipped. Oracle strength **80 %**,
+with a single item below 50 %. The Ground Truth Rule of paper Section 4 is met.
 
 This document is the decision record for the oracle, as `SESSION_LOG.md` is for
 the corpus. Its central claim, and the thing the rest of the document exists to
@@ -62,7 +62,7 @@ Layout:
 ### The stub trick
 
 Upstream suites reach their subject with `require('../')`, `require('../src/luhn')`,
-`require('./murmurhash')` and so on. Rather than rewrite those lines, the harness
+`require('./twiddle.js')` and so on. Rather than rewrite those lines, the harness
 **synthesises the package layout each suite expects**. `tests/runner/build.js`
 writes, for example, `tests/upstream/func_24_luhn/src/luhn.js` containing:
 
@@ -85,60 +85,60 @@ SHA** — hard-coded in `fetch_tests.py`, never resolved through the
 GitHub API at run time, so a retargeted tag cannot silently swap the oracle out
 from under a published result.
 
-| # | corpus file | package | test source | pin | runner | tests | oracle |
-|---|---|---|---|---|---|---|---|
-| 01 | `func_01_binarySearch` | binary-search@1.3.6 | npm | tarball `e3242601` | chai | 8 | 50% |
-| 02 | `func_02_binarySearchBounds` | binary-search-bounds@2.0.5 | npm | tarball `125e5bd3` | tape | 5 | 90% |
-| 03 | `func_03_levenshtein` | js-levenshtein@1.1.6 | gh | `v1.1.6` `55ca1bf2` | ava | 1 | 60% |
-| 04 | `func_04_damerauLevenshtein` | damerau-levenshtein@1.0.8 | npm | tarball `b43d286c` | assert | 18 | 60% |
-| 05 | `func_05_unionFind` | union-find@1.0.2 | npm | tarball `292bac41` | tape | 1 | 33% |
-| 06 | `func_06_naturalCompare` | natural-compare@1.4.0 | gh | `v1.4.0` `eec83eee` | testman | 6 | 20% |
-| 07 | `func_07_toposort` | toposort@2.0.2 | npm | tarball `ae217681` | vows+assert | 9 | 80% |
-| 08 | `func_08_topsort` | topsort@0.0.2 | npm | tarball `2e5e0ee8` | jasmine/bdd | 15 | 30% |
-| 09 | `func_09_dijkstra` | dijkstrajs@1.0.3 | npm | tarball `4c8dbdea` | expect.js | 5 | 80% |
-| 10 | `func_10_priorityQueue` | priorityqueuejs@2.0.0 | npm | tarball `96064040` | expect.js | 24 | 90% |
-| 11 | `func_11_sortedArray` | sorted-array-functions@1.3.0 | npm | tarball `86056955` | tape | 18 | 90% |
-| 12 | `func_12_jaroWinkler` | jaro-winkler@0.2.8 | npm | tarball `6727e0d0` | chai | 3 | 50% |
-| 13 | `func_13_mersenneTwister` | mersenne-twister@1.1.0 | npm | tarball `f916618e` | jasmine/bdd | 3 | 80% |
-| 14 | `func_14_stringSimilarity` | string-similarity@4.0.4 | gh | `4.0.4` `07cbc8d1` | jasmine/bdd | 11 | 70% |
-| 15 | `func_15_combinatorics` | js-combinatorics@2.1.4 | gh | `2.1.4` `4ae77832` | chai | 118 | 70% |
-| 16 | `func_16_isEmail` | email-validator@2.0.4 | npm | tarball `b8dfaa5d` | chai | 3 | 70% |
-| 17 | `func_17_isUrl` | is-url@1.2.4 | npm | tarball `04a4df46` | assert | 32 | 87% |
-| 18 | `func_18_isUri` | valid-url@1.0.9 | npm | tarball `1c14479b` | tap | 4 | 60% |
-| 19 | `func_19_isJson` | is-json@3.0.1 | gh | `v3.0.1` `6e2ebf6c` | vitest | 37 | 90% |
-| 20 | `func_20_isBase64` | is-base64@1.1.0 | npm | tarball `8ce1d719` | tape | 1 | 100% |
-| 21 | `func_21_msDuration` | ms@2.1.3 | gh | `2.1.3` `1c6264b7` | expect.js | 49 | 90% |
-| 22 | `func_22_isUuid` | is-uuid@1.0.2 | npm | tarball `ad1898dd` | jasmine/bdd | 54 | — |
-| 23 | `func_23_uuidValidate` | uuid-validate@0.0.3 | gh | `v0.0.3` `06554db1` | jasmine/bdd | 8 | 80% |
-| 24 | `func_24_luhn` | luhn@2.4.1 | npm | tarball `9cf501c5` | mocha+should | 36 | 100% |
-| 25 | `func_25_jwtDecode` | jwt-decode@4.0.0 | gh | `v4.0.0` `3b2d105a` | jasmine/bdd | 15 | 90% |
-| 26 | `func_26_pluralize` | pluralize@8.0.0 | gh | `v8.0.0` `0265e4d1` | chai | 4901 | 80% |
-| 27 | `func_27_wordWrap` | word-wrap@1.2.5 | gh | `1.2.5` `207044eb` | mocha+assert | 13 | 100% |
-| 28 | `func_28_byteSize` | bytes@3.1.2 | gh | `3.1.2` `9ddc13b6` | assert | 30 | 100% |
-| 29 | `func_29_isHexColor` | hex-color-regex@1.1.0 | npm | tarball `4c06fccb` | mukla | 1 | 50% |
-| 30 | `func_30_queryString` | querystringify@2.2.0 | gh | `2.2.0` `73db95a5` | jasmine/bdd | 20 | 100% |
-| 31 | `func_31_objectPath` | object-path@0.11.8 | npm | tarball `ed002c02` | chai | 90 | 60% |
-| 32 | `func_32_union` | arr-union@3.1.0 | gh | `3.1.0` `ede857f5` | should | 5 | 100% |
-| 33 | `func_33_flatten` | arr-flatten@1.1.0 | gh | `1.1.0` `2f47651a` | mocha+assert | 2 | 100% |
-| 34 | `func_34_unique` | array-unique@0.3.2 | gh | `0.3.2` `5dd2bcce` | mocha+should+assert | 4 | 66% |
-| 35 | `func_35_difference` | arr-diff@4.0.0 | gh | `4.0.0` `0a04556f` | mocha+assert | 8 | 80% |
-| 36 | `func_36_intersect` | intersect@1.0.1 | npm | tarball `332650e1` | tape | 4 | 90% |
-| 37 | `func_37_groupBy` | just-group-by@2.2.0 | gh | `master` `d8c5dd18` | tape | 3 | 100% |
-| 38 | `func_38_deepEqual` | fast-deep-equal@3.1.3 | gh | `v3.1.3` `d807ffc5` | assert | 110 | 100% |
-| 39 | `func_39_cloneDeep` | rfdc@1.4.1 | npm | tarball `778f76c4` | tap | 136 | 80% |
-| 40 | `func_40_deepMerge` | deepmerge@4.3.1 | gh | `v4.3.1` `5b87756a` | tape | 52 | 90% |
-| 41 | `func_41_base64` | base64-js@1.5.1 | gh | `v1.5.1` `f3ea7adb` | tape | 5 | 100% |
-| 42 | `func_42_md5` | blueimp-md5@2.19.0 | gh | `v2.19.0` `458b6624` | chai | 8 | 90% |
-| 43 | `func_43_sha256` | js-sha256@1.0.0 | gh | `v1.0.0` `9a54fb31` | jasmine/bdd | 918 | 60% |
-| 44 | `func_44_sha1` | js-sha1@0.7.0 | gh | `v0.7.0` `33acf624` | jasmine/bdd | 441 | 100% |
-| 45 | `func_45_crc32` | js-crc@0.3.1 | npm | tarball `f52bb40a` | jasmine/bdd | 187 | 80% |
-| 46 | `func_46_base32` | hi-base32@0.5.1 | gh | `v0.5.1` `59a75692` | jasmine/bdd | 7 | 80% |
-| 47 | `func_47_rc4` | rc4@0.1.5 | gh | `v0.1.5` `b14bc687` | assert | 41 | 70% |
-| 48 | `func_48_murmurhash` | murmurhash@2.0.1 | npm | tarball `4097720e` | bare script | 1 | 20% |
-| 49 | `func_49_bitTwiddle` | bit-twiddle@1.0.2 | npm | tarball `0c6c1fab` | tape | 15 | 90% |
-| 50 | `func_50_hashSum` | hash-sum@2.0.0 | npm | tarball `81d01bb5` | tape | 2 | 50% |
+| # | corpus file | package | test source | pin | runner | blocks | assertions | oracle |
+|---|---|---|---|---|---|---|---|---|
+| 01 | `func_01_binarySearch` | binary-search@1.3.6 | npm | tarball `e3242601` | chai | 8 | 13 | 50% |
+| 02 | `func_02_binarySearchBounds` | binary-search-bounds@2.0.5 | npm | tarball `125e5bd3` | tape | 5 | 350 | 90% |
+| 03 | `func_03_levenshtein` | js-levenshtein@1.1.6 | gh | `v1.1.6` `55ca1bf2` | ava | 1 | 14 | 60% |
+| 04 | `func_04_damerauLevenshtein` | damerau-levenshtein@1.0.8 | npm | tarball `b43d286c` | assert | 18 | 18 | 60% |
+| 05 | `func_05_unionFind` | union-find@1.0.2 | npm | tarball `292bac41` | tape | 1 | 8 | 33% |
+| 06 | `func_06_naturalCompare` | string-natural-compare@3.0.1 | gh | `v3.0.1` `a213a8e2` | should+assert | 14 | 144 | 90% |
+| 07 | `func_07_toposort` | toposort@2.0.2 | npm | tarball `ae217681` | vows+assert | 9 | 10 | 80% |
+| 08 | `func_08_deque` | denque@2.1.0 | gh | `v2.1.0` `539105bb` | assert | 52 | 102 | 70% |
+| 09 | `func_09_dijkstra` | dijkstrajs@1.0.3 | npm | tarball `4c8dbdea` | expect.js | 5 | 10 | 80% |
+| 10 | `func_10_priorityQueue` | priorityqueuejs@2.0.0 | npm | tarball `96064040` | expect.js | 24 | 49 | 90% |
+| 11 | `func_11_sortedArray` | sorted-array-functions@1.3.0 | npm | tarball `86056955` | tape | 18 | 137 | 90% |
+| 12 | `func_12_jaroWinkler` | jaro-winkler@0.2.8 | npm | tarball `6727e0d0` | chai | 3 | 8 | 50% |
+| 13 | `func_13_mersenneTwister` | mersenne-twister@1.1.0 | npm | tarball `f916618e` | jasmine/bdd | 3 | 17 | 80% |
+| 14 | `func_14_stringSimilarity` | string-similarity@4.0.4 | gh | `4.0.4` `07cbc8d1` | jasmine/bdd | 11 | 29 | 70% |
+| 15 | `func_15_combinatorics` | js-combinatorics@2.1.4 | gh | `2.1.4` `4ae77832` | chai | 118 | 122 | 70% |
+| 16 | `func_16_isEmail` | email-validator@2.0.4 | npm | tarball `b8dfaa5d` | chai | 3 | 57 | 70% |
+| 17 | `func_17_isUrl` | is-url@1.2.4 | npm | tarball `04a4df46` | assert | 32 | 0 | 88% |
+| 18 | `func_18_isUri` | valid-url@1.0.9 | npm | tarball `1c14479b` | tap | 4 | 61 | 60% |
+| 19 | `func_19_isJson` | is-json@3.0.1 | gh | `v3.0.1` `6e2ebf6c` | vitest | 37 | 55 | 90% |
+| 20 | `func_20_isBase64` | is-base64@1.1.0 | npm | tarball `8ce1d719` | tape | 1 | 27 | 100% |
+| 21 | `func_21_msDuration` | ms@2.1.3 | gh | `2.1.3` `1c6264b7` | expect.js | 49 | 99 | 90% |
+| 22 | `func_22_isUuid` | is-uuid@1.0.2 | npm | tarball `ad1898dd` | jasmine/bdd | 54 | 22566 | — |
+| 23 | `func_23_uuidValidate` | uuid-validate@0.0.3 | gh | `v0.0.3` `06554db1` | jasmine/bdd | 8 | 10 | 80% |
+| 24 | `func_24_luhn` | luhn@2.4.1 | npm | tarball `9cf501c5` | mocha+should | 36 | 36 | 100% |
+| 25 | `func_25_jwtDecode` | jwt-decode@4.0.0 | gh | `v4.0.0` `3b2d105a` | jasmine/bdd | 15 | 18 | 90% |
+| 26 | `func_26_pluralize` | pluralize@8.0.0 | gh | `v8.0.0` `0265e4d1` | chai | 4901 | 4907 | 80% |
+| 27 | `func_27_wordWrap` | word-wrap@1.2.5 | gh | `1.2.5` `207044eb` | mocha+assert | 13 | 15 | 100% |
+| 28 | `func_28_byteSize` | bytes@3.1.2 | gh | `3.1.2` `9ddc13b6` | assert | 30 | 143 | 100% |
+| 29 | `func_29_isHexColor` | hex-color-regex@1.1.0 | npm | tarball `4c06fccb` | mukla | 1 | 140 | 50% |
+| 30 | `func_30_queryString` | querystringify@2.2.0 | gh | `2.2.0` `73db95a5` | jasmine/bdd | 20 | 35 | 100% |
+| 31 | `func_31_objectPath` | object-path@0.11.8 | npm | tarball `ed002c02` | chai | 90 | 379 | 60% |
+| 32 | `func_32_union` | arr-union@3.1.0 | gh | `3.1.0` `ede857f5` | should | 5 | 5 | 100% |
+| 33 | `func_33_flatten` | arr-flatten@1.1.0 | gh | `1.1.0` `2f47651a` | mocha+assert | 2 | 4 | 100% |
+| 34 | `func_34_unique` | array-unique@0.3.2 | gh | `0.3.2` `5dd2bcce` | mocha+should+assert | 4 | 20 | 67% |
+| 35 | `func_35_difference` | arr-diff@4.0.0 | gh | `4.0.0` `0a04556f` | mocha+assert | 8 | 12 | 80% |
+| 36 | `func_36_intersect` | intersect@1.0.1 | npm | tarball `332650e1` | tape | 4 | 18 | 90% |
+| 37 | `func_37_groupBy` | just-group-by@2.2.0 | gh | `master` `d8c5dd18` | tape | 3 | 14 | 100% |
+| 38 | `func_38_deepEqual` | fast-deep-equal@3.1.3 | gh | `v3.1.3` `d807ffc5` | assert | 110 | 110 | 100% |
+| 39 | `func_39_cloneDeep` | rfdc@1.4.1 | npm | tarball `778f76c4` | tap | 136 | 299 | 80% |
+| 40 | `func_40_deepMerge` | deepmerge@4.3.1 | gh | `v4.3.1` `5b87756a` | tape | 52 | 117 | 90% |
+| 41 | `func_41_base64` | base64-js@1.5.1 | gh | `v1.5.1` `f3ea7adb` | tape | 5 | 55 | 100% |
+| 42 | `func_42_md5` | blueimp-md5@2.19.0 | gh | `v2.19.0` `458b6624` | chai | 8 | 8 | 90% |
+| 43 | `func_43_sha256` | js-sha256@1.0.0 | gh | `v1.0.0` `9a54fb31` | jasmine/bdd | 918 | 918 | 60% |
+| 44 | `func_44_sha1` | js-sha1@0.7.0 | gh | `v0.7.0` `33acf624` | jasmine/bdd | 441 | 484 | 100% |
+| 45 | `func_45_crc32` | js-crc@0.3.1 | npm | tarball `f52bb40a` | jasmine/bdd | 187 | 231 | 80% |
+| 46 | `func_46_base32` | hi-base32@0.5.1 | gh | `v0.5.1` `59a75692` | jasmine/bdd | 7 | 45 | 80% |
+| 47 | `func_47_rc4` | rc4@0.1.5 | gh | `v0.1.5` `b14bc687` | assert | 41 | 18 | 70% |
+| 48 | `func_48_sha3` | js-sha3@0.9.3 | gh | `v0.9.3` `a6f6da74` | jasmine/bdd | 1061 | 1259 | 80% |
+| 49 | `func_49_bitTwiddle` | bit-twiddle@1.0.2 | npm | tarball `0c6c1fab` | tape | 15 | 73194 | 90% |
+| 50 | `func_50_hashSum` | hash-sum@2.0.0 | npm | tarball `81d01bb5` | tape | 2 | 48 | 50% |
 
-**7488 assertions across 50 suites. Overall oracle strength 76% (350/459 mutants detected).**
+**8593 Jest blocks, 106438 assertions executed, oracle strength 80% (367/459 mutants detected).**
 
 ### 3.1 Version skew
 
@@ -218,7 +218,6 @@ In each case the *assertions and their data* are still upstream's.
 |---|---|---|
 | `func_43_sha256`, `func_44_sha1`, `func_45_crc32`, `func_46_base32` | All four emn178 suites are bare IIFEs closing `})(sha256, sha224)` / `})(sha1)` / `})(crc32, crc16, createModel)` / `})(base32)`, expecting a loader to have put the subject on the global object. | The entry mirrors upstream's own `tests/node-test.*` for that package -- same globals, `TEST_INTERNALS = false`, `BUFFER = true`. Test bodies untouched. js-crc's `tests/models-test.js` is excluded: it reads its models off `var root = WINDOW ? window : {}`, which under Node is empty, so it is a browser-only file rather than an oracle. |
 | `func_38_deepEqual` | Upstream's `spec/index.spec.js` runs its cases against **four** published builds; the corpus has one (`index.js`). Pointing the `es6` builds at it would fail Map/Set cases only that build claims to support -- scoring a build difference as a semantic failure. | Case data (`spec/tests.js`) is required byte-identical; the driver is upstream's `testCases()` with the three inapplicable build combinations dropped. |
-| `func_48_murmurhash` | Upstream's `test.js` is a bare script with no framework — it `throw`s on mismatch. | Required inside one Jest test, so the throw is the failure. Oracle preserved exactly. |
 
 ### 4.4 Declared skips: none
 
@@ -277,6 +276,32 @@ suites that still PASSED (oracle holes):             0
 Run this after any harness change. It is the check that makes the green run mean
 something, and it should be re-run against each obfuscation level too.
 
+## 5.0 Counting assertions
+
+The table reports Jest BLOCKS and assertions separately because the two diverge
+badly. `is-base64` runs 27 checks inside a single block; the mukla shim collapses
+hex-color-regex's 68 nested blocks into one, which still executes 140 checks.
+Judging a suite by its block count would have called both of them thin.
+
+Assertions are counted **at runtime**, not parsed out of the source -- a static
+count reported "~0" for is-url and rfdc, whose checks are `assume(...)` and
+destructured `({ is, same })` calls no regex can see. Every assertion library
+funnels through one method (`chai.Assertion.prototype.assert`, `Assume.prototype.test`,
+...), and `tests/runner/assertion-counter.js` wraps it. Two details were
+load-bearing:
+
+* The tally lives on the `node:assert` module object. Jest resets the module
+  registry per test file but shares core modules, so a wrapper installed during
+  the first file keeps calling the first file's counter -- a module-level
+  variable recorded every later file as zero. `process` is no better; Jest
+  sandboxes it per file.
+* Jest zeroes its own `assertionCalls` after every test, so it is harvested in
+  `afterEach`, not `afterAll`.
+
+`require('assert')` is redirected through a counting shim via moduleNameMapper,
+because is-url calls the module itself -- `assert(url(...))` -- and a callable
+cannot be wrapped in place once other files hold a reference to it.
+
 ## 5.1 How strong is each oracle? (mutation score)
 
 Passing the saboteur check only proves a suite notices a module that does
@@ -289,15 +314,15 @@ npm run measure:oracle                     # 10 mutants per file, AST-based
 npm run check:assertions                   # static: assertions that cannot fail
 ```
 
-Current: **350/459 mutants detected, 76 %.** Per-file scores are the last column
+Current: **367/459 mutants detected, 80 %.** Per-file scores are the last column
 of the table in §3. Distribution:
 
 | Oracle strength | Files |
 |---|---|
 | 100 % | 11 |
-| 80-99 % | 20 |
-| 50-79 % | 14 |
-| < 50 % | 4 |
+| 80-99 % | 22 |
+| 50-79 % | 15 |
+| < 50 % | 1 |
 
 Mutation is done on the AST (`@babel/parser`), never on text. An earlier
 regex-based version "mutated" the URL inside a licence comment and reported a
@@ -306,18 +331,33 @@ classes. It also skips `__esModule` bundler plumbing, which is not behaviour.
 
 **This number should be published, not hidden.** It is the honest precision of
 the instrument: a PASS on a 100 %-strength item is strong evidence of semantic
-recovery, a PASS on `func_48_murmurhash` (20 %) is weak. Interpreting Pass Rate
+recovery, a PASS on `func_05_unionFind` (33 %) is weak. Interpreting Pass Rate
 without it overstates what the benchmark measured. Very few benchmarks report
 oracle strength at all, so this is a contribution rather than an admission.
 
-The weakest four are known and deliberate:
+One item remains below 50 %:
 
 | Suite | Score | Why it stays |
 |---|---|---|
-| `func_06_naturalCompare` | 20 % | 6 upstream tests; no dependency-free tagged alternative with a stronger suite |
-| `func_48_murmurhash` | 20 % | suite is a framework-less 3-line script that exercises `v3` only, never `v2`. The obvious replacement, `imurmurhash@0.1.4`, ships **no tests at all** -- verified, not assumed |
-| `func_08_topsort` | 30 % | jasmine-style suite, real but shallow |
-| `func_05_unionFind` | 33 % | a single upstream test |
+| `func_05_unionFind` | 33 % | a single upstream test. The only eligible replacement, `disjoint-set@1.1.9`, fails **its own** suite under Node 18 -- the entry is `'use strict'` and assigns a property to a primitive, so `add(5)` throws. Rejected. |
+
+Three others were retired on measured evidence rather than opinion, each swapped
+only after the replacement's own oracle strength was measured:
+
+| Was | Score | Now | Score |
+|---|---|---|---|
+| `murmurhash@2.0.1` | 20 % | `js-sha3@0.9.3` | 80 % |
+| `natural-compare@1.4.0` | 20 % | `string-natural-compare@3.0.1` | 90 % |
+| `topsort@0.0.2` | 30 % | `denque@2.1.0` | 70 % |
+
+`topsort` had a second problem: it is the same algorithm as `func_07_toposort`
+and returns identical output for identical input, so a fifteen-item category
+carried topological sort twice. `denque` removes the duplication as well as the
+weak oracle.
+
+The rule applied, fixed before the candidates were measured: replace only an item
+scoring **under 50 %**, and only when a candidate measures **at least 60 %**. Two
+candidates cleared it, one (`disjoint-set`) was rejected outright.
 
 Two structural weaknesses the score exposes, both worth stating in
 Threats to Validity:
@@ -325,8 +365,10 @@ Threats to Validity:
 * **Assertion weakness** -- the suite calls the code but does not check enough.
   `hash-sum` never pins a digest value, only that hashes are unique and stable,
   so a build that pads to 9 characters instead of 8 passes.
-* **Coverage weakness** -- the suite never reaches the code at all. `murmurhash`
-  exports `v2` and `v3`; only `v3` is ever called.
+* **Coverage weakness** -- the suite never reaches the code at all. The clearest
+  case was the retired `murmurhash`, which exports `v2` and `v3` while its suite
+  called only `v3`; `func_05_unionFind`, with one upstream test, is the same
+  problem in milder form.
 
 A golden-value layer recorded from `00_raw` would close the first but not the
 second. Differential testing against `00_raw` on generated inputs would close

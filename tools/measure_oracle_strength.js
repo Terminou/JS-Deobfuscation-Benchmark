@@ -57,6 +57,22 @@ const parser = require('@babel/parser');
 const traverse = require('@babel/traverse').default;
 const generate = require('@babel/generator').default;
 
+/**
+ * Regex mutation, because several corpus files have nothing else to mutate.
+ * `is-uuid` is seven anchored patterns and seven one-line wrappers -- no
+ * operators, no literals -- so it produced zero mutants and its oracle went
+ * unmeasured despite running 22 566 assertions. Dropping an anchor or widening
+ * a quantifier changes the accepted language, which is exactly what a validator
+ * suite ought to notice.
+ */
+function mutateRegex(pattern) {
+  if (pattern.endsWith('$')) return pattern.slice(0, -1);        // accepts trailing junk
+  if (pattern.startsWith('^')) return pattern.slice(1);          // accepts leading junk
+  const q = pattern.match(/\{(\d+)\}/);
+  if (q) return pattern.replace(q[0], `{${Number(q[1]) + 1}}`);  // shifts a fixed length
+  return null;
+}
+
 const BINARY = { '===': '!==', '!==': '===', '==': '!=', '!=': '==', '<': '<=', '>': '>=', '<=': '<', '>=': '>', '+': '-', '-': '+' };
 const LOGICAL = { '&&': '||', '||': '&&' };
 
@@ -92,6 +108,11 @@ function collectSites(ast, source) {
       // deobfuscation most often goes subtly wrong.
       sites.push({ kind: 'number', from: String(p.node.value), to: String(p.node.value + 1), loc: p.node.loc });
     },
+    RegExpLiteral(p) {
+      const to = mutateRegex(p.node.pattern);
+      if (to === null) return;
+      sites.push({ kind: 'regex', from: '/' + p.node.pattern.slice(0, 12) + '.../', to: 'relaxed', loc: p.node.loc });
+    },
   });
   return sites;
 }
@@ -115,6 +136,11 @@ function applySite(source, filename, target) {
     LogicalExpression(p) { if (LOGICAL[p.node.operator]) bump(p, () => { p.node.operator = LOGICAL[p.node.operator]; }); },
     BooleanLiteral(p) { if (isPlumbing(p.node)) return; bump(p, () => { p.node.value = !p.node.value; }); },
     NumericLiteral(p) { bump(p, () => { p.node.value += 1; }); },
+    RegExpLiteral(p) {
+      const to = mutateRegex(p.node.pattern);
+      if (to === null) return;
+      bump(p, () => { p.node.pattern = to; });
+    },
   });
   if (!applied) return null;
   return generate(ast, { comments: true, compact: false }, source).code;
@@ -207,7 +233,27 @@ async function main() {
     else for (const m of muts) jobs.push({ id, file, mutator: m.mutator, line: m.line, source: m.source });
   }
 
-  fs.writeFileSync(REPORT, '');
+  // Keep results for functions this run is NOT re-measuring. Truncating
+  // unconditionally meant that measuring one function threw away the other 49 --
+  // exactly what happened when func_48 was re-scored after a swap.
+  let kept = [];
+  if (fs.existsSync(REPORT)) {
+    const measuring = new Set(files.map((f) => f.replace(/\.js$/, '')));
+    // Also drop records for functions that no longer exist: a swap renames the
+    // id (func_08_topsort -> func_08_deque) and the retired score would
+    // otherwise linger and be counted in the corpus total.
+    const present = new Set(fs.readdirSync(RAW)
+      .filter((f) => /^func_\d{2}_.+\.js$/.test(f)).map((f) => f.replace(/\.js$/, '')));
+    kept = fs.readFileSync(REPORT, 'utf8').split('\n').filter(Boolean)
+      .filter((line) => {
+        try {
+          const { id } = JSON.parse(line);
+          return present.has(id) && !measuring.has(id);
+        } catch { return false; }
+      });
+  }
+  fs.writeFileSync(REPORT, kept.length ? `${kept.join('\n')}\n` : '');
+  if (kept.length) say(`kept ${kept.length} record(s) for functions not in this run`);
   say(`${files.length} corpus files -> ${jobs.length} mutants, ${JOBS} parallel, ${TIMEOUT_MS / 1000}s cap`);
   say('');
 

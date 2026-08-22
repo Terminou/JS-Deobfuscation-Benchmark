@@ -86,18 +86,18 @@
   },
   {
     "id": "func_06_naturalCompare",
-    "npm_package": "natural-compare",
-    "npm_version": "1.4.0",
+    "npm_package": "string-natural-compare",
+    "npm_version": "3.0.1",
     "test_source": "gh",
-    "origin": "https://github.com/litejs/natural-compare-lite",
-    "pin": "eec83eee67cfac84d6db30cdd65363f155673770",
-    "ref_name": "v1.4.0",
+    "origin": "https://github.com/nwoltman/string-natural-compare",
+    "pin": "a213a8e225d4a9c790db7661caf6a46b85c4b1c1",
+    "ref_name": "v3.0.1",
     "files": [
       {
-        "path": "tests/index.js",
-        "url": "https://raw.githubusercontent.com/litejs/natural-compare-lite/eec83eee67cfac84d6db30cdd65363f155673770/tests/index.js",
-        "sha256": "eca47c00e6d9b6f9ac4fd47a40aed7a2ea54cf7f298e494fe2fec703e307fc9f",
-        "bytes": 3467
+        "path": "test/test.js",
+        "url": "https://raw.githubusercontent.com/nwoltman/string-natural-compare/a213a8e225d4a9c790db7661caf6a46b85c4b1c1/test/test.js",
+        "sha256": "9e234558120a55c3c7b8c7fd18aa0a1a5ba24ca8031396e1833a4676db6fa553",
+        "bytes": 8452
       }
     ]
   },
@@ -119,19 +119,19 @@
     ]
   },
   {
-    "id": "func_08_topsort",
-    "npm_package": "topsort",
-    "npm_version": "0.0.2",
-    "test_source": "npm",
-    "origin": "https://registry.npmjs.org/topsort/-/topsort-0.0.2.tgz",
-    "pin": "2e5e0ee8a1439417f101d5b9b2d035e620263321",
-    "ref_name": null,
+    "id": "func_08_deque",
+    "npm_package": "denque",
+    "npm_version": "2.1.0",
+    "test_source": "gh",
+    "origin": "https://github.com/invertase/denque",
+    "pin": "539105bb57854e997dd469221cdc52a0ad80e0a2",
+    "ref_name": "v2.1.0",
     "files": [
       {
-        "path": "tests/topsort.spec.js",
-        "url": "https://registry.npmjs.org/topsort/-/topsort-0.0.2.tgz#package/tests/topsort.spec.js",
-        "sha256": "ae4b4f75b2dfa549c4ae2369f6fae370c594b02168b21c1ee68a1edbe4c4cddc",
-        "bytes": 6130
+        "path": "test/denque.js",
+        "url": "https://raw.githubusercontent.com/invertase/denque/539105bb57854e997dd469221cdc52a0ad80e0a2/test/denque.js",
+        "sha256": "ae4f22436d40116f0b72980a9ede00a70651380bd54952e560492628ab16ca63",
+        "bytes": 23029
       }
     ]
   },
@@ -997,19 +997,19 @@
     ]
   },
   {
-    "id": "func_48_murmurhash",
-    "npm_package": "murmurhash",
-    "npm_version": "2.0.1",
-    "test_source": "npm",
-    "origin": "https://registry.npmjs.org/murmurhash/-/murmurhash-2.0.1.tgz",
-    "pin": "4097720e08cf978872194ad84ea5be2dec9b610f",
-    "ref_name": null,
+    "id": "func_48_sha3",
+    "npm_package": "js-sha3",
+    "npm_version": "0.9.3",
+    "test_source": "gh",
+    "origin": "https://github.com/emn178/js-sha3",
+    "pin": "a6f6da7483f2ecd08dff4a100e4537f8042f173d",
+    "ref_name": "v0.9.3",
     "files": [
       {
-        "path": "test.js",
-        "url": "https://registry.npmjs.org/murmurhash/-/murmurhash-2.0.1.tgz#package/test.js",
-        "sha256": "e6fd7c8867922d61d305b2ae0b734bcaba26389cf686a0b5814f27483a0b88d5",
-        "bytes": 303
+        "path": "tests/test.js",
+        "url": "https://raw.githubusercontent.com/emn178/js-sha3/a6f6da7483f2ecd08dff4a100e4537f8042f173d/tests/test.js",
+        "sha256": "a7b99aba90a6d69764e8591ab7b0a9d1d6e462cda4cf9b97b192f89b2bf5968e",
+        "bytes": 24651
       }
     ]
   },

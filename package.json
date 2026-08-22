@@ -16,7 +16,9 @@
     "check:assertions": "node tools/check_dead_assertions.js",
     "measure:oracle": "node tools/measure_oracle_strength.js",
     "groundtruth": "npm run verify:dataset && npm run verify:tests && npm run verify:counts",
-    "verify:counts": "node tools/verify_test_counts.js"
+    "verify:counts": "node tools/verify_test_counts.js",
+    "report": "node tools/report.js",
+    "report:md": "node tools/report.js --md --csv"
   },
   "devDependencies": {
     "@babel/core": "^7.29.7",

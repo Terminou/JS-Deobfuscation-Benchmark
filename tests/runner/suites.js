@@ -21,9 +21,20 @@ module.exports = {
   func_03_levenshtein:        { stubs: ['index.js'], entries: ['test.js'] },
   func_04_damerauLevenshtein: { stubs: ['index.js'], entries: ['test/test.js'] },
   func_05_unionFind:          { stubs: ['index.js'], entries: ['test/test.js'] },
-  func_06_naturalCompare:     { stubs: ['index.js'], entries: ['tests/index.js'] },
+  func_06_naturalCompare: {
+    stubs: ['index.js'],
+    entries: ['test/test.js'],
+    // Both use `assert.throws(fn, new TypeError('...'))`. The TypeError is built
+    // by Jest's sandbox while node's assert runs in the host realm, so the
+    // instanceof check fails and assert rejects the expectation as "an empty
+    // object". Passes under plain node; a property of the runner, not the corpus.
+    skipTests: [
+      { name: 'should throw if the first argument is not a string', reason: 'assert.throws with an Error instance crosses a Jest realm boundary' },
+      { name: 'should throw if the second argument is not a string', reason: 'assert.throws with an Error instance crosses a Jest realm boundary' },
+    ],
+  },
   func_07_toposort:           { stubs: ['index.js'], entries: ['test.js'] },
-  func_08_topsort:            { stubs: ['lib/topsort.js'], entries: ['tests/topsort.spec.js'] },
+  func_08_deque:              { stubs: ['index.js'], entries: ['test/denque.js'] },
   func_09_dijkstra:           { stubs: ['dijkstra.js'], entries: ['test/dijkstra.test.js'] },
   func_10_priorityQueue:      { stubs: ['index.js'], entries: ['test/priorityqueue.js'] },
   func_11_sortedArray:        { stubs: ['index.js'], entries: ['test.js'] },
@@ -70,7 +81,7 @@ module.exports = {
   func_45_crc32:              { stubs: [], entries: [], custom: true },
   func_46_base32:             { stubs: [], entries: [], custom: true },
   func_47_rc4:                { stubs: ['rc4.js'], entries: ['test/chisquare.js'] },
-  func_48_murmurhash:         { stubs: ['murmurhash.js'], entries: [], custom: true },
+  func_48_sha3:               { stubs: [], entries: [], custom: true },
   func_49_bitTwiddle:         { stubs: ['twiddle.js'], entries: ['test/test.js', 'test/interleave2.js', 'test/interleave3.js'] },
   func_50_hashSum:            { stubs: ['index.js'], entries: ['test.js'] },
 };

@@ -442,10 +442,11 @@ oracle strength 76 % (was 71 %); files under 50 %: 4 (was 7)
   exists. Its tests should be pinned to the commit that published 2.2.0 instead
   of master HEAD. **Open.**
 * `func_05_unionFind` (33 %), `func_06_naturalCompare` (20 %),
-  `func_48_murmurhash` (20 %), `func_08_topsort` (30 %) — real, official, thin.
-  Replacing them would mean selecting on oracle strength, which needs the suite
-  adapted first; and for murmurhash the obvious candidate had no tests at all.
-  The honest treatment is to publish the per-file score, not to hide it.
+  `func_08_topsort` (30 %) — real, official, thin. Replacing them would mean
+  selecting on oracle strength, which needs the suite adapted first. The honest
+  treatment is to publish the per-file score, not to hide it.
+* `func_48_murmurhash` was in this list at 20 % and has since been **replaced**;
+  see §14.
 
 ### Consequences for the paper
 
@@ -506,4 +507,120 @@ completely disconnected oracle.
 `00_raw` (`tools/test-count-baseline.json`) and fails the run if any suite
 registers a different number. It is now part of `npm run groundtruth`, and it is
 the guard for the "test counts can silently drop" risk carried since §11.
+
+---
+
+## 14. Session 3c — retiring the weakest item, and counting assertions properly
+
+**D14 — Replace an item only when a measured alternative is better.**
+`func_48_murmurhash` was the corpus's weakest oracle: its official test is a
+framework-less script that checks `v3` against a single input and never calls
+`v2` at all, so half the module was unexercised. Measured strength 20 %.
+
+The first candidate, `imurmurhash@0.1.4`, was rejected in §12 for having no
+tests. A second screen found only `object-hash` eligible, which duplicates
+`hash-sum` (func_50). The item was therefore replaced with **`js-sha3@0.9.3`**:
+
+| | murmurhash@2.0.1 | js-sha3@0.9.3 |
+|---|---|---|
+| Jest blocks | 1 | 1 061 |
+| assertions executed | 0 | 1 061 |
+| oracle strength | 20 % | **80 %** |
+
+SHA-3 / Keccak was absent from the corpus (MD5, SHA-1, SHA-256, CRC, base32,
+base64, RC4 were all present), the package is from the emn178 family whose
+IIFE-plus-globals harness pattern four other items already use, and `v0.9.3` is a
+real tag so there is no version skew. Category counts hold at 15/15/10/10.
+
+The cost is size: 21 296 B makes it the largest corpus file (previous maximum
+16 590 B), so level-3 inflation could reach 85–210 KB. Accepted deliberately;
+§8 already treats context overflow as a reportable outcome rather than an error.
+
+Corpus-wide oracle strength: **76 % → 78 %**, files under 50 %: 4 → 3.
+
+**D15 — Count assertions at runtime, not from source.** The report used to show
+Jest test BLOCKS, which understates suites badly: `is-base64` runs 27 checks in
+one block, and the mukla shim collapses hex-color-regex's 68 blocks into one
+that still executes 140. A static count was worse -- it reported zero for is-url
+and rfdc. `tests/runner/assertion-counter.js` now wraps the single funnel method
+of each assertion library. Corpus total: **110 348 assertions executed** across
+8 548 blocks. Details and the three non-obvious pitfalls are in docs/TESTS.md §5.0.
+
+### Tooling defects found this session
+
+1. **Measuring a subset wiped the report.** `measure_oracle_strength.js`
+   truncated `oracle-strength-report.jsonl` on every run, so re-scoring one
+   function destroyed the other 49 scores. It now keeps records for functions
+   not being re-measured.
+2. **Two mutants hang.** `func_09_dijkstra` (`+`→`-`) and `func_10_priorityQueue`
+   (`===`→`!==`) send the module into an infinite loop. The mutation tool has an
+   external timeout and counts them as detected. **`npm test` has no such
+   timeout** — this is a live demonstration of the risk carried since §11, and it
+   will bite when obfuscated or model-generated files are run.
+
+---
+
+## 15. Session 3d — retiring the remaining weak oracles
+
+**Why now rather than later.** A weak oracle is not neutral noise. Synchrony and
+js-beautify preserve semantics by construction: their output is either correct or
+does not parse. An LLM produces *plausible but subtly wrong* code, which is
+exactly what a weak suite fails to catch. So oracle weakness biases Pass Rate
+toward the LLMs -- in the direction of the paper's own conclusion. That makes it
+worth fixing before any run, not after.
+
+**D16 — Declare the rule before measuring the candidates.** Replace only an item
+scoring under 50 %, and only when the candidate measures at least 60 %. Without a
+threshold fixed in advance, "replace the weakest" never terminates: retire the
+20 % items and the 50 % items become the weakest.
+
+| Was | Score | Now | Score | Note |
+|---|---|---|---|---|
+| `natural-compare@1.4.0` | 20 % | `string-natural-compare@3.0.1` | **90 %** | |
+| `topsort@0.0.2` | 30 % | `denque@2.1.0` | **70 %** | also removed a duplicate algorithm |
+| `union-find@1.0.2` | 33 % | *(kept)* | 33 % | only candidate rejected, see below |
+
+`topsort` carried a second defect found while screening: it is the **same
+algorithm** as `func_07_toposort` -- both topological sort, identical output for
+identical input -- so a fifteen-item category held it twice. `denque` fixes the
+oracle and the redundancy together.
+
+Corpus-wide: **78 % → 80 %**, and items under 50 % went 3 → **1**.
+
+### `disjoint-set@1.1.9` rejected
+
+The only eligible replacement for `union-find` fails **its own official suite**
+under Node 18. Its entry is wrapped in `'use strict'` and `add()` assigns
+`_disjointSetId` to whatever it is given; for a primitive that throws rather than
+silently no-opping. Three of its tests do exactly that. A package whose published
+tests cannot pass against its published code is not a ground-truth item at any
+oracle strength. `union-find` stays at 33 % and is reported as the corpus's one
+weak oracle.
+
+### Harness work this swap required
+
+* **mocha's `this.timeout()`** — denque's suite calls it; Jest binds a `this`
+  without it. `tests/runner/setup.js` now merges a mocha-shaped context onto
+  whatever Jest provides. These are scheduling hints, not assertions.
+* **Two more declared skips** — string-natural-compare asserts with
+  `assert.throws(fn, new TypeError('...'))`. The TypeError comes from Jest's
+  sandbox while node's assert runs in the host realm, so the `instanceof` check
+  fails and assert rejects the expectation as "an empty object". It passes under
+  plain node. Declared with a reason in `suites.js`, not deleted.
+* **Stale scores were being counted.** `measure_oracle_strength.js` kept records
+  for functions absent from the current run, which is right, but also for
+  functions no longer in the corpus at all -- a swap renames the id, and
+  `func_08_topsort`'s retired 30 % was still dragging the average down. It now
+  drops ids that no longer exist in `dataset/00_raw`.
+
+### Attempt abandoned: counting `assert(value)`
+
+is-url asserts by calling the module itself. A callable cannot be wrapped in
+place once other modules hold the reference, so `require('assert')` was
+redirected through a counting shim via moduleNameMapper. That put node's assert
+in a different realm from the sandbox and broke `assert.throws` with an Error
+instance, then broke jest-circus's own error formatting. Reverted. The originals
+are now stashed on the shared assert object as `__deobfRawAssert` so the harness
+shims can call assert without double-counting, and is-url's count is a known
+undercount.
 

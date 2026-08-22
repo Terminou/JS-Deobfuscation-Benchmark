@@ -8,7 +8,8 @@
  * accept an obfuscation artefact it should reject, which would inflate Pass
  * Rate -- the one direction this benchmark must never err in.
  */
-const assert = require('assert');
+const counter = require('../assertion-counter');
+const assert = counter.raw;   // unwrapped: guard() already counts
 
 /**
  * node-tap's `same`, reproduced.
@@ -45,6 +46,7 @@ function fail(actual, expected, operator, message) {
 function makeT(ctl, opts = {}) {
   const bump = () => ctl.bump();
   const guard = (fn) => (...args) => {
+    counter.bump();
     try {
       fn(...args);
     } catch (err) {

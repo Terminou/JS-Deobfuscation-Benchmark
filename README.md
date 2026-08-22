@@ -49,6 +49,7 @@ tools/                        quality gates
   verify_dataset.js             every corpus file require()s as CommonJS
   verify_tests.js               every vendored test file still matches its sha256
   verify_test_counts.js         no suite silently registered fewer tests
+  report.js                     per-function table; --md/--csv write docs/
   check_oracle_wiring.js        every suite goes red against a no-op module
   check_dead_assertions.js      no assertion is written so it cannot fail
   measure_oracle_strength.js    mutation testing: how much wrongness each suite catches
@@ -64,7 +65,7 @@ docs/TESTS.md                 decision record for the oracle
 ```bash
 npm install
 npm run groundtruth      # dataset loads + tests unmodified + counts intact
-npm test                 # 50 suites, 7 488 assertions, ~6 s
+npm test                 # 50 suites, 8 593 blocks / 106 438 assertions, ~6 s
 ```
 
 `TARGET_DIR` points the entire benchmark at a pipeline stage:
@@ -78,16 +79,28 @@ Before trusting a green run on a new stage:
 
 ```bash
 npm run check:wiring     # suites actually reach the code
-npm run measure:oracle   # how much wrongness they catch (currently 76 %)
+npm run measure:oracle   # how much wrongness they catch (currently 80 %)
 ```
+
+## Reporting
+
+```bash
+npm run report           # per-function table in the terminal
+npm run report:md        # also writes docs/TEST_REPORT.md and docs/test-report.csv
+```
+
+The report gives, for each of the 50 functions: which package its suite comes
+from, how it is pinned, how many blocks and assertions ran, and its oracle
+strength. `TARGET_DIR` works here too, so the same table can be produced for an
+obfuscation level or a model's output.
 
 ## Status
 
 ```
 50/50 modules load as CommonJS
-50/50 vendored test files byte-identical to their pinned sources
-50/50 suites pass — 7 488 assertions, none skipped
+50/50 vendored test files byte-identical to their pinned sources — 0 orphans
+50/50 suites pass — 8 593 blocks, 106 438 assertions, 2 declared-skipped
 50/50 suites go red against a no-op module — 0 oracle holes
  0   dead assertions
-76 % oracle strength (350/459 mutants detected)
+80 % oracle strength (367/459 mutants detected); 1 function below 50 %
 ```

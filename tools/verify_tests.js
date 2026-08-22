@@ -40,13 +40,23 @@ for (const rec of records) {
 
 const stubs = Object.entries(SUITES).flatMap(([id, spec]) =>
   spec.stubs.map((s) => `${id}/${typeof s === 'string' ? s : s.path}`));
+
+// Orphans: directories for suites that are no longer in the corpus. A swap
+// renames the id, so the retired package's tests stay on disk looking official.
+// Twenty-one had accumulated -- three from swaps, the rest macOS " 2" copies.
+const known = new Set(records.map((r) => r.id));
+const orphans = fs.readdirSync(path.join(ROOT, 'tests/upstream'))
+  .filter((d) => fs.statSync(path.join(ROOT, 'tests/upstream', d)).isDirectory())
+  .filter((d) => !known.has(d));
 const missingStubs = stubs.filter((s) => !fs.existsSync(path.join(ROOT, 'tests/upstream', s)));
 
 console.log(`vendored files verified : ${checked - problems.length}/${checked}`);
 console.log(`generated harness stubs : ${stubs.length - missingStubs.length}/${stubs.length}`);
+console.log(`orphan directories   : ${orphans.length}`);
+for (const d of orphans) console.log(`  [X] tests/upstream/${d} belongs to no suite -- delete it`);
 for (const s of missingStubs) console.log(`  [X] stub missing: ${s} (run: node tests/runner/build.js)`);
 for (const p of problems) console.log(`  [X] ${p}`);
 
-const ok = problems.length === 0 && missingStubs.length === 0;
+const ok = problems.length === 0 && missingStubs.length === 0 && orphans.length === 0;
 console.log(`\n[${ok ? 'PASS' : 'FAIL'}] upstream suites are byte-identical to their pinned sources`);
 process.exit(ok ? 0 : 1);

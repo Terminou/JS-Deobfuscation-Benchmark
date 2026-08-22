@@ -9,7 +9,8 @@
  *
  * Upstream's .done() calls process.exit(); here it just flushes registration.
  */
-const assert = require('assert');
+const counter = require('../assertion-counter');
+const assert = counter.raw;   // unwrapped: guard() already counts
 
 function create() {
   let suite = 'testman';
@@ -23,7 +24,7 @@ function create() {
     // sets String.alphabet this way), so it must fire immediately, as upstream's
     // eager chain does.
     run(fn) { fn(); return api; },
-    equal(a, b, m) { current.checks.push(() => assert.strictEqual(a, b, m)); return api; },
+    equal(a, b, m) { current.checks.push(() => { counter.bump(); assert.strictEqual(a, b, m); }); return api; },
     notEqual(a, b, m) { current.checks.push(() => assert.notStrictEqual(a, b, m)); return api; },
     deepEqual(a, b, m) { current.checks.push(() => assert.deepStrictEqual(a, b, m)); return api; },
     ok(v, m) { current.checks.push(() => assert.ok(v, m)); return api; },

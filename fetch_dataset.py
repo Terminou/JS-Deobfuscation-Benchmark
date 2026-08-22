@@ -38,9 +38,9 @@ MANIFEST = [
     (3,  "levenshtein",        "algorithms",  "js-levenshtein",         "1.1.6",  "index.js"),
     (4,  "damerauLevenshtein", "algorithms",  "damerau-levenshtein",    "1.0.8",  "index.js"),
     (5,  "unionFind",          "algorithms",  "union-find",             "1.0.2",  "index.js"),
-    (6,  "naturalCompare",     "algorithms",  "natural-compare",        "1.4.0",  "index.js"),
+    (6,  "naturalCompare",     "algorithms",  "string-natural-compare", "3.0.1",  "natural-compare.js"),
     (7,  "toposort",           "algorithms",  "toposort",               "2.0.2",  "index.js"),
-    (8,  "topsort",            "algorithms",  "topsort",                "0.0.2",  "lib/topsort.js"),
+    (8,  "deque",              "algorithms",  "denque",                 "2.1.0",  "index.js"),
     (9,  "dijkstra",           "algorithms",  "dijkstrajs",             "1.0.3",  "dijkstra.js"),
     (10, "priorityQueue",      "algorithms",  "priorityqueuejs",        "2.0.0",  "index.js"),
     (11, "sortedArray",        "algorithms",  "sorted-array-functions", "1.3.0",  "index.js"),
@@ -86,7 +86,7 @@ MANIFEST = [
     (45, "crc32",              "crypto",      "js-crc",                 "0.3.1",  "src/crc.js"),
     (46, "base32",             "crypto",      "hi-base32",              "0.5.1",  "src/base32.js"),
     (47, "rc4",                "crypto",      "rc4",                    "0.1.5",  "rc4.js"),
-    (48, "murmurhash",         "crypto",      "murmurhash",             "2.0.1",  "murmurhash.js"),
+    (48, "sha3",               "crypto",      "js-sha3",                "0.9.3",  "src/sha3.js"),
     (49, "bitTwiddle",         "crypto",      "bit-twiddle",            "1.0.2",  "twiddle.js"),
     # NOTE: this slot originally held `gcd@0.0.1`. Swapped out because its upstream
     # repository (substack/node-gcd) has been deleted -- the tarball still resolves

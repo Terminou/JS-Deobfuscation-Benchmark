@@ -7,7 +7,8 @@
  * one Jest test and every nested block runs inline within it. Granularity is
  * lost; the assertions -- which are what the oracle is -- are unchanged.
  */
-const assert = require('assert');
+const counter = require('../assertion-counter');
+const assert = counter.raw;   // unwrapped: guard() already counts
 
 let inside = false;
 
@@ -24,7 +25,7 @@ function test(title, fn) {
   return test;
 }
 
-test.equal = (a, b, m) => assert.strictEqual(a, b, m);
+test.equal = (a, b, m) => { counter.bump(); return assert.strictEqual(a, b, m); };
 test.notEqual = (a, b, m) => assert.notStrictEqual(a, b, m);
 test.deepEqual = (a, b, m) => assert.deepStrictEqual(a, b, m);
 test.ok = (v, m) => assert.ok(v, m);

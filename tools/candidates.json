@@ -16,6 +16,26 @@
     "category": "crypto"
   },
   {
+    "package": "alphanum-sort",
+    "ok": false,
+    "reasons": [
+      "relative require in entry"
+    ],
+    "version": "1.1.0",
+    "license": "MIT",
+    "entry": "lib/index.js",
+    "bytes": 710,
+    "lines": 35,
+    "tests_in_tarball": 0,
+    "repo": "TrySound/alphanum-sort",
+    "tests_in_repo": 1,
+    "repo_test_files": [
+      "test.js"
+    ],
+    "test_pin": "v1.1.0",
+    "category": "algorithms"
+  },
+  {
     "package": "arr-group-by",
     "ok": false,
     "reasons": [
@@ -178,6 +198,23 @@
     "category": "algorithms"
   },
   {
+    "package": "bloomfilter",
+    "ok": false,
+    "reasons": [
+      "ESM syntax in entry",
+      "no release tag matching version (version-skew risk)"
+    ],
+    "version": "1.1.0",
+    "license": "BSD-3-Clause",
+    "entry": "bloomfilter.js",
+    "bytes": 6820,
+    "lines": 245,
+    "tests_in_tarball": 0,
+    "repo": "jasondavies/bloomfilter.js",
+    "test_pin": null,
+    "category": "algorithms"
+  },
+  {
     "package": "buffer-crc32",
     "ok": false,
     "reasons": [
@@ -326,6 +363,22 @@
     "category": "crypto"
   },
   {
+    "package": "cyrb53",
+    "ok": false,
+    "reasons": [
+      "no tests in tarball and no repo"
+    ],
+    "version": "1.0.0",
+    "license": "ISC",
+    "entry": "index.js",
+    "bytes": 511,
+    "lines": 17,
+    "tests_in_tarball": 0,
+    "repo": null,
+    "test_pin": null,
+    "category": "crypto"
+  },
+  {
     "package": "dedupe",
     "ok": false,
     "reasons": [
@@ -356,6 +409,58 @@
     "repo": "IndigoUnited/js-deep-sort-object",
     "test_pin": "tarball",
     "category": "collections"
+  },
+  {
+    "package": "denque",
+    "ok": true,
+    "reasons": [],
+    "version": "2.1.0",
+    "license": "Apache-2.0",
+    "entry": "index.js",
+    "bytes": 12497,
+    "lines": 482,
+    "tests_in_tarball": 0,
+    "repo": "invertase/denque",
+    "tests_in_repo": 2,
+    "repo_test_files": [
+      "test/denque.js",
+      "test/type/index.ts"
+    ],
+    "test_pin": "v2.1.0",
+    "category": "algorithms"
+  },
+  {
+    "package": "disjoint-set",
+    "ok": true,
+    "reasons": [],
+    "version": "1.1.9",
+    "license": null,
+    "entry": "src/DisjointSet.js",
+    "bytes": 3199,
+    "lines": 132,
+    "tests_in_tarball": 1,
+    "repo": "AndriiHeonia/disjoint-set",
+    "test_pin": "tarball",
+    "category": "algorithms"
+  },
+  {
+    "package": "edit-distance",
+    "ok": false,
+    "reasons": [
+      "relative require in entry",
+      "release tag exists but repo ships NO tests"
+    ],
+    "version": "1.0.5",
+    "license": "Apache-2.0",
+    "entry": "dist/index.js",
+    "bytes": 87,
+    "lines": 5,
+    "tests_in_tarball": 0,
+    "repo": "schulzch/edit-distance-js",
+    "tests_in_repo": 0,
+    "repo_test_files": [],
+    "test_pin": null,
+    "category": "algorithms"
   },
   {
     "package": "escape-string-regexp",
@@ -426,6 +531,23 @@
     "lines": 1139,
     "tests_in_tarball": 0,
     "repo": "jhchen/fast-diff",
+    "test_pin": null,
+    "category": "algorithms"
+  },
+  {
+    "package": "fast-fuzzy",
+    "ok": false,
+    "reasons": [
+      "has deps: graphemesplit",
+      "no release tag matching version (version-skew risk)"
+    ],
+    "version": "1.12.0",
+    "license": "ISC",
+    "entry": "lib/fuzzy.js",
+    "bytes": 15380,
+    "lines": 550,
+    "tests_in_tarball": 0,
+    "repo": "EthanRutherford/fast-fuzzy",
     "test_pin": null,
     "category": "algorithms"
   },
@@ -524,6 +646,30 @@
     "repo": "schwarzkopfb/fnv1a",
     "test_pin": null,
     "category": "crypto"
+  },
+  {
+    "package": "fnv1a-js",
+    "ok": false,
+    "reasons": [
+      "registry: HTTPError"
+    ],
+    "category": "crypto"
+  },
+  {
+    "package": "functional-red-black-tree",
+    "ok": false,
+    "reasons": [
+      "too large: 22324B > 20000B"
+    ],
+    "version": "1.0.1",
+    "license": "MIT",
+    "entry": "rbtree.js",
+    "bytes": 22324,
+    "lines": 996,
+    "tests_in_tarball": 2,
+    "repo": "mikolalysenko/functional-red-black-tree",
+    "test_pin": "tarball",
+    "category": "algorithms"
   },
   {
     "package": "get-value",
@@ -798,6 +944,15 @@
     "lines": 910,
     "tests_in_tarball": 0,
     "repo": "emn178/js-sha3",
+    "tests_in_repo": 9,
+    "repo_test_files": [
+      "tests/node-test.js",
+      "tests/test-cshake.js",
+      "tests/test-kmac.js",
+      "tests/test-parallelhash.js",
+      "tests/test-shake.js",
+      "tests/test-tuplehash.js"
+    ],
     "test_pin": "v0.13.0",
     "category": "crypto"
   },
@@ -951,6 +1106,14 @@
     "category": "crypto"
   },
   {
+    "package": "metrohash-js",
+    "ok": false,
+    "reasons": [
+      "registry: HTTPError"
+    ],
+    "category": "crypto"
+  },
+  {
     "package": "ms",
     "ok": true,
     "reasons": [],
@@ -967,6 +1130,23 @@
     ],
     "test_pin": "2.1.3",
     "category": "final"
+  },
+  {
+    "package": "murmur-32",
+    "ok": false,
+    "reasons": [
+      "has deps: encode-utf8,fmix",
+      "ESM syntax in entry"
+    ],
+    "version": "1.0.0",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 1557,
+    "lines": 75,
+    "tests_in_tarball": 1,
+    "repo": "LinusU/murmur-32",
+    "test_pin": "tarball",
+    "category": "crypto"
   },
   {
     "package": "murmur-hash-js",
@@ -999,6 +1179,22 @@
     "category": ""
   },
   {
+    "package": "murmurhash3js",
+    "ok": false,
+    "reasons": [
+      "relative require in entry"
+    ],
+    "version": "3.0.1",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 49,
+    "lines": 2,
+    "tests_in_tarball": 1,
+    "repo": "pid/murmurHash3js",
+    "test_pin": "tarball",
+    "category": "crypto"
+  },
+  {
     "package": "nanoclone",
     "ok": false,
     "reasons": [
@@ -1013,6 +1209,54 @@
     "repo": "kelin2025/nanoclone",
     "test_pin": null,
     "category": "collections"
+  },
+  {
+    "package": "natural-orderby",
+    "ok": false,
+    "reasons": [
+      "relative require in entry"
+    ],
+    "version": "5.0.0",
+    "license": "MIT",
+    "entry": "dist/main.js",
+    "bytes": 469,
+    "lines": 20,
+    "tests_in_tarball": 0,
+    "repo": "yobacca/natural-orderby",
+    "tests_in_repo": 33,
+    "repo_test_files": [
+      "src/compare/__tests__/index.test.ts",
+      "src/orderBy/__tests__/index.test.ts",
+      "src/utils/__tests__/baseCompare.test.ts",
+      "src/utils/__tests__/baseOrderBy.test.ts",
+      "src/utils/__tests__/compareChunks.test.ts",
+      "src/utils/__tests__/compareMultiple.test.ts"
+    ],
+    "test_pin": "5.0.0",
+    "category": "algorithms"
+  },
+  {
+    "package": "object-hash",
+    "ok": true,
+    "reasons": [],
+    "version": "3.0.0",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 14917,
+    "lines": 454,
+    "tests_in_tarball": 0,
+    "repo": "puleos/object-hash",
+    "tests_in_repo": 7,
+    "repo_test_files": [
+      "test/blob.js",
+      "test/index.js",
+      "test/object-classes.js",
+      "test/old-crypto.js",
+      "test/replacer.js",
+      "test/types.js"
+    ],
+    "test_pin": "v3.0.0",
+    "category": "crypto"
   },
   {
     "package": "object-path",
@@ -1248,6 +1492,27 @@
     "category": "algorithms"
   },
   {
+    "package": "spark-md5",
+    "ok": false,
+    "reasons": [
+      "too large: 22968B > 20000B"
+    ],
+    "version": "3.0.2",
+    "license": "(WTFPL OR MIT)",
+    "entry": "spark-md5.js",
+    "bytes": 22968,
+    "lines": 752,
+    "tests_in_tarball": 0,
+    "repo": "satazor/js-spark-md5",
+    "tests_in_repo": 2,
+    "repo_test_files": [
+      "test/js/qunit-1.16.0.js",
+      "test/specs.js"
+    ],
+    "test_pin": "v3.0.2",
+    "category": "crypto"
+  },
+  {
     "package": "string-hash",
     "ok": true,
     "reasons": [],
@@ -1260,6 +1525,24 @@
     "repo": "darkskyapp/string-hash",
     "test_pin": "tarball",
     "category": "final"
+  },
+  {
+    "package": "string-natural-compare",
+    "ok": true,
+    "reasons": [],
+    "version": "3.0.1",
+    "license": "MIT",
+    "entry": "natural-compare.js",
+    "bytes": 3421,
+    "lines": 140,
+    "tests_in_tarball": 0,
+    "repo": "nwoltman/string-natural-compare",
+    "tests_in_repo": 1,
+    "repo_test_files": [
+      "test/test.js"
+    ],
+    "test_pin": "v3.0.1",
+    "category": "algorithms"
   },
   {
     "package": "timsort",
@@ -1275,6 +1558,14 @@
     "tests_in_tarball": 0,
     "repo": "mziccard/node-timsort",
     "test_pin": "v0.3.0",
+    "category": "algorithms"
+  },
+  {
+    "package": "union-find-ds",
+    "ok": false,
+    "reasons": [
+      "registry: HTTPError"
+    ],
     "category": "algorithms"
   },
   {
@@ -1312,5 +1603,22 @@
     "repo": "AndreasMadsen/xorshift",
     "test_pin": "tarball",
     "category": "final"
+  },
+  {
+    "package": "xxhashjs",
+    "ok": false,
+    "reasons": [
+      "has deps: cuint",
+      "relative require in entry"
+    ],
+    "version": "0.2.2",
+    "license": "MIT",
+    "entry": "lib/index.js",
+    "bytes": 76,
+    "lines": 5,
+    "tests_in_tarball": 1,
+    "repo": "pierrec/js-xxhash",
+    "test_pin": "tarball",
+    "category": "crypto"
   }
 ]

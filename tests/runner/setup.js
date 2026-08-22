@@ -17,7 +17,34 @@
 // module.
 require('./shims/should-strict');
 
+// Count assertions that actually run, so the report can show something more
+// meaningful than Jest's block count. See tests/runner/assertion-counter.js.
+const counter = require('./assertion-counter');
+counter.reset();                    // per-file tally; see assertion-counter.js
+const jestExpect = global.expect;   // four suites replace global.expect with expect.js
+const testPath = jestExpect.getState().testPath;
+// Jest zeroes its own assertionCalls after EVERY test, so it has to be harvested
+// per test rather than once at the end -- that is why the jasmine-style suites
+// (is-uuid, jwt-decode, ...) previously counted zero.
+afterEach(() => {
+  try { counter.add(jestExpect.getState().assertionCalls || 0); } catch { /* none */ }
+});
+afterAll(() => counter.flush(testPath));
+
 global.context = global.describe;
+
+/**
+ * mocha gives a test body a `this` carrying timeout()/slow()/retries(); Jest
+ * gives it nothing. denque's suite calls `this.timeout(20000)`. These are
+ * scheduling hints, not assertions, so honouring them as no-ops changes no
+ * outcome -- jest.config.js sets the real timeout.
+ */
+const mochaContext = {
+  timeout() { return this; },
+  slow() { return this; },
+  retries() { return this; },
+  skip() { return this; },
+};
 
 function preserveArity(fn, original) {
   Object.defineProperty(fn, 'length', { value: original.length, configurable: true });
@@ -28,7 +55,12 @@ function ignoreNonPromiseReturn(register) {
   const wrapped = (name, fn, timeout) => {
     if (typeof fn !== 'function') return register(name, fn, timeout);
     const body = preserveArity(function (...args) {
-      const result = fn.apply(this, args);
+      // Jest already binds `this` to an object, just not one with mocha's
+      // methods, so the two are merged rather than one replacing the other.
+      const ctx = this && typeof this === 'object'
+        ? Object.assign(Object.create(this), mochaContext)
+        : mochaContext;
+      const result = fn.apply(ctx, args);
       return result && typeof result.then === 'function' ? result : undefined;
     }, fn);
     return register(name, body, timeout);
