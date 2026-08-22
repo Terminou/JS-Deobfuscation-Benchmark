@@ -1,0 +1,39 @@
+{
+  "name": "js-deobfuscation-benchmark",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Benchmarking LLM-based deobfuscation against traditional AST tools on modern JavaScript obfuscators",
+  "license": "MIT",
+  "scripts": {
+    "fetch:dataset": "python3 fetch_dataset.py",
+    "fetch:tests": "python3 fetch_tests.py",
+    "build:entries": "node tests/runner/build.js",
+    "test": "jest",
+    "test:raw": "TARGET_DIR=dataset/00_raw jest",
+    "verify:dataset": "node tools/verify_dataset.js",
+    "verify:tests": "node tools/verify_tests.js",
+    "check:wiring": "node tools/check_oracle_wiring.js",
+    "check:assertions": "node tools/check_dead_assertions.js",
+    "measure:oracle": "node tools/measure_oracle_strength.js",
+    "groundtruth": "npm run verify:dataset && npm run verify:tests && npm run verify:counts",
+    "verify:counts": "node tools/verify_test_counts.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "@babel/preset-typescript": "^7.29.7",
+    "assume": "^2.3.0",
+    "babel-jest": "^29.7.0",
+    "chai": "^4.5.0",
+    "expect.js": "^0.3.1",
+    "guarded-array": "^1.0.0",
+    "is-mergeable-object": "^1.1.1",
+    "is-plain-object": "^5.1.0",
+    "jest": "^29.7.0",
+    "lodash": "^4.17.21",
+    "minimist": "^1.2.8",
+    "mukla": "^0.4.9",
+    "should": "^13.2.3",
+    "testman": "^0.5.1"
+  }
+}

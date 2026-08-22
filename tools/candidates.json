@@ -1,0 +1,1316 @@
+[
+  {
+    "package": "adler-32",
+    "ok": false,
+    "reasons": [
+      "no release tag matching version (version-skew risk)"
+    ],
+    "version": "1.3.1",
+    "license": "Apache-2.0",
+    "entry": "adler32.js",
+    "bytes": 2417,
+    "lines": 93,
+    "tests_in_tarball": 0,
+    "repo": "SheetJS/js-adler32",
+    "test_pin": null,
+    "category": "crypto"
+  },
+  {
+    "package": "arr-group-by",
+    "ok": false,
+    "reasons": [
+      "registry: HTTPError"
+    ],
+    "category": "collections"
+  },
+  {
+    "package": "arr-pluck",
+    "ok": false,
+    "reasons": [
+      "has deps: arr-map",
+      "no release tag matching version (version-skew risk)"
+    ],
+    "version": "0.1.0",
+    "license": {
+      "type": "MIT",
+      "url": "https://github.com/jonschlinkert/arr-pluck/blob/master/LICENSE"
+    },
+    "entry": "index.js",
+    "bytes": 268,
+    "lines": 15,
+    "tests_in_tarball": 0,
+    "repo": "jonschlinkert/arr-pluck",
+    "test_pin": null,
+    "category": "collections"
+  },
+  {
+    "package": "arr-union",
+    "ok": true,
+    "reasons": [],
+    "version": "3.1.0",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 527,
+    "lines": 30,
+    "tests_in_tarball": 0,
+    "repo": "jonschlinkert/arr-union",
+    "tests_in_repo": 1,
+    "repo_test_files": [
+      "test.js"
+    ],
+    "test_pin": "3.1.0",
+    "category": "collections"
+  },
+  {
+    "package": "array-first",
+    "ok": false,
+    "reasons": [
+      "has deps: array-slice,is-number",
+      "no release tag matching version (version-skew risk)"
+    ],
+    "version": "1.0.2",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 576,
+    "lines": 26,
+    "tests_in_tarball": 0,
+    "repo": "jonschlinkert/array-first",
+    "test_pin": null,
+    "category": "collections"
+  },
+  {
+    "package": "array-flatten",
+    "ok": true,
+    "reasons": [],
+    "version": "3.0.0",
+    "license": "MIT",
+    "entry": "dist/index.js",
+    "bytes": 600,
+    "lines": 26,
+    "tests_in_tarball": 2,
+    "repo": "blakeembrey/array-flatten",
+    "test_pin": "tarball",
+    "category": "collections"
+  },
+  {
+    "package": "array-group",
+    "ok": false,
+    "reasons": [
+      "no release tag matching version (version-skew risk)"
+    ],
+    "version": "0.0.0",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 210,
+    "lines": 11,
+    "tests_in_tarball": 0,
+    "repo": "kevva/array-group",
+    "test_pin": null,
+    "category": "collections"
+  },
+  {
+    "package": "array-intersection",
+    "ok": false,
+    "reasons": [
+      "has deps: array-every,array-slice,array-unique"
+    ],
+    "version": "0.1.2",
+    "license": {
+      "type": "MIT",
+      "url": "https://github.com/jonschlinkert/array-intersection/blob/master/LICENSE"
+    },
+    "entry": "index.js",
+    "bytes": 702,
+    "lines": 33,
+    "tests_in_tarball": 0,
+    "repo": "jonschlinkert/array-intersection",
+    "test_pin": "0.1.2",
+    "category": "collections"
+  },
+  {
+    "package": "array-last",
+    "ok": false,
+    "reasons": [
+      "has deps: is-number"
+    ],
+    "version": "1.3.0",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 559,
+    "lines": 31,
+    "tests_in_tarball": 0,
+    "repo": "jonschlinkert/array-last",
+    "tests_in_repo": 1,
+    "repo_test_files": [
+      "test.js"
+    ],
+    "test_pin": "1.3.0",
+    "category": "collections"
+  },
+  {
+    "package": "array-union",
+    "ok": false,
+    "reasons": [
+      "ESM syntax in entry"
+    ],
+    "version": "3.0.1",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 99,
+    "lines": 4,
+    "tests_in_tarball": 0,
+    "repo": "sindresorhus/array-union",
+    "test_pin": "v3.0.1",
+    "category": "collections"
+  },
+  {
+    "package": "binary-searching",
+    "ok": true,
+    "reasons": [],
+    "version": "2.0.5",
+    "license": "MIT",
+    "entry": "search-bounds.js",
+    "bytes": 2079,
+    "lines": 122,
+    "tests_in_tarball": 1,
+    "repo": "hosseinmd/binary-search-bounds",
+    "test_pin": "tarball",
+    "category": "algorithms"
+  },
+  {
+    "package": "buffer-crc32",
+    "ok": false,
+    "reasons": [
+      "no release tag matching version (version-skew risk)"
+    ],
+    "version": "1.0.0",
+    "license": "MIT",
+    "entry": "dist/index.cjs",
+    "bytes": 4772,
+    "lines": 307,
+    "tests_in_tarball": 0,
+    "repo": "brianloveswords/buffer-crc32",
+    "test_pin": null,
+    "category": "crypto"
+  },
+  {
+    "package": "bytes",
+    "ok": true,
+    "reasons": [],
+    "version": "3.1.2",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 3613,
+    "lines": 171,
+    "tests_in_tarball": 0,
+    "repo": "visionmedia/bytes.js",
+    "tests_in_repo": 3,
+    "repo_test_files": [
+      "test/byte-format.js",
+      "test/byte-parse.js",
+      "test/bytes.js"
+    ],
+    "test_pin": "3.1.2",
+    "category": "final"
+  },
+  {
+    "package": "camelcase",
+    "ok": false,
+    "reasons": [
+      "ESM syntax in entry"
+    ],
+    "version": "9.0.0",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 7519,
+    "lines": 225,
+    "tests_in_tarball": 0,
+    "repo": "sindresorhus/camelcase",
+    "test_pin": "v9.0.0",
+    "category": "validation"
+  },
+  {
+    "package": "chunkify",
+    "ok": false,
+    "reasons": [
+      "ESM syntax in entry"
+    ],
+    "version": "5.0.0",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 796,
+    "lines": 37,
+    "tests_in_tarball": 0,
+    "repo": "sindresorhus/chunkify",
+    "test_pin": "v5.0.0",
+    "category": "collections"
+  },
+  {
+    "package": "clone",
+    "ok": true,
+    "reasons": [],
+    "version": "2.1.2",
+    "license": "MIT",
+    "entry": "clone.js",
+    "bytes": 7293,
+    "lines": 258,
+    "tests_in_tarball": 0,
+    "repo": "pvorb/node-clone",
+    "test_pin": "v2.1.2",
+    "category": "collections"
+  },
+  {
+    "package": "collect.js",
+    "ok": false,
+    "reasons": [
+      "relative require in entry"
+    ],
+    "version": "4.36.1",
+    "license": "MIT",
+    "entry": "dist/index.js",
+    "bytes": 8852,
+    "lines": 166,
+    "tests_in_tarball": 0,
+    "repo": "ecrmnn/collect.js",
+    "test_pin": "4.36.1",
+    "category": "collections"
+  },
+  {
+    "package": "compact-object",
+    "ok": false,
+    "reasons": [
+      "has deps: has-values,is-plain-object,reduce-object",
+      "no release tag matching version (version-skew risk)"
+    ],
+    "version": "0.1.3",
+    "license": {
+      "type": "MIT",
+      "url": "https://github.com/jonschlinkert/compact-object/blob/master/LICENSE"
+    },
+    "entry": "index.js",
+    "bytes": 862,
+    "lines": 34,
+    "tests_in_tarball": 0,
+    "repo": "jonschlinkert/compact-object",
+    "test_pin": null,
+    "category": "collections"
+  },
+  {
+    "package": "crc-32",
+    "ok": false,
+    "reasons": [
+      "no release tag matching version (version-skew risk)"
+    ],
+    "version": "1.2.2",
+    "license": "Apache-2.0",
+    "entry": "crc32.js",
+    "bytes": 3566,
+    "lines": 116,
+    "tests_in_tarball": 0,
+    "repo": "SheetJS/js-crc32",
+    "test_pin": null,
+    "category": "crypto"
+  },
+  {
+    "package": "crc32",
+    "ok": true,
+    "reasons": [],
+    "version": "0.2.2",
+    "license": null,
+    "entry": "lib/crc32.js",
+    "bytes": 2104,
+    "lines": 102,
+    "tests_in_tarball": 1,
+    "repo": "beatgammit/crc32",
+    "test_pin": "tarball",
+    "category": "crypto"
+  },
+  {
+    "package": "dedupe",
+    "ok": false,
+    "reasons": [
+      "no release tag matching version (version-skew risk)"
+    ],
+    "version": "4.0.3",
+    "license": "MIT",
+    "entry": "dist/index.cjs",
+    "bytes": 153,
+    "lines": 2,
+    "tests_in_tarball": 0,
+    "repo": "seriousManual/dedupe",
+    "test_pin": null,
+    "category": "collections"
+  },
+  {
+    "package": "deep-sort-object",
+    "ok": false,
+    "reasons": [
+      "has deps: is-plain-object"
+    ],
+    "version": "1.0.2",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 575,
+    "lines": 32,
+    "tests_in_tarball": 1,
+    "repo": "IndigoUnited/js-deep-sort-object",
+    "test_pin": "tarball",
+    "category": "collections"
+  },
+  {
+    "package": "escape-string-regexp",
+    "ok": false,
+    "reasons": [
+      "ESM syntax in entry"
+    ],
+    "version": "5.0.0",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 465,
+    "lines": 12,
+    "tests_in_tarball": 0,
+    "repo": "sindresorhus/escape-string-regexp",
+    "test_pin": "v5.0.0",
+    "category": "validation"
+  },
+  {
+    "package": "farmhash-modern",
+    "ok": false,
+    "reasons": [
+      "relative require in entry",
+      "no release tag matching version (version-skew risk)"
+    ],
+    "version": "1.1.0",
+    "license": "MIT",
+    "entry": "lib/index.cjs",
+    "bytes": 2656,
+    "lines": 79,
+    "tests_in_tarball": 0,
+    "repo": "ForbesLindesay/npm-package-template",
+    "test_pin": null,
+    "category": "crypto"
+  },
+  {
+    "package": "fast-array-intersect",
+    "ok": false,
+    "reasons": [
+      "registry: HTTPError"
+    ],
+    "category": "collections"
+  },
+  {
+    "package": "fast-copy",
+    "ok": true,
+    "reasons": [],
+    "version": "4.0.4",
+    "license": "MIT",
+    "entry": "dist/cjs/index.cjs",
+    "bytes": 11360,
+    "lines": 336,
+    "tests_in_tarball": 0,
+    "repo": "planttheidea/fast-copy",
+    "test_pin": "v4.0.4",
+    "category": "collections"
+  },
+  {
+    "package": "fast-diff",
+    "ok": false,
+    "reasons": [
+      "too large: 38838B > 20000B",
+      "no release tag matching version (version-skew risk)"
+    ],
+    "version": "1.3.0",
+    "license": "Apache-2.0",
+    "entry": "diff.js",
+    "bytes": 38838,
+    "lines": 1139,
+    "tests_in_tarball": 0,
+    "repo": "jhchen/fast-diff",
+    "test_pin": null,
+    "category": "algorithms"
+  },
+  {
+    "package": "fast-levenshtein",
+    "ok": false,
+    "reasons": [
+      "has deps: fastest-levenshtein"
+    ],
+    "version": "3.0.0",
+    "license": "MIT",
+    "entry": "levenshtein.js",
+    "bytes": 3158,
+    "lines": 108,
+    "tests_in_tarball": 0,
+    "repo": "hiddentao/fast-levenshtein",
+    "test_pin": "3.0.0",
+    "category": ""
+  },
+  {
+    "package": "fast-shuffle",
+    "ok": false,
+    "reasons": [
+      "has deps: pcg"
+    ],
+    "version": "6.2.1",
+    "license": "MIT",
+    "entry": "dist/cjs/index.js",
+    "bytes": 2534,
+    "lines": 64,
+    "tests_in_tarball": 0,
+    "repo": "philihp/fast-shuffle",
+    "test_pin": "v6.2.1",
+    "category": "algorithms"
+  },
+  {
+    "package": "flat",
+    "ok": false,
+    "reasons": [
+      "ESM syntax in entry"
+    ],
+    "version": "6.0.1",
+    "license": "BSD-3-Clause",
+    "entry": "index.js",
+    "bytes": 3932,
+    "lines": 158,
+    "tests_in_tarball": 0,
+    "repo": "hughsk/flat",
+    "test_pin": "v6.0.1",
+    "category": "collections"
+  },
+  {
+    "package": "flatten-obj",
+    "ok": false,
+    "reasons": [
+      "has deps: isobj"
+    ],
+    "version": "3.1.1",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 919,
+    "lines": 41,
+    "tests_in_tarball": 1,
+    "repo": "watson/flatten-obj",
+    "test_pin": "tarball",
+    "category": "collections"
+  },
+  {
+    "package": "fnv-plus",
+    "ok": false,
+    "reasons": [
+      "too large: 181977B > 20000B"
+    ],
+    "version": "1.3.1",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 181977,
+    "lines": 1725,
+    "tests_in_tarball": 1,
+    "repo": "tjwebb/fnv-plus",
+    "test_pin": "tarball",
+    "category": "crypto"
+  },
+  {
+    "package": "fnv1a",
+    "ok": false,
+    "reasons": [
+      "no release tag matching version (version-skew risk)"
+    ],
+    "version": "1.1.1",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 882,
+    "lines": 29,
+    "tests_in_tarball": 0,
+    "repo": "schwarzkopfb/fnv1a",
+    "test_pin": null,
+    "category": "crypto"
+  },
+  {
+    "package": "get-value",
+    "ok": true,
+    "reasons": [],
+    "version": "4.1.0",
+    "license": "MIT",
+    "entry": "dist/index.js",
+    "bytes": 4328,
+    "lines": 133,
+    "tests_in_tarball": 0,
+    "repo": "jonschlinkert/get-value",
+    "tests_in_repo": 2,
+    "repo_test_files": [
+      "test/test.test.ts",
+      "test/units.ts"
+    ],
+    "test_pin": "4.1.0",
+    "category": "collections"
+  },
+  {
+    "package": "group-by",
+    "ok": false,
+    "reasons": [
+      "has deps: to-function"
+    ],
+    "version": "0.0.1",
+    "license": null,
+    "entry": "index.js",
+    "bytes": 463,
+    "lines": 29,
+    "tests_in_tarball": 1,
+    "repo": null,
+    "test_pin": "tarball",
+    "category": "collections"
+  },
+  {
+    "package": "group-items",
+    "ok": false,
+    "reasons": [
+      "has deps: deep-eql",
+      "ESM syntax in entry"
+    ],
+    "version": "4.0.0",
+    "license": "MIT",
+    "entry": "dist/index.js",
+    "bytes": 80,
+    "lines": 3,
+    "tests_in_tarball": 0,
+    "repo": "meyfa/group-items",
+    "test_pin": "v4.0.0",
+    "category": "collections"
+  },
+  {
+    "package": "hash-sum",
+    "ok": true,
+    "reasons": [],
+    "version": "2.0.0",
+    "license": "MIT",
+    "entry": "hash-sum.js",
+    "bytes": 1542,
+    "lines": 70,
+    "tests_in_tarball": 1,
+    "repo": "bevacqua/hash-sum",
+    "test_pin": "tarball",
+    "category": ""
+  },
+  {
+    "package": "heap",
+    "ok": false,
+    "reasons": [
+      "relative require in entry",
+      "no release tag matching version (version-skew risk)"
+    ],
+    "version": "0.2.7",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 40,
+    "lines": 2,
+    "tests_in_tarball": 0,
+    "repo": "qiao/heap.js",
+    "test_pin": null,
+    "category": "algorithms"
+  },
+  {
+    "package": "hi-base32",
+    "ok": true,
+    "reasons": [],
+    "version": "0.5.1",
+    "license": "MIT",
+    "entry": "src/base32.js",
+    "bytes": 16590,
+    "lines": 459,
+    "tests_in_tarball": 0,
+    "repo": "emn178/hi-base32",
+    "tests_in_repo": 2,
+    "repo_test_files": [
+      "tests/node-test.js",
+      "tests/test.js"
+    ],
+    "test_pin": "v0.5.1",
+    "category": "final"
+  },
+  {
+    "package": "imurmurhash",
+    "ok": false,
+    "reasons": [
+      "release tag exists but repo ships NO tests"
+    ],
+    "version": "0.1.4",
+    "license": "MIT",
+    "entry": "imurmurhash.js",
+    "bytes": 4412,
+    "lines": 139,
+    "tests_in_tarball": 0,
+    "repo": "jensyt/imurmurhash-js",
+    "tests_in_repo": 0,
+    "repo_test_files": [],
+    "test_pin": null,
+    "category": "recheck"
+  },
+  {
+    "package": "index-array-by",
+    "ok": false,
+    "reasons": [
+      "ESM syntax in entry"
+    ],
+    "version": "1.4.2",
+    "license": "MIT",
+    "entry": "dist/index-array-by.mjs",
+    "bytes": 6092,
+    "lines": 184,
+    "tests_in_tarball": 0,
+    "repo": "vasturiano/index-array-by",
+    "test_pin": "v1.4.2",
+    "category": "collections"
+  },
+  {
+    "package": "intersect",
+    "ok": true,
+    "reasons": [],
+    "version": "1.0.1",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 1016,
+    "lines": 60,
+    "tests_in_tarball": 1,
+    "repo": "juliangruber/intersect",
+    "test_pin": "tarball",
+    "category": "final"
+  },
+  {
+    "package": "is-absolute-url",
+    "ok": false,
+    "reasons": [
+      "ESM syntax in entry"
+    ],
+    "version": "5.0.0",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 890,
+    "lines": 35,
+    "tests_in_tarball": 0,
+    "repo": "sindresorhus/is-absolute-url",
+    "test_pin": "v5.0.0",
+    "category": "validation"
+  },
+  {
+    "package": "is-glob",
+    "ok": false,
+    "reasons": [
+      "has deps: is-extglob"
+    ],
+    "version": "4.0.3",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 3628,
+    "lines": 151,
+    "tests_in_tarball": 0,
+    "repo": "micromatch/is-glob",
+    "test_pin": "v4.0.3",
+    "category": "validation"
+  },
+  {
+    "package": "is-number",
+    "ok": true,
+    "reasons": [],
+    "version": "7.0.0",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 411,
+    "lines": 19,
+    "tests_in_tarball": 0,
+    "repo": "jonschlinkert/is-number",
+    "tests_in_repo": 1,
+    "repo_test_files": [
+      "test.js"
+    ],
+    "test_pin": "7.0.0",
+    "category": "recheck"
+  },
+  {
+    "package": "is-plain-obj",
+    "ok": false,
+    "reasons": [
+      "ESM syntax in entry"
+    ],
+    "version": "4.1.0",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 344,
+    "lines": 9,
+    "tests_in_tarball": 0,
+    "repo": "sindresorhus/is-plain-obj",
+    "test_pin": "v4.1.0",
+    "category": "validation"
+  },
+  {
+    "package": "jaro-winkler",
+    "ok": true,
+    "reasons": [],
+    "version": "0.2.8",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 2221,
+    "lines": 101,
+    "tests_in_tarball": 3,
+    "repo": "jordanthomas/jaro-winkler",
+    "test_pin": "tarball",
+    "category": "final"
+  },
+  {
+    "package": "js-crc",
+    "ok": true,
+    "reasons": [],
+    "version": "0.3.1",
+    "license": "MIT",
+    "entry": "src/crc.js",
+    "bytes": 10436,
+    "lines": 385,
+    "tests_in_tarball": 5,
+    "repo": "emn178/js-crc",
+    "test_pin": "tarball",
+    "category": "final"
+  },
+  {
+    "package": "js-md5",
+    "ok": false,
+    "reasons": [
+      "too large: 30336B > 20000B"
+    ],
+    "version": "0.9.2",
+    "license": "MIT",
+    "entry": "src/md5.js",
+    "bytes": 30336,
+    "lines": 907,
+    "tests_in_tarball": 0,
+    "repo": "emn178/js-md5",
+    "test_pin": "v0.9.2",
+    "category": "crypto"
+  },
+  {
+    "package": "js-sha3",
+    "ok": false,
+    "reasons": [
+      "too large: 29941B > 20000B"
+    ],
+    "version": "0.13.0",
+    "license": "MIT",
+    "entry": "src/sha3.js",
+    "bytes": 29941,
+    "lines": 910,
+    "tests_in_tarball": 0,
+    "repo": "emn178/js-sha3",
+    "test_pin": "v0.13.0",
+    "category": "crypto"
+  },
+  {
+    "package": "just-clone",
+    "ok": false,
+    "reasons": [
+      "no release tag matching version (version-skew risk)"
+    ],
+    "version": "6.2.0",
+    "license": "MIT",
+    "entry": "index.cjs",
+    "bytes": 1428,
+    "lines": 55,
+    "tests_in_tarball": 0,
+    "repo": "angus-c/just",
+    "test_pin": null,
+    "category": ""
+  },
+  {
+    "package": "kebab-case",
+    "ok": false,
+    "reasons": [
+      "ESM syntax in entry"
+    ],
+    "version": "2.0.2",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 1124,
+    "lines": 43,
+    "tests_in_tarball": 0,
+    "repo": "joakimbeng/kebab-case",
+    "test_pin": "2.0.2",
+    "category": "validation"
+  },
+  {
+    "package": "klona",
+    "ok": true,
+    "reasons": [],
+    "version": "2.0.6",
+    "license": "MIT",
+    "entry": "dist/index.js",
+    "bytes": 1547,
+    "lines": 83,
+    "tests_in_tarball": 0,
+    "repo": "lukeed/klona",
+    "tests_in_repo": 23,
+    "repo_test_files": [
+      "test/full.js",
+      "test/index.js",
+      "test/json.js",
+      "test/lite.js",
+      "test/suites/api.js",
+      "test/suites/array.js"
+    ],
+    "test_pin": "v2.0.6",
+    "category": "recheck"
+  },
+  {
+    "package": "knuth-shuffle-seeded",
+    "ok": false,
+    "reasons": [
+      "has deps: seed-random"
+    ],
+    "version": "1.0.6",
+    "license": "Apache-2.0",
+    "entry": "index.js",
+    "bytes": 2142,
+    "lines": 70,
+    "tests_in_tarball": 1,
+    "repo": "TimothyGu/knuth-shuffle-seeded",
+    "test_pin": "tarball",
+    "category": "algorithms"
+  },
+  {
+    "package": "leven",
+    "ok": false,
+    "reasons": [
+      "ESM syntax in entry"
+    ],
+    "version": "4.1.0",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 4366,
+    "lines": 176,
+    "tests_in_tarball": 0,
+    "repo": "sindresorhus/leven",
+    "test_pin": "v4.1.0",
+    "category": "algorithms"
+  },
+  {
+    "package": "lodash.compact",
+    "ok": true,
+    "reasons": [],
+    "version": "3.0.1",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 1059,
+    "lines": 40,
+    "tests_in_tarball": 0,
+    "repo": "lodash/lodash",
+    "test_pin": "3.0.1",
+    "category": ""
+  },
+  {
+    "package": "lodash.groupby",
+    "ok": false,
+    "reasons": [
+      "too large: 64516B > 20000B"
+    ],
+    "version": "4.6.0",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 64516,
+    "lines": 2370,
+    "tests_in_tarball": 0,
+    "repo": "lodash/lodash",
+    "test_pin": "4.6.0",
+    "category": "collections"
+  },
+  {
+    "package": "longest-common-subsequence",
+    "ok": false,
+    "reasons": [
+      "no release tag matching version (version-skew risk)"
+    ],
+    "version": "1.0.4",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 1444,
+    "lines": 67,
+    "tests_in_tarball": 0,
+    "repo": "elazzabi/longest-common-subequence",
+    "test_pin": null,
+    "category": "algorithms"
+  },
+  {
+    "package": "md5",
+    "ok": false,
+    "reasons": [
+      "has deps: crypt,charenc,is-buffer"
+    ],
+    "version": "2.3.0",
+    "license": "BSD-3-Clause",
+    "entry": "md5.js",
+    "bytes": 6034,
+    "lines": 161,
+    "tests_in_tarball": 1,
+    "repo": "pvorb/node-md5",
+    "test_pin": "tarball",
+    "category": "crypto"
+  },
+  {
+    "package": "ms",
+    "ok": true,
+    "reasons": [],
+    "version": "2.1.3",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 3024,
+    "lines": 163,
+    "tests_in_tarball": 0,
+    "repo": "vercel/ms",
+    "tests_in_repo": 1,
+    "repo_test_files": [
+      "tests.js"
+    ],
+    "test_pin": "2.1.3",
+    "category": "final"
+  },
+  {
+    "package": "murmur-hash-js",
+    "ok": false,
+    "reasons": [
+      "relative require in entry"
+    ],
+    "version": "1.0.0",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 182,
+    "lines": 7,
+    "tests_in_tarball": 1,
+    "repo": "b3nj4m/murmurhash-js",
+    "test_pin": "tarball",
+    "category": "crypto"
+  },
+  {
+    "package": "murmurhash",
+    "ok": true,
+    "reasons": [],
+    "version": "2.0.1",
+    "license": "MIT",
+    "entry": "murmurhash.js",
+    "bytes": 4096,
+    "lines": 138,
+    "tests_in_tarball": 1,
+    "repo": "perezd/node-murmurhash",
+    "test_pin": "tarball",
+    "category": ""
+  },
+  {
+    "package": "nanoclone",
+    "ok": false,
+    "reasons": [
+      "no release tag matching version (version-skew risk)"
+    ],
+    "version": "1.0.2",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 1765,
+    "lines": 63,
+    "tests_in_tarball": 0,
+    "repo": "kelin2025/nanoclone",
+    "test_pin": null,
+    "category": "collections"
+  },
+  {
+    "package": "object-path",
+    "ok": true,
+    "reasons": [],
+    "version": "0.11.8",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 8138,
+    "lines": 321,
+    "tests_in_tarball": 1,
+    "repo": "mariocasciaro/object-path",
+    "test_pin": "tarball",
+    "category": "final"
+  },
+  {
+    "package": "object.omit",
+    "ok": false,
+    "reasons": [
+      "has deps: is-extendable"
+    ],
+    "version": "3.0.0",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 747,
+    "lines": 38,
+    "tests_in_tarball": 0,
+    "repo": "jonschlinkert/object.omit",
+    "test_pin": "3.0.0",
+    "category": "collections"
+  },
+  {
+    "package": "object.pick",
+    "ok": false,
+    "reasons": [
+      "has deps: isobject"
+    ],
+    "version": "1.3.0",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 630,
+    "lines": 36,
+    "tests_in_tarball": 0,
+    "repo": "jonschlinkert/object.pick",
+    "test_pin": "1.3.0",
+    "category": "collections"
+  },
+  {
+    "package": "omit-empty",
+    "ok": false,
+    "reasons": [
+      "has deps: kind-of"
+    ],
+    "version": "1.0.0",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 1627,
+    "lines": 82,
+    "tests_in_tarball": 0,
+    "repo": "jonschlinkert/omit-empty",
+    "tests_in_repo": 1,
+    "repo_test_files": [
+      "test.js"
+    ],
+    "test_pin": "1.0.0",
+    "category": "collections"
+  },
+  {
+    "package": "pluralize",
+    "ok": true,
+    "reasons": [],
+    "version": "8.0.0",
+    "license": "MIT",
+    "entry": "pluralize.js",
+    "bytes": 12617,
+    "lines": 504,
+    "tests_in_tarball": 0,
+    "repo": "blakeembrey/pluralize",
+    "tests_in_repo": 1,
+    "repo_test_files": [
+      "test.js"
+    ],
+    "test_pin": "v8.0.0",
+    "category": "final"
+  },
+  {
+    "package": "quickselect",
+    "ok": false,
+    "reasons": [
+      "ESM syntax in entry"
+    ],
+    "version": "3.0.0",
+    "license": "ISC",
+    "entry": "index.js",
+    "bytes": 2088,
+    "lines": 75,
+    "tests_in_tarball": 0,
+    "repo": "mourner/quickselect",
+    "test_pin": "v3.0.0",
+    "category": "algorithms"
+  },
+  {
+    "package": "rfdc",
+    "ok": true,
+    "reasons": [],
+    "version": "1.4.1",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 5847,
+    "lines": 199,
+    "tests_in_tarball": 1,
+    "repo": "davidmarkclements/rfdc",
+    "test_pin": "tarball",
+    "category": "final"
+  },
+  {
+    "package": "seedrandom",
+    "ok": false,
+    "reasons": [
+      "relative require in entry"
+    ],
+    "version": "3.0.5",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 2108,
+    "lines": 61,
+    "tests_in_tarball": 0,
+    "repo": "davidbau/seedrandom",
+    "test_pin": "3.0.5",
+    "category": "crypto"
+  },
+  {
+    "package": "set-operations",
+    "ok": false,
+    "reasons": [
+      "no release tag matching version (version-skew risk)"
+    ],
+    "version": "3.0.3",
+    "license": "MIT",
+    "entry": "dist/main.umd.cjs",
+    "bytes": 13366,
+    "lines": 2,
+    "tests_in_tarball": 0,
+    "repo": "indrajaala/set-operations",
+    "test_pin": null,
+    "category": "collections"
+  },
+  {
+    "package": "sha1",
+    "ok": false,
+    "reasons": [
+      "has deps: charenc,crypt"
+    ],
+    "version": "1.1.1",
+    "license": "BSD-3-Clause",
+    "entry": "sha1.js",
+    "bytes": 2124,
+    "lines": 83,
+    "tests_in_tarball": 1,
+    "repo": "pvorb/node-sha1",
+    "test_pin": "tarball",
+    "category": "crypto"
+  },
+  {
+    "package": "shallow-equal",
+    "ok": true,
+    "reasons": [],
+    "version": "3.1.0",
+    "license": "MIT",
+    "entry": "dist/index.js",
+    "bytes": 1213,
+    "lines": 58,
+    "tests_in_tarball": 0,
+    "repo": "moroshko/shallow-equal",
+    "tests_in_repo": 1,
+    "repo_test_files": [
+      "src/__tests__/index.test.ts"
+    ],
+    "test_pin": "v3.1.0",
+    "category": "final"
+  },
+  {
+    "package": "sort-keys",
+    "ok": false,
+    "reasons": [
+      "has deps: is-plain-obj",
+      "ESM syntax in entry"
+    ],
+    "version": "6.0.1",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 4264,
+    "lines": 178,
+    "tests_in_tarball": 0,
+    "repo": "sindresorhus/sort-keys",
+    "test_pin": "v6.0.1",
+    "category": "collections"
+  },
+  {
+    "package": "sort-object",
+    "ok": false,
+    "reasons": [
+      "has deps: bytewise,get-value,is-extendable"
+    ],
+    "version": "3.0.3",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 2117,
+    "lines": 100,
+    "tests_in_tarball": 0,
+    "repo": "doowb/sort-object",
+    "tests_in_repo": 1,
+    "repo_test_files": [
+      "test.js"
+    ],
+    "test_pin": "3.0.3",
+    "category": "collections"
+  },
+  {
+    "package": "sorted-array",
+    "ok": false,
+    "reasons": [
+      "no release tag matching version (version-skew risk)"
+    ],
+    "version": "2.0.4",
+    "license": null,
+    "entry": "sorted-array.js",
+    "bytes": 3897,
+    "lines": 113,
+    "tests_in_tarball": 0,
+    "repo": "aaditmshah/sorted-array",
+    "test_pin": null,
+    "category": "algorithms"
+  },
+  {
+    "package": "string-hash",
+    "ok": true,
+    "reasons": [],
+    "version": "1.1.3",
+    "license": "CC0-1.0",
+    "entry": "index.js",
+    "bytes": 408,
+    "lines": 18,
+    "tests_in_tarball": 1,
+    "repo": "darkskyapp/string-hash",
+    "test_pin": "tarball",
+    "category": "final"
+  },
+  {
+    "package": "timsort",
+    "ok": false,
+    "reasons": [
+      "relative require in entry"
+    ],
+    "version": "0.3.0",
+    "license": "MIT",
+    "entry": "index.js",
+    "bytes": 47,
+    "lines": 1,
+    "tests_in_tarball": 0,
+    "repo": "mziccard/node-timsort",
+    "test_pin": "v0.3.0",
+    "category": "algorithms"
+  },
+  {
+    "package": "uniq",
+    "ok": true,
+    "reasons": [],
+    "version": "1.0.1",
+    "license": "MIT",
+    "entry": "uniq.js",
+    "bytes": 910,
+    "lines": 58,
+    "tests_in_tarball": 1,
+    "repo": "mikolalysenko/uniq",
+    "test_pin": "tarball",
+    "category": "collections"
+  },
+  {
+    "package": "validator-isemail",
+    "ok": false,
+    "reasons": [
+      "registry: HTTPError"
+    ],
+    "category": "validation"
+  },
+  {
+    "package": "xorshift",
+    "ok": true,
+    "reasons": [],
+    "version": "1.2.0",
+    "license": "MIT",
+    "entry": "xorshift.js",
+    "bytes": 2970,
+    "lines": 115,
+    "tests_in_tarball": 1,
+    "repo": "AndreasMadsen/xorshift",
+    "test_pin": "tarball",
+    "category": "final"
+  }
+]

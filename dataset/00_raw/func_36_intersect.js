@@ -1,40 +1,59 @@
 module.exports = intersect;
 
-/*
-  intersect([1, 2, 5, 6], [2, 3, 5, 6]); // [2, 5, 6]
-  intersect([1, 2, 2, 4, 5], [3, 2, 2, 5, 7]); // [2, 5]
-*/
-
-function intersect(arr1, arr2) {
-  if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
-    throw new Error('expected both arguments to be arrays');
-  }
-
-  var result = [];
-  var set = convertArrayToSet(arr2);
-  var memo = {};
-
-  for (var i = 0; i < arr1.length; i++) {
-    var item = arr1[i];
-
-    if (set.hasOwnProperty(item) && !memo.hasOwnProperty(item)) {
-      result.push(item);
-      memo[item] = true;
+function many (sets) {
+  var o = {};
+  var l = sets.length - 1;
+  var first = sets[0];
+  var last = sets[l];
+  
+  for(var i in first) o[first[i]] = 0;
+  
+  for(var i = 1; i <= l; i++) {
+    var row = sets[i];
+    for(var j in row) {
+      var key = row[j];
+      if(o[key] === i - 1) o[key] = i;
     }
   }
-
-  return result;
+  
+  var a = [];
+  for(var i in last) {
+    var key = last[i];
+    if(o[key] === l) a.push(key);
+  }
+  
+  return a;
 }
 
-function convertArrayToSet(arr) {
-  var output = {};
+function intersect (a, b) {
+  if (!b) return many(a);
 
-  for (var i = 0; i < arr.length; i++) {
-    var item = arr[i];
-    if (!output.hasOwnProperty(item)) {
-      output[item] = true;
-    }
+  var res = [];
+  for (var i = 0; i < a.length; i++) {
+    if (indexOf(b, a[i]) > -1) res.push(a[i]);
   }
+  return res;
+}
 
-  return output;
+intersect.big = function(a, b) {
+  if (!b) return many(a);
+  
+  var ret = [];
+  var temp = {};
+  
+  for (var i = 0; i < b.length; i++) {
+    temp[b[i]] = true;
+  }
+  for (var i = 0; i < a.length; i++) {
+    if (temp[a[i]]) ret.push(a[i]);
+  }
+  
+  return ret;
+}
+
+function indexOf(arr, el) {
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] === el) return i;
+  }
+  return -1;
 }

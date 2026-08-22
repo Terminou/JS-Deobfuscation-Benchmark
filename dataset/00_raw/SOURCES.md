@@ -1,10 +1,10 @@
 # Ground-Truth Corpus -- Source Provenance
 
-Every file in `dataset/00_raw/` is extracted **byte-exact** from a pinned npm release tarball. `build_dataset.py` verifies the registry's published SHA-1 digest against the downloaded tarball before extraction, so this corpus is reproducible from the table below alone.
+Every file in `dataset/00_raw/` is extracted **byte-exact** from a pinned npm release tarball. `fetch_dataset.py` verifies the registry's published SHA-1 digest against the downloaded tarball before extraction, so this corpus is reproducible from the table below alone.
 
 - **Items:** 50
 - **Distinct upstream packages:** 50
-- **Total size:** 160,764 bytes (5,788 lines)
+- **Total size:** 189,491 bytes (7,149 lines)
 
 Every item is a self-contained CommonJS module: no ESM syntax, no relative imports, no external dependencies. Verify with `node verify_dataset.js`.
 
@@ -25,7 +25,7 @@ Every item is a self-contained CommonJS module: no ESM syntax, no relative impor
 | 9 | `func_09_dijkstra.js` | [`dijkstrajs`](https://github.com/tcort/dijkstrajs) | `1.0.3` | [`dijkstra.js`](https://cdn.jsdelivr.net/npm/dijkstrajs@1.0.3/dijkstra.js) | MIT |
 | 10 | `func_10_priorityQueue.js` | [`priorityqueuejs`](https://github.com/janogonzalez/priorityqueuejs) | `2.0.0` | [`index.js`](https://cdn.jsdelivr.net/npm/priorityqueuejs@2.0.0/index.js) | MIT |
 | 11 | `func_11_sortedArray.js` | [`sorted-array-functions`](https://github.com/mafintosh/sorted-array-functions) | `1.3.0` | [`index.js`](https://cdn.jsdelivr.net/npm/sorted-array-functions@1.3.0/index.js) | MIT |
-| 12 | `func_12_fastSort.js` | [`fast-sort`](https://github.com/snovakovic/fast-sort) | `3.4.1` | [`dist/sort.cjs.js`](https://cdn.jsdelivr.net/npm/fast-sort@3.4.1/dist/sort.cjs.js) | MIT |
+| 12 | `func_12_jaroWinkler.js` | [`jaro-winkler`](https://github.com/jordanthomas/jaro-winkler) | `0.2.8` | [`index.js`](https://cdn.jsdelivr.net/npm/jaro-winkler@0.2.8/index.js) | MIT |
 | 13 | `func_13_mersenneTwister.js` | [`mersenne-twister`](https://github.com/boo1ean/mersenne-twister) | `1.1.0` | [`src/mersenne-twister.js`](https://cdn.jsdelivr.net/npm/mersenne-twister@1.1.0/src/mersenne-twister.js) | MIT |
 | 14 | `func_14_stringSimilarity.js` | [`string-similarity`](https://github.com/aceakash/string-similarity) | `4.0.4` | [`src/index.js`](https://cdn.jsdelivr.net/npm/string-similarity@4.0.4/src/index.js) | ISC |
 | 15 | `func_15_combinatorics.js` | [`js-combinatorics`](https://github.com/dankogai/js-combinatorics) | `2.1.4` | [`commonjs/combinatorics.js`](https://cdn.jsdelivr.net/npm/js-combinatorics@2.1.4/commonjs/combinatorics.js) | MIT |
@@ -39,14 +39,14 @@ Every item is a self-contained CommonJS module: no ESM syntax, no relative impor
 | 18 | `func_18_isUri.js` | [`valid-url`](https://github.com/ogt/valid-url) | `1.0.9` | [`index.js`](https://cdn.jsdelivr.net/npm/valid-url@1.0.9/index.js) | n/a |
 | 19 | `func_19_isJson.js` | [`is-json`](https://github.com/joaquimserafim/is-json) | `3.0.1` | [`dist/index.cjs`](https://cdn.jsdelivr.net/npm/is-json@3.0.1/dist/index.cjs) | ISC |
 | 20 | `func_20_isBase64.js` | [`is-base64`](https://github.com/miguelmota/is-base64) | `1.1.0` | [`is-base64.js`](https://cdn.jsdelivr.net/npm/is-base64@1.1.0/is-base64.js) | MIT |
-| 21 | `func_21_isMd5.js` | [`is-md5`](https://github.com/imanhodjaev/is-md5) | `0.0.2` | [`index.js`](https://cdn.jsdelivr.net/npm/is-md5@0.0.2/index.js) | MIT |
+| 21 | `func_21_msDuration.js` | [`ms`](https://github.com/vercel/ms) | `2.1.3` | [`index.js`](https://cdn.jsdelivr.net/npm/ms@2.1.3/index.js) | MIT |
 | 22 | `func_22_isUuid.js` | [`is-uuid`](https://github.com/afram/is-uuid) | `1.0.2` | [`lib/is-uuid.js`](https://cdn.jsdelivr.net/npm/is-uuid@1.0.2/lib/is-uuid.js) | MIT |
 | 23 | `func_23_uuidValidate.js` | [`uuid-validate`](https://github.com/WatchBeam/uuid-validate) | `0.0.3` | [`index.js`](https://cdn.jsdelivr.net/npm/uuid-validate@0.0.3/index.js) | MIT |
 | 24 | `func_24_luhn.js` | [`luhn`](https://github.com/JamesEggers1/node-luhn) | `2.4.1` | [`src/luhn.js`](https://cdn.jsdelivr.net/npm/luhn@2.4.1/src/luhn.js) | MIT |
 | 25 | `func_25_jwtDecode.js` | [`jwt-decode`](https://github.com/auth0/jwt-decode) | `4.0.0` | [`build/cjs/index.js`](https://cdn.jsdelivr.net/npm/jwt-decode@4.0.0/build/cjs/index.js) | MIT |
-| 26 | `func_26_slugify.js` | [`slugify`](https://github.com/simov/slugify) | `1.6.9` | [`slugify.js`](https://cdn.jsdelivr.net/npm/slugify@1.6.9/slugify.js) | MIT |
+| 26 | `func_26_pluralize.js` | [`pluralize`](https://github.com/blakeembrey/pluralize) | `8.0.0` | [`pluralize.js`](https://cdn.jsdelivr.net/npm/pluralize@8.0.0/pluralize.js) | MIT |
 | 27 | `func_27_wordWrap.js` | [`word-wrap`](https://github.com/jonschlinkert/word-wrap) | `1.2.5` | [`index.js`](https://cdn.jsdelivr.net/npm/word-wrap@1.2.5/index.js) | MIT |
-| 28 | `func_28_isAlphanumeric.js` | [`is-alphanumeric`](https://github.com/arthurvr/is-alphanumeric) | `1.0.0` | [`index.js`](https://cdn.jsdelivr.net/npm/is-alphanumeric@1.0.0/index.js) | MIT |
+| 28 | `func_28_byteSize.js` | [`bytes`](https://github.com/visionmedia/bytes.js) | `3.1.2` | [`index.js`](https://cdn.jsdelivr.net/npm/bytes@3.1.2/index.js) | MIT |
 | 29 | `func_29_isHexColor.js` | [`hex-color-regex`](https://github.com/regexps/hex-color-regex) | `1.1.0` | [`index.js`](https://cdn.jsdelivr.net/npm/hex-color-regex@1.1.0/index.js) | MIT |
 | 30 | `func_30_queryString.js` | [`querystringify`](https://github.com/unshiftio/querystringify) | `2.2.0` | [`index.js`](https://cdn.jsdelivr.net/npm/querystringify@2.2.0/index.js) | MIT |
 
@@ -54,15 +54,15 @@ Every item is a self-contained CommonJS module: no ESM syntax, no relative impor
 
 | # | Dataset file | Upstream package | Version | Source file | License |
 |---|---|---|---|---|---|
-| 31 | `func_31_compact.js` | [`lodash.compact`](https://github.com/lodash/lodash) | `3.0.1` | [`index.js`](https://cdn.jsdelivr.net/npm/lodash.compact@3.0.1/index.js) | MIT |
-| 32 | `func_32_chunk.js` | [`lodash.chunk`](https://github.com/lodash/lodash) | `4.2.0` | [`index.js`](https://cdn.jsdelivr.net/npm/lodash.chunk@4.2.0/index.js) | MIT |
+| 31 | `func_31_objectPath.js` | [`object-path`](https://github.com/mariocasciaro/object-path) | `0.11.8` | [`index.js`](https://cdn.jsdelivr.net/npm/object-path@0.11.8/index.js) | MIT |
+| 32 | `func_32_union.js` | [`arr-union`](https://github.com/jonschlinkert/arr-union) | `3.1.0` | [`index.js`](https://cdn.jsdelivr.net/npm/arr-union@3.1.0/index.js) | MIT |
 | 33 | `func_33_flatten.js` | [`arr-flatten`](https://github.com/jonschlinkert/arr-flatten) | `1.1.0` | [`index.js`](https://cdn.jsdelivr.net/npm/arr-flatten@1.1.0/index.js) | MIT |
 | 34 | `func_34_unique.js` | [`array-unique`](https://github.com/jonschlinkert/array-unique) | `0.3.2` | [`index.js`](https://cdn.jsdelivr.net/npm/array-unique@0.3.2/index.js) | MIT |
 | 35 | `func_35_difference.js` | [`arr-diff`](https://github.com/jonschlinkert/arr-diff) | `4.0.0` | [`index.js`](https://cdn.jsdelivr.net/npm/arr-diff@4.0.0/index.js) | MIT |
-| 36 | `func_36_intersect.js` | [`just-intersect`](https://github.com/angus-c/just) | `4.3.0` | [`index.cjs`](https://cdn.jsdelivr.net/npm/just-intersect@4.3.0/index.cjs) | MIT |
+| 36 | `func_36_intersect.js` | [`intersect`](https://github.com/juliangruber/intersect) | `1.0.1` | [`index.js`](https://cdn.jsdelivr.net/npm/intersect@1.0.1/index.js) | MIT |
 | 37 | `func_37_groupBy.js` | [`just-group-by`](https://github.com/angus-c/just) | `2.2.0` | [`index.cjs`](https://cdn.jsdelivr.net/npm/just-group-by@2.2.0/index.cjs) | MIT |
 | 38 | `func_38_deepEqual.js` | [`fast-deep-equal`](https://github.com/epoberezkin/fast-deep-equal) | `3.1.3` | [`index.js`](https://cdn.jsdelivr.net/npm/fast-deep-equal@3.1.3/index.js) | MIT |
-| 39 | `func_39_cloneDeep.js` | [`just-clone`](https://github.com/angus-c/just) | `6.2.0` | [`index.cjs`](https://cdn.jsdelivr.net/npm/just-clone@6.2.0/index.cjs) | MIT |
+| 39 | `func_39_cloneDeep.js` | [`rfdc`](https://github.com/davidmarkclements/rfdc) | `1.4.1` | [`index.js`](https://cdn.jsdelivr.net/npm/rfdc@1.4.1/index.js) | MIT |
 | 40 | `func_40_deepMerge.js` | [`deepmerge`](https://github.com/TehShrike/deepmerge) | `4.3.1` | [`dist/cjs.js`](https://cdn.jsdelivr.net/npm/deepmerge@4.3.1/dist/cjs.js) | MIT |
 
 ## Category 4 -- Math & Cryptography (10 items)
@@ -73,8 +73,8 @@ Every item is a self-contained CommonJS module: no ESM syntax, no relative impor
 | 42 | `func_42_md5.js` | [`blueimp-md5`](https://github.com/blueimp/JavaScript-MD5) | `2.19.0` | [`js/md5.js`](https://cdn.jsdelivr.net/npm/blueimp-md5@2.19.0/js/md5.js) | MIT |
 | 43 | `func_43_sha256.js` | [`js-sha256`](https://github.com/emn178/js-sha256) | `1.0.0` | [`build/sha256.node.cjs`](https://cdn.jsdelivr.net/npm/js-sha256@1.0.0/build/sha256.node.cjs) | MIT |
 | 44 | `func_44_sha1.js` | [`js-sha1`](https://github.com/emn178/js-sha1) | `0.7.0` | [`src/sha1.js`](https://cdn.jsdelivr.net/npm/js-sha1@0.7.0/src/sha1.js) | MIT |
-| 45 | `func_45_crc32.js` | [`crc-32`](https://github.com/SheetJS/js-crc32) | `1.2.2` | [`crc32.js`](https://cdn.jsdelivr.net/npm/crc-32@1.2.2/crc32.js) | Apache-2.0 |
-| 46 | `func_46_adler32.js` | [`adler-32`](https://github.com/SheetJS/js-adler32) | `1.3.1` | [`adler32.js`](https://cdn.jsdelivr.net/npm/adler-32@1.3.1/adler32.js) | Apache-2.0 |
+| 45 | `func_45_crc32.js` | [`js-crc`](https://github.com/emn178/js-crc) | `0.3.1` | [`src/crc.js`](https://cdn.jsdelivr.net/npm/js-crc@0.3.1/src/crc.js) | MIT |
+| 46 | `func_46_base32.js` | [`hi-base32`](https://github.com/emn178/hi-base32) | `0.5.1` | [`src/base32.js`](https://cdn.jsdelivr.net/npm/hi-base32@0.5.1/src/base32.js) | MIT |
 | 47 | `func_47_rc4.js` | [`rc4`](https://github.com/phadej/rc4) | `0.1.5` | [`rc4.js`](https://cdn.jsdelivr.net/npm/rc4@0.1.5/rc4.js) | MIT |
 | 48 | `func_48_murmurhash.js` | [`murmurhash`](https://github.com/perezd/node-murmurhash) | `2.0.1` | [`murmurhash.js`](https://cdn.jsdelivr.net/npm/murmurhash@2.0.1/murmurhash.js) | MIT |
 | 49 | `func_49_bitTwiddle.js` | [`bit-twiddle`](https://github.com/mikolalysenko/bit-twiddle) | `1.0.2` | [`twiddle.js`](https://cdn.jsdelivr.net/npm/bit-twiddle@1.0.2/twiddle.js) | MIT |
@@ -84,7 +84,7 @@ Every item is a self-contained CommonJS module: no ESM syntax, no relative impor
 
 ## Full provenance
 
-Tarball URLs are what `build_dataset.py` actually downloads. `tarball_sha1` is the digest published by the npm registry and verified at fetch time; `sha256` is the digest of the extracted file as stored in this repository.
+Tarball URLs are what `fetch_dataset.py` actually downloads. `tarball_sha1` is the digest published by the npm registry and verified at fetch time; `sha256` is the digest of the extracted file as stored in this repository.
 
 ### 1. `func_01_binarySearch.js`
 
@@ -236,17 +236,17 @@ Tarball URLs are what `build_dataset.py` actually downloads. `tarball_sha1` is t
 - **Size:** 3,159 bytes / 174 lines
 - **License:** MIT
 
-### 12. `func_12_fastSort.js`
+### 12. `func_12_jaroWinkler.js`
 
-- **Package:** `fast-sort@3.4.1` ([npm](https://www.npmjs.com/package/fast-sort/v/3.4.1))
-- **Entry path in package:** `dist/sort.cjs.js`
-- **Direct file link:** https://cdn.jsdelivr.net/npm/fast-sort@3.4.1/dist/sort.cjs.js
-- **Mirror:** https://unpkg.com/fast-sort@3.4.1/dist/sort.cjs.js
-- **Repository:** https://github.com/snovakovic/fast-sort
-- **Tarball:** https://registry.npmjs.org/fast-sort/-/fast-sort-3.4.1.tgz
-- **Tarball SHA-1:** `837e1abaafdc6c6c077b632913a7ec2dda283cb6`
-- **File SHA-256:** `db06446b26666275f806dfecd28c5fb843844cae4b65f4facea777ce367d448b`
-- **Size:** 4,811 bytes / 126 lines
+- **Package:** `jaro-winkler@0.2.8` ([npm](https://www.npmjs.com/package/jaro-winkler/v/0.2.8))
+- **Entry path in package:** `index.js`
+- **Direct file link:** https://cdn.jsdelivr.net/npm/jaro-winkler@0.2.8/index.js
+- **Mirror:** https://unpkg.com/jaro-winkler@0.2.8/index.js
+- **Repository:** https://github.com/jordanthomas/jaro-winkler
+- **Tarball:** https://registry.npmjs.org/jaro-winkler/-/jaro-winkler-0.2.8.tgz
+- **Tarball SHA-1:** `6727e0d0b7091e2436f9356de9bf88fad23e534a`
+- **File SHA-256:** `dfca886b6876615eb7ea829a890bdd1a2d376d7319958174e85c54aa6ee88184`
+- **Size:** 2,221 bytes / 101 lines
 - **License:** MIT
 
 ### 13. `func_13_mersenneTwister.js`
@@ -358,18 +358,18 @@ Tarball URLs are what `build_dataset.py` actually downloads. `tarball_sha1` is t
 - **Size:** 1,143 bytes / 46 lines
 - **License:** MIT
 
-### 21. `func_21_isMd5.js`
+### 21. `func_21_msDuration.js`
 
-- **Package:** `is-md5@0.0.2` ([npm](https://www.npmjs.com/package/is-md5/v/0.0.2))
+- **Package:** `ms@2.1.3` ([npm](https://www.npmjs.com/package/ms/v/2.1.3))
 - **Entry path in package:** `index.js`
-- **Direct file link:** https://cdn.jsdelivr.net/npm/is-md5@0.0.2/index.js
-- **Mirror:** https://unpkg.com/is-md5@0.0.2/index.js
-- **Repository:** https://github.com/imanhodjaev/is-md5
-- **Homepage:** https://github.com/imanhodjaev/is-md5#readme
-- **Tarball:** https://registry.npmjs.org/is-md5/-/is-md5-0.0.2.tgz
-- **Tarball SHA-1:** `92fe9d37dae4aabf54d933ab1f4ef0ccd980c869`
-- **File SHA-256:** `39283fe669690292632a52f0dc4e60ddd955df52a764d836c496964a3d78a0ab`
-- **Size:** 107 bytes / 6 lines
+- **Direct file link:** https://cdn.jsdelivr.net/npm/ms@2.1.3/index.js
+- **Mirror:** https://unpkg.com/ms@2.1.3/index.js
+- **Repository:** https://github.com/vercel/ms
+- **Homepage:** https://github.com/vercel/ms#readme
+- **Tarball:** https://registry.npmjs.org/ms/-/ms-2.1.3.tgz
+- **Tarball SHA-1:** `574c8138ce1d2b5861f0b44579dbadd60c6615b2`
+- **File SHA-256:** `e5f0b6a946a9b2b356a28557728410717df54ea2f599edb619f9839df6b7b0e9`
+- **Size:** 3,024 bytes / 163 lines
 - **License:** MIT
 
 ### 22. `func_22_isUuid.js`
@@ -426,17 +426,18 @@ Tarball URLs are what `build_dataset.py` actually downloads. `tarball_sha1` is t
 - **Size:** 1,894 bytes / 63 lines
 - **License:** MIT
 
-### 26. `func_26_slugify.js`
+### 26. `func_26_pluralize.js`
 
-- **Package:** `slugify@1.6.9` ([npm](https://www.npmjs.com/package/slugify/v/1.6.9))
-- **Entry path in package:** `slugify.js`
-- **Direct file link:** https://cdn.jsdelivr.net/npm/slugify@1.6.9/slugify.js
-- **Mirror:** https://unpkg.com/slugify@1.6.9/slugify.js
-- **Repository:** https://github.com/simov/slugify
-- **Tarball:** https://registry.npmjs.org/slugify/-/slugify-1.6.9.tgz
-- **Tarball SHA-1:** `610957dea21e56b65e3a153215ef7b265715c8e8`
-- **File SHA-256:** `3b47b6f184ae98e958de5bd95a2cf6c8f82c84c6484188a54e204c63d2540696`
-- **Size:** 9,318 bytes / 70 lines
+- **Package:** `pluralize@8.0.0` ([npm](https://www.npmjs.com/package/pluralize/v/8.0.0))
+- **Entry path in package:** `pluralize.js`
+- **Direct file link:** https://cdn.jsdelivr.net/npm/pluralize@8.0.0/pluralize.js
+- **Mirror:** https://unpkg.com/pluralize@8.0.0/pluralize.js
+- **Repository:** https://github.com/blakeembrey/pluralize
+- **Homepage:** https://github.com/blakeembrey/pluralize#readme
+- **Tarball:** https://registry.npmjs.org/pluralize/-/pluralize-8.0.0.tgz
+- **Tarball SHA-1:** `1a6fa16a38d12a1901e0320fa017051c539ce3b1`
+- **File SHA-256:** `9bf6ffd9399792e846298560533c359f9225117ef3f670891a9610f1d293635c`
+- **Size:** 12,618 bytes / 504 lines
 - **License:** MIT
 
 ### 27. `func_27_wordWrap.js`
@@ -452,18 +453,18 @@ Tarball URLs are what `build_dataset.py` actually downloads. `tarball_sha1` is t
 - **Size:** 1,455 bytes / 62 lines
 - **License:** MIT
 
-### 28. `func_28_isAlphanumeric.js`
+### 28. `func_28_byteSize.js`
 
-- **Package:** `is-alphanumeric@1.0.0` ([npm](https://www.npmjs.com/package/is-alphanumeric/v/1.0.0))
+- **Package:** `bytes@3.1.2` ([npm](https://www.npmjs.com/package/bytes/v/3.1.2))
 - **Entry path in package:** `index.js`
-- **Direct file link:** https://cdn.jsdelivr.net/npm/is-alphanumeric@1.0.0/index.js
-- **Mirror:** https://unpkg.com/is-alphanumeric@1.0.0/index.js
-- **Repository:** https://github.com/arthurvr/is-alphanumeric
-- **Homepage:** https://github.com/arthurvr/is-alphanumeric#readme
-- **Tarball:** https://registry.npmjs.org/is-alphanumeric/-/is-alphanumeric-1.0.0.tgz
-- **Tarball SHA-1:** `4a9cef71daf4c001c1d81d63d140cf53fd6889f4`
-- **File SHA-256:** `3a571efca8171855023fa319ac42bb8c8e7a77746aa014c4ca3a6126f16b603e`
-- **Size:** 186 bytes / 9 lines
+- **Direct file link:** https://cdn.jsdelivr.net/npm/bytes@3.1.2/index.js
+- **Mirror:** https://unpkg.com/bytes@3.1.2/index.js
+- **Repository:** https://github.com/visionmedia/bytes.js
+- **Homepage:** https://github.com/visionmedia/bytes.js#readme
+- **Tarball:** https://registry.npmjs.org/bytes/-/bytes-3.1.2.tgz
+- **Tarball SHA-1:** `8b0beeb98605adf1b128fa4386403c009e0221a5`
+- **File SHA-256:** `893fcbbbe962dc00e40dc2e4b20e76e92d874dd257345003c6575d940e91a37f`
+- **Size:** 3,613 bytes / 171 lines
 - **License:** MIT
 
 ### 29. `func_29_isHexColor.js`
@@ -493,32 +494,30 @@ Tarball URLs are what `build_dataset.py` actually downloads. `tarball_sha1` is t
 - **Size:** 2,564 bytes / 119 lines
 - **License:** MIT
 
-### 31. `func_31_compact.js`
+### 31. `func_31_objectPath.js`
 
-- **Package:** `lodash.compact@3.0.1` ([npm](https://www.npmjs.com/package/lodash.compact/v/3.0.1))
+- **Package:** `object-path@0.11.8` ([npm](https://www.npmjs.com/package/object-path/v/0.11.8))
 - **Entry path in package:** `index.js`
-- **Direct file link:** https://cdn.jsdelivr.net/npm/lodash.compact@3.0.1/index.js
-- **Mirror:** https://unpkg.com/lodash.compact@3.0.1/index.js
-- **Repository:** https://github.com/lodash/lodash
-- **Homepage:** https://lodash.com/
-- **Tarball:** https://registry.npmjs.org/lodash.compact/-/lodash.compact-3.0.1.tgz
-- **Tarball SHA-1:** `540ce3837745975807471e16b4a2ba21e7256ca5`
-- **File SHA-256:** `a841926b4c774b98fd79e42a1e328c4020b66aa2e2608934630edc02547a160f`
-- **Size:** 1,059 bytes / 40 lines
+- **Direct file link:** https://cdn.jsdelivr.net/npm/object-path@0.11.8/index.js
+- **Mirror:** https://unpkg.com/object-path@0.11.8/index.js
+- **Repository:** https://github.com/mariocasciaro/object-path
+- **Tarball:** https://registry.npmjs.org/object-path/-/object-path-0.11.8.tgz
+- **Tarball SHA-1:** `ed002c02bbdd0070b78a27455e8ae01fc14d4742`
+- **File SHA-256:** `86a4b92427eff2fcd16d405d2abeec55eb43272eee81512498743f61a94d5245`
+- **Size:** 8,138 bytes / 321 lines
 - **License:** MIT
 
-### 32. `func_32_chunk.js`
+### 32. `func_32_union.js`
 
-- **Package:** `lodash.chunk@4.2.0` ([npm](https://www.npmjs.com/package/lodash.chunk/v/4.2.0))
+- **Package:** `arr-union@3.1.0` ([npm](https://www.npmjs.com/package/arr-union/v/3.1.0))
 - **Entry path in package:** `index.js`
-- **Direct file link:** https://cdn.jsdelivr.net/npm/lodash.chunk@4.2.0/index.js
-- **Mirror:** https://unpkg.com/lodash.chunk@4.2.0/index.js
-- **Repository:** https://github.com/lodash/lodash
-- **Homepage:** https://lodash.com/
-- **Tarball:** https://registry.npmjs.org/lodash.chunk/-/lodash.chunk-4.2.0.tgz
-- **Tarball SHA-1:** `66e5ce1f76ed27b4303d8c6512e8d1216e8106bc`
-- **File SHA-256:** `e123b94d40be87a212eb4e0fad4bad224bb3768199f49eda029916770ab39654`
-- **Size:** 11,608 bytes / 476 lines
+- **Direct file link:** https://cdn.jsdelivr.net/npm/arr-union@3.1.0/index.js
+- **Mirror:** https://unpkg.com/arr-union@3.1.0/index.js
+- **Repository:** https://github.com/jonschlinkert/arr-union
+- **Tarball:** https://registry.npmjs.org/arr-union/-/arr-union-3.1.0.tgz
+- **Tarball SHA-1:** `e39b09aea9def866a8f206e288af63919bae39c4`
+- **File SHA-256:** `745740f6cbcf395196ce54675aae5c282839eedaa34f7785b4ba1c1626c8422e`
+- **Size:** 527 bytes / 30 lines
 - **License:** MIT
 
 ### 33. `func_33_flatten.js`
@@ -562,16 +561,15 @@ Tarball URLs are what `build_dataset.py` actually downloads. `tarball_sha1` is t
 
 ### 36. `func_36_intersect.js`
 
-- **Package:** `just-intersect@4.3.0` ([npm](https://www.npmjs.com/package/just-intersect/v/4.3.0))
-- **Entry path in package:** `index.cjs`
-- **Direct file link:** https://cdn.jsdelivr.net/npm/just-intersect@4.3.0/index.cjs
-- **Mirror:** https://unpkg.com/just-intersect@4.3.0/index.cjs
-- **Repository:** https://github.com/angus-c/just
-- **Homepage:** https://github.com/angus-c/just#readme
-- **Tarball:** https://registry.npmjs.org/just-intersect/-/just-intersect-4.3.0.tgz
-- **Tarball SHA-1:** `b15094c1f2f45fc3a4df33a0cac86724f24dbc8e`
-- **File SHA-256:** `1cc560c491a0deb9007274a40890fb4d599db551b30286d07afb4f153c2e0048`
-- **Size:** 803 bytes / 41 lines
+- **Package:** `intersect@1.0.1` ([npm](https://www.npmjs.com/package/intersect/v/1.0.1))
+- **Entry path in package:** `index.js`
+- **Direct file link:** https://cdn.jsdelivr.net/npm/intersect@1.0.1/index.js
+- **Mirror:** https://unpkg.com/intersect@1.0.1/index.js
+- **Repository:** https://github.com/juliangruber/intersect
+- **Tarball:** https://registry.npmjs.org/intersect/-/intersect-1.0.1.tgz
+- **Tarball SHA-1:** `332650e10854d8c0ac58c192bdc27a8bf7e7a30c`
+- **File SHA-256:** `f0a6be1f48d3ee8c02d0f52b807e78735ccf4faea3931b3dbafa074fb871a40e`
+- **Size:** 1,016 bytes / 60 lines
 - **License:** MIT
 
 ### 37. `func_37_groupBy.js`
@@ -604,16 +602,16 @@ Tarball URLs are what `build_dataset.py` actually downloads. `tarball_sha1` is t
 
 ### 39. `func_39_cloneDeep.js`
 
-- **Package:** `just-clone@6.2.0` ([npm](https://www.npmjs.com/package/just-clone/v/6.2.0))
-- **Entry path in package:** `index.cjs`
-- **Direct file link:** https://cdn.jsdelivr.net/npm/just-clone@6.2.0/index.cjs
-- **Mirror:** https://unpkg.com/just-clone@6.2.0/index.cjs
-- **Repository:** https://github.com/angus-c/just
-- **Homepage:** https://github.com/angus-c/just#readme
-- **Tarball:** https://registry.npmjs.org/just-clone/-/just-clone-6.2.0.tgz
-- **Tarball SHA-1:** `a4614d9bf7e4bbdcae7f9ba904aea5ea9cae8ae5`
-- **File SHA-256:** `a9f295a9e69a82c0fd4d0e8ed3e8f0f1318458b2a16386c0e02e855d419b541e`
-- **Size:** 1,428 bytes / 55 lines
+- **Package:** `rfdc@1.4.1` ([npm](https://www.npmjs.com/package/rfdc/v/1.4.1))
+- **Entry path in package:** `index.js`
+- **Direct file link:** https://cdn.jsdelivr.net/npm/rfdc@1.4.1/index.js
+- **Mirror:** https://unpkg.com/rfdc@1.4.1/index.js
+- **Repository:** https://github.com/davidmarkclements/rfdc
+- **Homepage:** https://github.com/davidmarkclements/rfdc#readme
+- **Tarball:** https://registry.npmjs.org/rfdc/-/rfdc-1.4.1.tgz
+- **Tarball SHA-1:** `778f76c4fb731d93414e8f925fbecf64cce7f6ca`
+- **File SHA-256:** `276defbca175e8293ccaa08fcf1de4d8071c096e606bd8e156976c7550bdb0b7`
+- **Size:** 5,847 bytes / 199 lines
 - **License:** MIT
 
 ### 40. `func_40_deepMerge.js`
@@ -683,31 +681,29 @@ Tarball URLs are what `build_dataset.py` actually downloads. `tarball_sha1` is t
 
 ### 45. `func_45_crc32.js`
 
-- **Package:** `crc-32@1.2.2` ([npm](https://www.npmjs.com/package/crc-32/v/1.2.2))
-- **Entry path in package:** `crc32.js`
-- **Direct file link:** https://cdn.jsdelivr.net/npm/crc-32@1.2.2/crc32.js
-- **Mirror:** https://unpkg.com/crc-32@1.2.2/crc32.js
-- **Repository:** https://github.com/SheetJS/js-crc32
-- **Homepage:** https://sheetjs.com/
-- **Tarball:** https://registry.npmjs.org/crc-32/-/crc-32-1.2.2.tgz
-- **Tarball SHA-1:** `3cad35a934b8bf71f25ca524b6da51fb7eace2ff`
-- **File SHA-256:** `8450a98f18b8a24ed088d07d64c5134896e54079757f783945054167a9d2e75e`
-- **Size:** 3,566 bytes / 116 lines
-- **License:** Apache-2.0
+- **Package:** `js-crc@0.3.1` ([npm](https://www.npmjs.com/package/js-crc/v/0.3.1))
+- **Entry path in package:** `src/crc.js`
+- **Direct file link:** https://cdn.jsdelivr.net/npm/js-crc@0.3.1/src/crc.js
+- **Mirror:** https://unpkg.com/js-crc@0.3.1/src/crc.js
+- **Repository:** https://github.com/emn178/js-crc
+- **Tarball:** https://registry.npmjs.org/js-crc/-/js-crc-0.3.1.tgz
+- **Tarball SHA-1:** `f52bb40ad370f66559dae9fa3b2c02e8b9f136cc`
+- **File SHA-256:** `c56254c93fb1128e8e9849344d914a3e136763b6423396140b02c4665ca2cdab`
+- **Size:** 10,436 bytes / 385 lines
+- **License:** MIT
 
-### 46. `func_46_adler32.js`
+### 46. `func_46_base32.js`
 
-- **Package:** `adler-32@1.3.1` ([npm](https://www.npmjs.com/package/adler-32/v/1.3.1))
-- **Entry path in package:** `adler32.js`
-- **Direct file link:** https://cdn.jsdelivr.net/npm/adler-32@1.3.1/adler32.js
-- **Mirror:** https://unpkg.com/adler-32@1.3.1/adler32.js
-- **Repository:** https://github.com/SheetJS/js-adler32
-- **Homepage:** http://sheetjs.com/opensource
-- **Tarball:** https://registry.npmjs.org/adler-32/-/adler-32-1.3.1.tgz
-- **Tarball SHA-1:** `1dbf0b36dda0012189a32b3679061932df1821e2`
-- **File SHA-256:** `f2465cedbd906ae9e7f104adb0a38a44d42184aea5fde2b0eb884feb2dc99e70`
-- **Size:** 2,417 bytes / 93 lines
-- **License:** Apache-2.0
+- **Package:** `hi-base32@0.5.1` ([npm](https://www.npmjs.com/package/hi-base32/v/0.5.1))
+- **Entry path in package:** `src/base32.js`
+- **Direct file link:** https://cdn.jsdelivr.net/npm/hi-base32@0.5.1/src/base32.js
+- **Mirror:** https://unpkg.com/hi-base32@0.5.1/src/base32.js
+- **Repository:** https://github.com/emn178/hi-base32
+- **Tarball:** https://registry.npmjs.org/hi-base32/-/hi-base32-0.5.1.tgz
+- **Tarball SHA-1:** `1279f2ddae2673219ea5870c2121d2a33132857e`
+- **File SHA-256:** `01c32b9760332368c3bd2a9dc8f42bca091eccd7f0720d008ed785c86612fe86`
+- **Size:** 16,590 bytes / 459 lines
+- **License:** MIT
 
 ### 47. `func_47_rc4.js`
 
