@@ -624,3 +624,98 @@ are now stashed on the shared assert object as `__deobfRawAssert` so the harness
 shims can call assert without double-counting, and is-url's count is a known
 undercount.
 
+---
+
+## 16. Session 3e — the timeout blocker closed, and the corpus frozen
+
+**D17 — `npx jest` cannot score a stage; `tools/score_stage.js` can.**
+Jest's `testTimeout` bounds a test BODY. A corpus file that loops at module load
+hangs the worker forever, because the loop runs while the test file is still
+being evaluated. Carried as an open risk since §11 and demonstrated twice during
+§15's mutation run (dijkstrajs and priorityqueuejs mutants). Obfuscated and
+model-generated files will do this routinely.
+
+`score_stage.js` runs each suite as its own child process under a wall-clock
+limit and SIGKILLs on expiry -- SIGTERM is useless against a synchronous loop.
+Verified: a corpus with `while(true){}` planted in one file now scores 49/50 with
+that file recorded as `timeout`, instead of hanging.
+
+It also fixes the failure taxonomy §12 asked for. Four outcomes, not one:
+
+| Outcome | Means |
+|---|---|
+| `pass` | suite green |
+| `fail` | ran, assertions failed -- a semantic difference |
+| `load-error` | could not start -- did not parse or load |
+| `timeout` | did not terminate |
+
+Collapsing these into "fail" would make the level-3 numbers uninterpretable.
+
+**A vendored suite that reads process.argv.** Scoring per file surfaced that
+arr-union's test calls `minimist(process.argv.slice(2))` and, on finding a
+positional argument, loads a benchmark implementation instead of the package.
+Passing the test path to Jest positionally put Jest's argv in front of it, so
+`npx jest func_32_union` tried to require `benchmark/code/undefined.js`. Fixed at
+both ends: `suites.js` declares `resetArgv` for that suite and `build.js` blanks
+argv around the require, and `score_stage.js` selects files with
+`--testPathPattern` rather than positionally.
+
+**D18 — The corpus is frozen at v1.0.**
+`CORPUS.lock.json` reduces all 50 corpus files and all 85 vendored test files to
+one fingerprint:
+
+```
+ff4a5551e43cfd6e9576a0d3134810616175a93f2af9930eaed45d2c85523484
+```
+
+`npm run verify:freeze` is now the first gate in `npm run groundtruth`. Package
+swapping stops here: the numbers in the paper must refer to one artefact, and a
+reader must be able to confirm they have it. A later change is allowed but must
+be a deliberate re-freeze with a version bump, not a silent drift.
+
+### Still open
+
+* **Oracle strength is not yet a publishable number.** §15 reported 80 %, then
+  adding a regex mutator (needed because `is-uuid` is nothing but regexes and had
+  produced no mutants at all) changed the picture again -- `func_22_isUuid` scores
+  **0 % on 22 566 assertions**, because its suite tests thousands of valid UUIDs
+  and only absurd negatives, never a well-formed UUID with trailing junk. The
+  mutator set must be fixed, measured once, and declared. Do not cite 80 %.
+* **Pass Rate granularity**: `score_stage.js` now reports per-file binary, which
+  is what the Ground Truth Rule implies. Confirm this is the definition of record.
+* No obfuscation pipeline, no baseline run, no model run. Zero experimental data.
+
+---
+
+## 17. Oracle strength is final for v1.0
+
+**366/470 injected faults detected — 78 %.** Measured for all 50 functions; the
+earlier 76/78/80 % figures each excluded something. The mutator set is now closed:
+comparison operators, logical operators, boolean literals, numeric literals, and
+regular expressions. Adding a sixth class would move the number again and leave
+nothing citable, so it stops here.
+
+| Strength | Files |
+|---|---|
+| 100 % | 10 |
+| 80-99 % | 21 |
+| 50-79 % | 17 |
+| < 50 % | 2 |
+
+**D19 — Keep `func_22_isUuid` at 0 % and publish it.**
+Adding a regex mutator (needed at all because is-uuid is nothing but regexes and
+had produced no mutants) revealed that its suite detects none of the seven faults
+injected into it, despite running 22 566 assertions -- the second highest count in
+the corpus. Its negatives are all grossly malformed inputs; nothing tests a
+well-formed UUID with trailing junk, so dropping the `$` anchor is invisible.
+
+Keeping it costs one item's worth of measurement precision and buys the paper its
+clearest evidence that **assertion count is not a proxy for oracle strength**:
+22 566 assertions catching nothing beside `func_32_union`'s five catching
+everything. The alternative -- removing it -- would require re-freezing the corpus
+to hide a weakness the benchmark is capable of measuring.
+
+The results table must not treat a PASS here as equivalent to a PASS on a
+100 %-strength item. Report Pass Rate over all 50 with this item flagged, and
+optionally again over the 49 measurable ones.
+

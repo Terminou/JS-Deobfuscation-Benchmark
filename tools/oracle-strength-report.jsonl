@@ -467,3 +467,4 @@
 {"id":"func_50_hashSum","mutator":"binary:===->!==","line":40,"verdict":"killed"}
 {"id":"func_50_hashSum","mutator":"binary:!==->===","line":41,"verdict":"killed"}
 {"id":"func_27_wordWrap","mutator":"binary:===->!==","line":11,"verdict":"timeout"}
+{"id":"func_38_deepEqual","mutator":"number:0->1","line":17,"verdict":"timeout"}

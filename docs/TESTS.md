@@ -1,8 +1,9 @@
 # The Test Oracle — Official Upstream Suites
 
 **Status:** `50 / 50` suites pass against `dataset/00_raw`. 8 593 Jest blocks,
-**106 438 assertions executed**, 2 declared-skipped. Oracle strength **80 %**,
-with a single item below 50 %. The Ground Truth Rule of paper Section 4 is met.
+**106 438 assertions executed**, 2 declared-skipped. Oracle strength **78 %**
+(366/470 injected faults detected), measured for all 50 functions. Corpus frozen
+at v1.0, fingerprint `ff4a5551…`. The Ground Truth Rule of paper Section 4 is met.
 
 This document is the decision record for the oracle, as `SESSION_LOG.md` is for
 the corpus. Its central claim, and the thing the rest of the document exists to
@@ -314,15 +315,21 @@ npm run measure:oracle                     # 10 mutants per file, AST-based
 npm run check:assertions                   # static: assertions that cannot fail
 ```
 
-Current: **367/459 mutants detected, 80 %.** Per-file scores are the last column
-of the table in §3. Distribution:
+Current: **366/470 mutants detected, 78 %.** Every function now yields mutants;
+the earlier figures excluded `func_22_isUuid`, which has no operators or literals
+to mutate at all. Distribution:
 
 | Oracle strength | Files |
 |---|---|
-| 100 % | 11 |
-| 80-99 % | 22 |
-| 50-79 % | 15 |
-| < 50 % | 1 |
+| 100 % | 10 |
+| 80-99 % | 21 |
+| 50-79 % | 17 |
+| < 50 % | 2 |
+
+**This number is final for v1.0.** The mutator set -- comparison operators,
+logical operators, boolean literals, numeric literals, regular expressions -- is
+fixed. Adding another class of mutator would move the figure again and leave no
+single number to cite.
 
 Mutation is done on the AST (`@babel/parser`), never on text. An earlier
 regex-based version "mutated" the URL inside a licence comment and reported a
@@ -335,11 +342,37 @@ recovery, a PASS on `func_05_unionFind` (33 %) is weak. Interpreting Pass Rate
 without it overstates what the benchmark measured. Very few benchmarks report
 oracle strength at all, so this is a contribution rather than an admission.
 
-One item remains below 50 %:
+Two items remain below 50 %, and both are reported rather than hidden:
 
 | Suite | Score | Why it stays |
 |---|---|---|
+| `func_22_isUuid` | **0 %** | see below -- the most informative number in this table |
 | `func_05_unionFind` | 33 % | a single upstream test. The only eligible replacement, `disjoint-set@1.1.9`, fails **its own** suite under Node 18 -- the entry is `'use strict'` and assigns a property to a primitive, so `add(5)` throws. Rejected. |
+
+### `func_22_isUuid`: 22 566 assertions, 0 % strength
+
+is-uuid is seven anchored regular expressions and seven one-line wrappers. Its
+official suite runs **22 566 assertions**, the second highest in the corpus. It
+detects **none** of the seven faults injected into it.
+
+The reason is visible in the suite's shape. Almost every assertion feeds a known
+**valid** UUID and expects `true`; the negative cases are `true`, `false`, `null`,
+`[]`, `function(){}`, `NaN`, `{}`, `'not-a-uuid'` and `undefined` -- all grossly
+malformed. No test ever passes a well-formed UUID with trailing or leading junk.
+So removing the `$` anchor, which makes the validator accept
+`20505253-08e9-46ea-8b7b-b6fc137c3858XXXX`, is invisible to it.
+
+The item is **kept deliberately**. It is the corpus's sharpest evidence for a
+claim the paper should make explicitly:
+
+> Assertion count is not a proxy for oracle strength. `func_22_isUuid` runs
+> 22 566 assertions and catches nothing; `func_32_union` runs 5 and catches
+> everything.
+
+A PASS on this item therefore carries no evidence of semantic recovery, and the
+results table must say so. Report Pass Rate over all 50 and note this item, or
+report it a second time over the 49 measurable ones -- but do not present a PASS
+here as equivalent to a PASS on `func_44_sha1` (100 %).
 
 Three others were retired on measured evidence rather than opinion, each swapped
 only after the replacement's own oracle strength was measured:

@@ -58,7 +58,16 @@ module.exports = {
   func_29_isHexColor:         { stubs: ['index.js'], entries: ['test.js'] },
   func_30_queryString:        { stubs: ['index.js'], entries: ['test.js'] },
   func_31_objectPath:         { stubs: ['index.js'], entries: ['test.js'] },
-  func_32_union:              { stubs: ['index.js'], entries: ['test.js'] },
+  func_32_union: {
+    stubs: ['index.js'],
+    entries: ['test.js'],
+    // arr-union's suite reads minimist(process.argv.slice(2)) and, if it finds a
+    // positional argument, loads a benchmark implementation instead of the
+    // package. Under Jest the argv belongs to Jest, so `npx jest func_32_union`
+    // made it try to require benchmark/code/undefined.js. Blanking argv around
+    // the require restores upstream's own default path.
+    resetArgv: true,
+  },
   func_33_flatten:            { stubs: ['index.js'], entries: ['test.js'] },
   func_34_unique:             { stubs: ['index.js'], entries: ['test.js'] },
   func_35_difference:         { stubs: ['index.js'], entries: ['test.js'] },

@@ -66,7 +66,21 @@ for (const [id, spec] of Object.entries(SUITES)) {
         '',
       ].join('\n')
     : '';
-  const requires = skips + spec.entries.map((e) => `require('../../upstream/${id}/${e}');`).join('\n');
+  let requires = spec.entries.map((e) => `require('../../upstream/${id}/${e}');`).join('\n');
+  if (spec.resetArgv) {
+    requires = [
+      '// This suite inspects process.argv; under Jest that argv is Jest\'s, not',
+      '// its own. Blanked for the load so upstream takes its default path.',
+      'const __argv = process.argv;',
+      'process.argv = [__argv[0], __argv[1]];',
+      'try {',
+      requires.split('\n').map((l) => `  ${l}`).join('\n'),
+      '} finally {',
+      '  process.argv = __argv;',
+      '}',
+    ].join('\n');
+  }
+  requires = skips + requires;
   fs.writeFileSync(path.join(GENERATED, `${id}.test.js`), [
     '/**',
     ` * ${id} -- official upstream suite of ${p.npm_package}@${p.npm_version}.`,

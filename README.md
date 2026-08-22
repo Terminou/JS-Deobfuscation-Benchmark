@@ -50,6 +50,8 @@ tools/                        quality gates
   verify_tests.js               every vendored test file still matches its sha256
   verify_test_counts.js         no suite silently registered fewer tests
   report.js                     per-function table; --md/--csv write docs/
+  score_stage.js                per-file outcome under a timeout (scores a stage)
+  freeze.js                     pin corpus+oracle to one fingerprint / verify it
   check_oracle_wiring.js        every suite goes red against a no-op module
   check_dead_assertions.js      no assertion is written so it cannot fail
   measure_oracle_strength.js    mutation testing: how much wrongness each suite catches
@@ -60,13 +62,49 @@ docs/SESSION_LOG.md           decision record for the corpus
 docs/TESTS.md                 decision record for the oracle
 ```
 
+## The corpus is frozen
+
+`CORPUS.lock.json` pins all 50 corpus files and all 85 vendored test files to a
+single fingerprint:
+
+```
+ff4a5551e43cfd6e9576a0d3134810616175a93f2af9930eaed45d2c85523484
+```
+
+Quote it in the paper; `npm run verify:freeze` lets a reader confirm a checkout
+is the same artefact. Every downstream result -- obfuscation levels, baselines,
+model runs -- is only comparable against this fingerprint. If a corpus item ever
+has to change, re-freeze deliberately and say so.
+
 ## Running
 
 ```bash
 npm install
-npm run groundtruth      # dataset loads + tests unmodified + counts intact
+npm run groundtruth      # frozen + loads + tests unmodified + counts intact + 50/50
 npm test                 # 50 suites, 8 593 blocks / 106 438 assertions, ~6 s
+npm run score            # per-file outcome under a hard timeout (use this to score a stage)
 ```
+
+### Scoring a stage
+
+`npm test` is for development. To score a pipeline stage use `npm run score`,
+which runs each suite as its own process under a wall-clock limit:
+
+```bash
+TARGET_DIR=dataset/01_obfuscated/level_3 npm run score
+```
+
+Jest's own `testTimeout` bounds a test body, not module load, so a file that
+loops while being required hangs the whole run — obfuscated and model-generated
+files do this. `score_stage.js` isolates that to one suite and records four
+distinct outcomes, which is also the failure taxonomy the results table needs:
+
+| Outcome | Means |
+|---|---|
+| `pass` | suite green |
+| `fail` | ran, assertions failed — a real semantic difference |
+| `load-error` | could not even start — did not parse or load |
+| `timeout` | killed at the limit — did not terminate |
 
 `TARGET_DIR` points the entire benchmark at a pipeline stage:
 
@@ -79,7 +117,7 @@ Before trusting a green run on a new stage:
 
 ```bash
 npm run check:wiring     # suites actually reach the code
-npm run measure:oracle   # how much wrongness they catch (currently 80 %)
+npm run measure:oracle   # how much wrongness they catch (78 %, final for v1.0)
 ```
 
 ## Reporting
@@ -102,5 +140,5 @@ obfuscation level or a model's output.
 50/50 suites pass — 8 593 blocks, 106 438 assertions, 2 declared-skipped
 50/50 suites go red against a no-op module — 0 oracle holes
  0   dead assertions
-80 % oracle strength (367/459 mutants detected); 1 function below 50 %
+78 % oracle strength (366/470 injected faults detected); 2 functions below 50 %
 ```

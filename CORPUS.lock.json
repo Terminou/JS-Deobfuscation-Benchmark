@@ -1,0 +1,1165 @@
+{
+  "version": "1.0",
+  "frozen": "2026-08-22",
+  "note": "Corpus and oracle frozen for the experimental runs. Re-run tools/freeze.js to confirm a later checkout is the same artefact.",
+  "fingerprint": "ff4a5551e43cfd6e9576a0d3134810616175a93f2af9930eaed45d2c85523484",
+  "counts": {
+    "functions": 50,
+    "byCategory": {
+      "algorithms": 15,
+      "validation": 15,
+      "collections": 10,
+      "crypto": 10
+    },
+    "corpusBytes": 218132,
+    "vendoredTestFiles": 85
+  },
+  "environment": {
+    "node": "v18.12.1",
+    "jest": "^29.7.0"
+  },
+  "corpus": [
+    {
+      "id": "func_01_binarySearch",
+      "package": "binary-search@1.3.6",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 1013,
+      "sha256": "854a9053296ff3f147b913e16459f9585a0edf3b8177960d144afa5dd8f96c62"
+    },
+    {
+      "id": "func_02_binarySearchBounds",
+      "package": "binary-search-bounds@2.0.5",
+      "entry": "search-bounds.js",
+      "category": "algorithms",
+      "bytes": 1829,
+      "sha256": "cb3eda6743b9c9d84dc5de319f75e683f6562d167bcaac56f02fb729249d3f06"
+    },
+    {
+      "id": "func_03_levenshtein",
+      "package": "js-levenshtein@1.1.6",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 1945,
+      "sha256": "224a95ec182ba763c07e995e65b47e1e3aec9702b9ded4a8782503559c92c33f"
+    },
+    {
+      "id": "func_04_damerauLevenshtein",
+      "package": "damerau-levenshtein@1.0.8",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 1987,
+      "sha256": "d4150544d11f0d52cd0dcd6bf57274e8b2996793a8dac341b396caf7aac3ca7c"
+    },
+    {
+      "id": "func_05_unionFind",
+      "package": "union-find@1.0.2",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 1045,
+      "sha256": "91d2655bc16ac282d38ea9a285c304c7a7a34ba4da72265c2ade3bc3ac4cb82c"
+    },
+    {
+      "id": "func_06_naturalCompare",
+      "package": "string-natural-compare@3.0.1",
+      "entry": "natural-compare.js",
+      "category": "algorithms",
+      "bytes": 3421,
+      "sha256": "1fb70fd9e52b881802633a3891f3eb0dd1576c776e3ea9e9f5596fd4c8f93412"
+    },
+    {
+      "id": "func_07_toposort",
+      "package": "toposort@2.0.2",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 2270,
+      "sha256": "9e0ff177affd94f951923d5b809b9b365c578b256b640d30dcfd6a0485dfde81"
+    },
+    {
+      "id": "func_08_deque",
+      "package": "denque@2.1.0",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 12497,
+      "sha256": "61e3335c88fa7415d0b0522ca2cbeed17b7a9b4911aa1e41d1006a2e782e553e"
+    },
+    {
+      "id": "func_09_dijkstra",
+      "package": "dijkstrajs@1.0.3",
+      "entry": "dijkstra.js",
+      "category": "algorithms",
+      "bytes": 5206,
+      "sha256": "7f5721e77332370a71314f1536b8c552f4f9dbd99bbc6c5aa10df3253eacfd5c"
+    },
+    {
+      "id": "func_10_priorityQueue",
+      "package": "priorityqueuejs@2.0.0",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 3678,
+      "sha256": "5ea404245cb759b5b3192c806a90da0f75a2d1d7fcccf1de6a2342ea4294fc4c"
+    },
+    {
+      "id": "func_11_sortedArray",
+      "package": "sorted-array-functions@1.3.0",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 3159,
+      "sha256": "d55ef3895f7d88805d4d6eeab000bdc8d393cb55ec4784e6242a5e09cbe2b14e"
+    },
+    {
+      "id": "func_12_jaroWinkler",
+      "package": "jaro-winkler@0.2.8",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 2221,
+      "sha256": "dfca886b6876615eb7ea829a890bdd1a2d376d7319958174e85c54aa6ee88184"
+    },
+    {
+      "id": "func_13_mersenneTwister",
+      "package": "mersenne-twister@1.1.0",
+      "entry": "src/mersenne-twister.js",
+      "category": "algorithms",
+      "bytes": 7351,
+      "sha256": "b197b673a9e8add2068c9062e5f9222f73ae46ff03634909db28a924fdcad0eb"
+    },
+    {
+      "id": "func_14_stringSimilarity",
+      "package": "string-similarity@4.0.4",
+      "entry": "src/index.js",
+      "category": "algorithms",
+      "bytes": 1985,
+      "sha256": "b3b6505f784755ed0cf5c25e2705d11c2696468e3c58c70b22b795eca16eb67f"
+    },
+    {
+      "id": "func_15_combinatorics",
+      "package": "js-combinatorics@2.1.4",
+      "entry": "commonjs/combinatorics.js",
+      "category": "algorithms",
+      "bytes": 12310,
+      "sha256": "c6a59157612c55c64dce7ef9898e79418df5f478cbad605ef4cac5b8c5ba424b"
+    },
+    {
+      "id": "func_16_isEmail",
+      "package": "email-validator@2.0.4",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 898,
+      "sha256": "72a150940d35695c23e26e262e564dae9397ca9757e2ab57b1c784607d9838b1"
+    },
+    {
+      "id": "func_17_isUrl",
+      "package": "is-url@1.2.4",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 856,
+      "sha256": "c7cb9f56300321d104c9772c054144d75e3bf280d184d547fab525f9fbf16e5c"
+    },
+    {
+      "id": "func_18_isUri",
+      "package": "valid-url@1.0.9",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 4090,
+      "sha256": "469c5c584ff2e0f8d219e88b9da80eac8f22f27f85e597e1b7032d0b8e17dca9"
+    },
+    {
+      "id": "func_19_isJson",
+      "package": "is-json@3.0.1",
+      "entry": "dist/index.cjs",
+      "category": "validation",
+      "bytes": 1006,
+      "sha256": "9ef7dbfe7591b8495cdcd84c9980ebe2c840acef5a85e07e81b34bb19a5e8376"
+    },
+    {
+      "id": "func_20_isBase64",
+      "package": "is-base64@1.1.0",
+      "entry": "is-base64.js",
+      "category": "validation",
+      "bytes": 1143,
+      "sha256": "d3492719893a35e8e6352007102e5fe83546b031b0af6acf724568f96793af03"
+    },
+    {
+      "id": "func_21_msDuration",
+      "package": "ms@2.1.3",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 3024,
+      "sha256": "e5f0b6a946a9b2b356a28557728410717df54ea2f599edb619f9839df6b7b0e9"
+    },
+    {
+      "id": "func_22_isUuid",
+      "package": "is-uuid@1.0.2",
+      "entry": "lib/is-uuid.js",
+      "category": "validation",
+      "bytes": 1109,
+      "sha256": "29664f9063d106747e3f74e188b0ab27660fef7936eab4a600788f3b87d6370c"
+    },
+    {
+      "id": "func_23_uuidValidate",
+      "package": "uuid-validate@0.0.3",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 2853,
+      "sha256": "73af1b9d621d6e4527a81c0c83c42358a4ed6fbf84057f2a6faf6c43a775fe6e"
+    },
+    {
+      "id": "func_24_luhn",
+      "package": "luhn@2.4.1",
+      "entry": "src/luhn.js",
+      "category": "validation",
+      "bytes": 795,
+      "sha256": "a0a19d8f3b54c65ed0a1f4e04c39b563508393f4e4b541dcf85100c30f81fbe9"
+    },
+    {
+      "id": "func_25_jwtDecode",
+      "package": "jwt-decode@4.0.0",
+      "entry": "build/cjs/index.js",
+      "category": "validation",
+      "bytes": 1894,
+      "sha256": "00c73a8f471d530b034d6337db03a0667ab8047a37bbd32e8130b9c49647bc42"
+    },
+    {
+      "id": "func_26_pluralize",
+      "package": "pluralize@8.0.0",
+      "entry": "pluralize.js",
+      "category": "validation",
+      "bytes": 12618,
+      "sha256": "9bf6ffd9399792e846298560533c359f9225117ef3f670891a9610f1d293635c"
+    },
+    {
+      "id": "func_27_wordWrap",
+      "package": "word-wrap@1.2.5",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 1455,
+      "sha256": "10fa705ebcff5c8e724c457f9a94eff8f795cf09938c941debdd18df5fcd0309"
+    },
+    {
+      "id": "func_28_byteSize",
+      "package": "bytes@3.1.2",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 3613,
+      "sha256": "893fcbbbe962dc00e40dc2e4b20e76e92d874dd257345003c6575d940e91a37f"
+    },
+    {
+      "id": "func_29_isHexColor",
+      "package": "hex-color-regex@1.1.0",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 459,
+      "sha256": "ef5ce30fb57a7f65921559e2b4706027268208f3ffd578e4897fc9543f7459d8"
+    },
+    {
+      "id": "func_30_queryString",
+      "package": "querystringify@2.2.0",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 2564,
+      "sha256": "f7154ff748b206631dd5d5ca12059f103770be321e016c48e675c57b7b9c6918"
+    },
+    {
+      "id": "func_31_objectPath",
+      "package": "object-path@0.11.8",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 8138,
+      "sha256": "86a4b92427eff2fcd16d405d2abeec55eb43272eee81512498743f61a94d5245"
+    },
+    {
+      "id": "func_32_union",
+      "package": "arr-union@3.1.0",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 527,
+      "sha256": "745740f6cbcf395196ce54675aae5c282839eedaa34f7785b4ba1c1626c8422e"
+    },
+    {
+      "id": "func_33_flatten",
+      "package": "arr-flatten@1.1.0",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 418,
+      "sha256": "69d5763ad59ce6caba72556398e4468c90de09cfae19b05008804014820819f1"
+    },
+    {
+      "id": "func_34_unique",
+      "package": "array-unique@0.3.2",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 829,
+      "sha256": "d410ca4ad30538690d81144f2b67f0b92db90482d3aea2a293446c559517ceb2"
+    },
+    {
+      "id": "func_35_difference",
+      "package": "arr-diff@4.0.0",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 805,
+      "sha256": "900ab06e56ab827cd64e5978539b1c6985b914c919e873962c97dc7006c19ea8"
+    },
+    {
+      "id": "func_36_intersect",
+      "package": "intersect@1.0.1",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 1016,
+      "sha256": "f0a6be1f48d3ee8c02d0f52b807e78735ccf4faea3931b3dbafa074fb871a40e"
+    },
+    {
+      "id": "func_37_groupBy",
+      "package": "just-group-by@2.2.0",
+      "entry": "index.cjs",
+      "category": "collections",
+      "bytes": 571,
+      "sha256": "b1dd72dc49435d54bc6ef30b444de8ab7134544b0be0dc2259ef578c03a6bc42"
+    },
+    {
+      "id": "func_38_deepEqual",
+      "package": "fast-deep-equal@3.1.3",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 1177,
+      "sha256": "eb469e206280321a3878f2335ec98aa2104a155079d8ed83a23029098dccd215"
+    },
+    {
+      "id": "func_39_cloneDeep",
+      "package": "rfdc@1.4.1",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 5847,
+      "sha256": "276defbca175e8293ccaa08fcf1de4d8071c096e606bd8e156976c7550bdb0b7"
+    },
+    {
+      "id": "func_40_deepMerge",
+      "package": "deepmerge@4.3.1",
+      "entry": "dist/cjs.js",
+      "category": "collections",
+      "bytes": 4048,
+      "sha256": "2e5160f84a1141bd927264afe4d15766f1e6cf07daef182b37ff53fea121de7d"
+    },
+    {
+      "id": "func_41_base64",
+      "package": "base64-js@1.5.1",
+      "entry": "index.js",
+      "category": "crypto",
+      "bytes": 3932,
+      "sha256": "829eadd8a1a441d25be0cb93b00e16a0d0c20fd294db95d8f2ed87e6954b7182"
+    },
+    {
+      "id": "func_42_md5",
+      "package": "blueimp-md5@2.19.0",
+      "entry": "js/md5.js",
+      "category": "crypto",
+      "bytes": 11559,
+      "sha256": "5f14f0efb563db7b23efaf394339a78bced6fd5ba649f049961a65476d928af5"
+    },
+    {
+      "id": "func_43_sha256",
+      "package": "js-sha256@1.0.0",
+      "entry": "build/sha256.node.cjs",
+      "category": "crypto",
+      "bytes": 3120,
+      "sha256": "8432293ab7fd9b7bc4aae9a280db18d31172b802636749c55ae8d1df7a09c32b"
+    },
+    {
+      "id": "func_44_sha1",
+      "package": "js-sha1@0.7.0",
+      "entry": "src/sha1.js",
+      "category": "crypto",
+      "bytes": 16343,
+      "sha256": "604cc29324140fe535e3efb8c1ab3bc7737ce28dc6ffe5a0751962b5e634a132"
+    },
+    {
+      "id": "func_45_crc32",
+      "package": "js-crc@0.3.1",
+      "entry": "src/crc.js",
+      "category": "crypto",
+      "bytes": 10436,
+      "sha256": "c56254c93fb1128e8e9849344d914a3e136763b6423396140b02c4665ca2cdab"
+    },
+    {
+      "id": "func_46_base32",
+      "package": "hi-base32@0.5.1",
+      "entry": "src/base32.js",
+      "category": "crypto",
+      "bytes": 16590,
+      "sha256": "01c32b9760332368c3bd2a9dc8f42bca091eccd7f0720d008ed785c86612fe86"
+    },
+    {
+      "id": "func_47_rc4",
+      "package": "rc4@0.1.5",
+      "entry": "rc4.js",
+      "category": "crypto",
+      "bytes": 4633,
+      "sha256": "0835d80744de0cc4331a43a4ee9baf155ee0d791e4b21e3935440b209117fe27"
+    },
+    {
+      "id": "func_48_sha3",
+      "package": "js-sha3@0.9.3",
+      "entry": "src/sha3.js",
+      "category": "crypto",
+      "bytes": 21296,
+      "sha256": "6378cc474ad0a0db3e88c0c67b7bd4a154e1b318f44dbbd13927f6e220efaa38"
+    },
+    {
+      "id": "func_49_bitTwiddle",
+      "package": "bit-twiddle@1.0.2",
+      "entry": "twiddle.js",
+      "category": "crypto",
+      "bytes": 5011,
+      "sha256": "742f8442d60feae35fb46f794b1141635c59e066e945f8298d4be568dd020844"
+    },
+    {
+      "id": "func_50_hashSum",
+      "package": "hash-sum@2.0.0",
+      "entry": "hash-sum.js",
+      "category": "crypto",
+      "bytes": 1542,
+      "sha256": "65864885ec40d747a8d8be777d2785636bab4c180d668da9e2b64d580af02e7f"
+    }
+  ],
+  "tests": [
+    {
+      "id": "func_01_binarySearch",
+      "source": "npm",
+      "pin": "e32426016a0c5092f0f3598836a1c7da3560565c",
+      "ref": null,
+      "files": [
+        {
+          "path": "test.js",
+          "sha256": "e9f137bfc55634cda8e4f3e4e212f3dd85d51fbad4c9bcb0e121b971a3058aad"
+        }
+      ]
+    },
+    {
+      "id": "func_02_binarySearchBounds",
+      "source": "npm",
+      "pin": "125e5bd399882f71e6660d4bf1186384e989fba7",
+      "ref": null,
+      "files": [
+        {
+          "path": "test/test.js",
+          "sha256": "2a19e8469df71b985fab1ba3e0a346bea80e22277b6c856cae99dcda3083f8fd"
+        }
+      ]
+    },
+    {
+      "id": "func_03_levenshtein",
+      "source": "gh",
+      "pin": "55ca1bf22bd55aa81cb5836c63582da6e9fb5fb0",
+      "ref": "v1.1.6",
+      "files": [
+        {
+          "path": "test.js",
+          "sha256": "235324648b86ead130bdccd6aca47dd6df35621bf30548030cf3e80d5cbde279"
+        }
+      ]
+    },
+    {
+      "id": "func_04_damerauLevenshtein",
+      "source": "npm",
+      "pin": "b43d286ccbd36bc5b2f7ed41caf2d0aba1f8a6e7",
+      "ref": null,
+      "files": [
+        {
+          "path": "test/test.js",
+          "sha256": "b2cf293bfad3326b39eef8c46588d326a5839601ab77c3d04ab9393c21919d75"
+        }
+      ]
+    },
+    {
+      "id": "func_05_unionFind",
+      "source": "npm",
+      "pin": "292bac415e6ad3a89535d237010db4a536284e58",
+      "ref": null,
+      "files": [
+        {
+          "path": "test/test.js",
+          "sha256": "64d3339a829e6fcee85b8c8a73620e14ca9fe53adf0f8aebc98c165446deb30b"
+        }
+      ]
+    },
+    {
+      "id": "func_06_naturalCompare",
+      "source": "gh",
+      "pin": "a213a8e225d4a9c790db7661caf6a46b85c4b1c1",
+      "ref": "v3.0.1",
+      "files": [
+        {
+          "path": "test/test.js",
+          "sha256": "9e234558120a55c3c7b8c7fd18aa0a1a5ba24ca8031396e1833a4676db6fa553"
+        }
+      ]
+    },
+    {
+      "id": "func_07_toposort",
+      "source": "npm",
+      "pin": "ae21768175d1559d48bef35420b2f4962f09c330",
+      "ref": null,
+      "files": [
+        {
+          "path": "test.js",
+          "sha256": "055350c986c6d00a0707ee2b8809a760626d548c140a39d729a20ae9f427ae49"
+        }
+      ]
+    },
+    {
+      "id": "func_08_deque",
+      "source": "gh",
+      "pin": "539105bb57854e997dd469221cdc52a0ad80e0a2",
+      "ref": "v2.1.0",
+      "files": [
+        {
+          "path": "test/denque.js",
+          "sha256": "ae4f22436d40116f0b72980a9ede00a70651380bd54952e560492628ab16ca63"
+        }
+      ]
+    },
+    {
+      "id": "func_09_dijkstra",
+      "source": "npm",
+      "pin": "4c8dbdea1f0f6478bff94d9c49c784d623e4fc23",
+      "ref": null,
+      "files": [
+        {
+          "path": "test/dijkstra.test.js",
+          "sha256": "d4b86cf4b085925f5e85414cb1d8b6c2959684e9b554c1bb13989cea3dda91f8"
+        }
+      ]
+    },
+    {
+      "id": "func_10_priorityQueue",
+      "source": "npm",
+      "pin": "96064040edd847ee9dd3013d8e16297399a6bd4f",
+      "ref": null,
+      "files": [
+        {
+          "path": "test/priorityqueue.js",
+          "sha256": "063385615c954ba303dc91a38103073383d6a3a817dc44b79d3978749c76d21f"
+        }
+      ]
+    },
+    {
+      "id": "func_11_sortedArray",
+      "source": "npm",
+      "pin": "8605695563294dffb2c9796d602bd8459f7a0dd5",
+      "ref": null,
+      "files": [
+        {
+          "path": "test.js",
+          "sha256": "b2b994484282780dcfca08f7c07d606982250b39b7237474dc638243343a6a59"
+        }
+      ]
+    },
+    {
+      "id": "func_12_jaroWinkler",
+      "source": "npm",
+      "pin": "6727e0d0b7091e2436f9356de9bf88fad23e534a",
+      "ref": null,
+      "files": [
+        {
+          "path": "test/test.js",
+          "sha256": "aa9acf123d5d261b128cd55e396020a13a15fcff72da72e7c7652ccbab3f1dd1"
+        }
+      ]
+    },
+    {
+      "id": "func_13_mersenneTwister",
+      "source": "npm",
+      "pin": "f916618ee43d7179efcf641bec4531eb9670978a",
+      "ref": null,
+      "files": [
+        {
+          "path": "test/generator.js",
+          "sha256": "74d7b1d4ae271afe76419f2a29337fa4b5ff4092b58f80658d19ea33fed935ef"
+        }
+      ]
+    },
+    {
+      "id": "func_14_stringSimilarity",
+      "source": "gh",
+      "pin": "07cbc8d1569013a10c6075ce02d3efca71a5cfb6",
+      "ref": "4.0.4",
+      "files": [
+        {
+          "path": "src/spec/index.spec.js",
+          "sha256": "be6cfdbf8b998cdb3e67a8bd9705abadd27e6f41f279096375c13089626113bf"
+        }
+      ]
+    },
+    {
+      "id": "func_15_combinatorics",
+      "source": "gh",
+      "pin": "4ae77832d6cb38e58cddab5eadb577461f9389ee",
+      "ref": "2.1.4",
+      "files": [
+        {
+          "path": "test/00-node.js",
+          "sha256": "ccad7c4064c89895d3fbefc5cd57090f8d51ea48b00d7c7569a5a81c59d2c09b"
+        },
+        {
+          "path": "test/02-arithmetics.js",
+          "sha256": "d45fd7287f04879efc527e75a4de50b9de2f2d055eec527aff43057b12dc70e3"
+        },
+        {
+          "path": "test/03-basen.js",
+          "sha256": "d5d1ae57fadae060fb1436cd4e656d0d456c127985aa002f17e69e2999426f5e"
+        },
+        {
+          "path": "test/03-cartesianproduct.js",
+          "sha256": "0a462f566780eb6de5e0af75facbf3bb9bf22fb9c9fb79607c9ebda404c4fb98"
+        },
+        {
+          "path": "test/03-combination.js",
+          "sha256": "3ffcd0daafe11db0b5cffea235c7714ffb476367fdc5f372c1990b1166b2106d"
+        },
+        {
+          "path": "test/03-permcomb.js",
+          "sha256": "d0332c6a21676ff5b4aabf9ee3d66451dec060bea36eb00b8d55e6cf85b12a9a"
+        },
+        {
+          "path": "test/03-permutation.js",
+          "sha256": "b1da8885cbc2c86f8fceca0ae0c30472f962134141eec750ddc9f243f85017e6"
+        },
+        {
+          "path": "test/03-powerset.js",
+          "sha256": "8d2ff8611f1091fdb71ad512897f5c27ebc34848f4088605a1edd8cc86d23d20"
+        }
+      ]
+    },
+    {
+      "id": "func_16_isEmail",
+      "source": "npm",
+      "pin": "b8dfaa5d0dae28f1b03c95881d904d4e40bfe7ed",
+      "ref": null,
+      "files": [
+        {
+          "path": "test.js",
+          "sha256": "acf1f5f4725330bbab57ab013eafc332549046d4ef860b5edb4114958a2e1a1e"
+        }
+      ]
+    },
+    {
+      "id": "func_17_isUrl",
+      "source": "npm",
+      "pin": "04a4df46d28c4cff3d73d01ff06abeb318a1aa52",
+      "ref": null,
+      "files": [
+        {
+          "path": "test/index.js",
+          "sha256": "ac53796f4aaf8474830eec375f929b0269c2811eb2e7abf9cfdd87b793ee7f5b"
+        }
+      ]
+    },
+    {
+      "id": "func_18_isUri",
+      "source": "npm",
+      "pin": "1c14479b40f1397a75782f115e4086447433a200",
+      "ref": null,
+      "files": [
+        {
+          "path": "test/is_http_uri.js",
+          "sha256": "0066ca751074809c545af5c8040b589fbbd5d6955f5a3f5eda4c2e10d1fcb399"
+        },
+        {
+          "path": "test/is_https_uri.js",
+          "sha256": "3c9787bb0fd6ca581e02df9948cfd88892e1a4bf6a56af35aa15a9b0e138537f"
+        },
+        {
+          "path": "test/is_uri.js",
+          "sha256": "55304cc7213efbcdd0190eb4a13fa267188190097304453d833747f4f6ac880f"
+        },
+        {
+          "path": "test/is_web_uri.js",
+          "sha256": "e4f7c396f55bb690b3dcb0d59032c9dfe06f00c13bd2d721da084442adeb1d07"
+        }
+      ]
+    },
+    {
+      "id": "func_19_isJson",
+      "source": "gh",
+      "pin": "6e2ebf6c0eb45793802793ce79e21834cee1e229",
+      "ref": "v3.0.1",
+      "files": [
+        {
+          "path": "test/index.test.ts",
+          "sha256": "a93b5462defb4c53e5fe2b7977c58d21deb946b15d87752aa43c66412b039c10"
+        }
+      ]
+    },
+    {
+      "id": "func_20_isBase64",
+      "source": "npm",
+      "pin": "8ce1d719895030a457c59a7dcaf39b66d99d56b4",
+      "ref": null,
+      "files": [
+        {
+          "path": "test/is-base64.js",
+          "sha256": "c5e76ba05e0f6257ab2674cfcd0a62c8c4f99fbd912a7a9f8189605bcc0ca099"
+        }
+      ]
+    },
+    {
+      "id": "func_21_msDuration",
+      "source": "gh",
+      "pin": "1c6264b795492e8fdecbc82cb8802fcfbfc08d26",
+      "ref": "2.1.3",
+      "files": [
+        {
+          "path": "tests.js",
+          "sha256": "0f53ac6af9f789d05c724bcd09d2d01488381a199f5706348b40ffa927e55d4a"
+        }
+      ]
+    },
+    {
+      "id": "func_22_isUuid",
+      "source": "npm",
+      "pin": "ad1898ddf154947c25c8e54966f48604e9caecc4",
+      "ref": null,
+      "files": [
+        {
+          "path": "spec/any-non-nil-test.js",
+          "sha256": "eaf1ebd6b89020f0fee4c6341eb5c9792f53022485b04d2f82e687b8434ac102"
+        },
+        {
+          "path": "spec/nil-test.js",
+          "sha256": "0df681576148466e68e4e31847d646b070e88be39d25bae85c33ef8563c2e1d7"
+        },
+        {
+          "path": "spec/support/v1-uuids.js",
+          "sha256": "8c6557626acb30797f4416c197b66503d80d1d5fc60bf75bf4939741b7025f12"
+        },
+        {
+          "path": "spec/support/v2-uuids.js",
+          "sha256": "d2a2f198616ef77d0578720ee76f06806c7d50bdd73aacd7902aecfe97217ab3"
+        },
+        {
+          "path": "spec/support/v3-uuids.js",
+          "sha256": "74887a67ab110b739292680aabe1b5a256e197b7982b6d0797047318e9a97efd"
+        },
+        {
+          "path": "spec/support/v4-uuids.js",
+          "sha256": "b50f7feed3c5e1a218cad06481617b4a36ff1a6eddf5c86522828cff5a59255b"
+        },
+        {
+          "path": "spec/support/v5-uuids.js",
+          "sha256": "d97164b468bd6b92ad03be890bb8f661d55a4fd5d8ef0a957744453504b879c2"
+        },
+        {
+          "path": "spec/v1-test.js",
+          "sha256": "d0ea682835b0098c4ab82b91e928bf7cc416678e10b8332a60e0f182773020d7"
+        },
+        {
+          "path": "spec/v2-test.js",
+          "sha256": "9b4be8acc5bd0c99a588e84645eae3d43038c4ecf869960f837f7c354cb1a09c"
+        },
+        {
+          "path": "spec/v3-test.js",
+          "sha256": "e33115971a709a2445658cf9d8fdd734d6118b4941e30fa5d0f22ce6f438aa6c"
+        },
+        {
+          "path": "spec/v4-test.js",
+          "sha256": "e33841878ebc3f2a85d8c10e53060e11226b2d49d6f119bcd7232ae869db3d9d"
+        },
+        {
+          "path": "spec/v5-test.js",
+          "sha256": "6ccf11f29c8c446189fc6430b649f366448e3d66c6f688bb568095417316186e"
+        }
+      ]
+    },
+    {
+      "id": "func_23_uuidValidate",
+      "source": "gh",
+      "pin": "06554db1b093aa6bb429156fa8964e1cde2b750c",
+      "ref": "v0.0.3",
+      "files": [
+        {
+          "path": "ValidatorSpec.js",
+          "sha256": "f644fdf958d90c18bf8c01eb8aef8955a8b24ca31be08b937e296121adfb232e"
+        }
+      ]
+    },
+    {
+      "id": "func_24_luhn",
+      "source": "npm",
+      "pin": "9cf501c5d0e9f7ee79504338ae71c9bcc67c304a",
+      "ref": null,
+      "files": [
+        {
+          "path": "tests/luhn-tests.js",
+          "sha256": "63b8a432c8e17b529ff1ad5c83b9eaf18c3aa9cdac742b6801757fe63055fd74"
+        }
+      ]
+    },
+    {
+      "id": "func_25_jwtDecode",
+      "source": "gh",
+      "pin": "3b2d105aa2ad4c5532f113b511c87171d89ee7a9",
+      "ref": "v4.0.0",
+      "files": [
+        {
+          "path": "lib/index.test.ts",
+          "sha256": "d1eb0697514206de05fe1763da3dcca904ba0d01d9fdd2aa0c4c04726dd77744"
+        }
+      ]
+    },
+    {
+      "id": "func_26_pluralize",
+      "source": "gh",
+      "pin": "0265e4d131ecad8e11c420fa4be98b75dc92c33d",
+      "ref": "v8.0.0",
+      "files": [
+        {
+          "path": "test.js",
+          "sha256": "18708f5bbf0ebc4591206717d131c986aeca2f7430791584f2daf6ea4e686c6f"
+        }
+      ]
+    },
+    {
+      "id": "func_27_wordWrap",
+      "source": "gh",
+      "pin": "207044ebda1dd3809d15b6000a48409266536771",
+      "ref": "1.2.5",
+      "files": [
+        {
+          "path": "test.js",
+          "sha256": "6156d8ec05c11d41799f3bb96f17f68464dc395fc044c5b6450dbf47141158c3"
+        }
+      ]
+    },
+    {
+      "id": "func_28_byteSize",
+      "source": "gh",
+      "pin": "9ddc13b6c66e0cb293616fba246e05db4b6cef4d",
+      "ref": "3.1.2",
+      "files": [
+        {
+          "path": "test/byte-format.js",
+          "sha256": "fc25012ee4ed7b2c24cdf2d4a6b5244603815f0ee2c8c611544e6574de039f63"
+        },
+        {
+          "path": "test/byte-parse.js",
+          "sha256": "638dfa22d1762edaa1e350d198ea8406a35a1d90e2c79f9630de576aecfef5e1"
+        },
+        {
+          "path": "test/bytes.js",
+          "sha256": "05fc3de4d882bfbdd420814fa836a04d7b3ddf2ab9c3310b83cb2ca57fbd2167"
+        }
+      ]
+    },
+    {
+      "id": "func_29_isHexColor",
+      "source": "npm",
+      "pin": "4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e",
+      "ref": null,
+      "files": [
+        {
+          "path": "test.js",
+          "sha256": "3679f8f8c494abad0721b5d852975b11480b7f51834e8dca410280dc8e202c16"
+        }
+      ]
+    },
+    {
+      "id": "func_30_queryString",
+      "source": "gh",
+      "pin": "73db95a504f988dce3f790e174e298ceb2b46a8e",
+      "ref": "2.2.0",
+      "files": [
+        {
+          "path": "test.js",
+          "sha256": "dfb60ec60c8c4aefae0a6de5c65ae99f5d4f705c2e257ab059a6cb3f82f3983d"
+        }
+      ]
+    },
+    {
+      "id": "func_31_objectPath",
+      "source": "npm",
+      "pin": "ed002c02bbdd0070b78a27455e8ae01fc14d4742",
+      "ref": null,
+      "files": [
+        {
+          "path": "test.js",
+          "sha256": "1062e3e7b4aca9b7d7f94345b6f30065f5163ed47d4f794abf0cd65ef2af9674"
+        }
+      ]
+    },
+    {
+      "id": "func_32_union",
+      "source": "gh",
+      "pin": "ede857f5d5082467534e372fd3da45ce5e782e93",
+      "ref": "3.1.0",
+      "files": [
+        {
+          "path": "test.js",
+          "sha256": "7b5bf3392674c2bbdd72650bfca5edefa71cbb36811276aa0c9a30bd64c909c3"
+        }
+      ]
+    },
+    {
+      "id": "func_33_flatten",
+      "source": "gh",
+      "pin": "2f47651a69aa1603b70a3895084952a95791fa7b",
+      "ref": "1.1.0",
+      "files": [
+        {
+          "path": "test.js",
+          "sha256": "6ae8c7f78a542d0319e610a7d04b8451034004df905566a0eb76a7aabe38a5e6"
+        }
+      ]
+    },
+    {
+      "id": "func_34_unique",
+      "source": "gh",
+      "pin": "5dd2bcce28a0bb1e02d163003a775d6982675012",
+      "ref": "0.3.2",
+      "files": [
+        {
+          "path": "test.js",
+          "sha256": "6b9495554b1f37b354c31feafb8b5f5e695cedc542c083713d9b6b3c55c5b65b"
+        }
+      ]
+    },
+    {
+      "id": "func_35_difference",
+      "source": "gh",
+      "pin": "0a04556fb004b3db57f57de2777b1037090f6023",
+      "ref": "4.0.0",
+      "files": [
+        {
+          "path": "test.js",
+          "sha256": "5310eed6b496f773625cb4a1d076fbb0e88af656f889c0549ea6bfa439e9134f"
+        }
+      ]
+    },
+    {
+      "id": "func_36_intersect",
+      "source": "npm",
+      "pin": "332650e10854d8c0ac58c192bdc27a8bf7e7a30c",
+      "ref": null,
+      "files": [
+        {
+          "path": "test/test.js",
+          "sha256": "66b9c2dbf4b3c3af5615b690202fe09d4948cf98f2552941bb7a0f44394db16e"
+        }
+      ]
+    },
+    {
+      "id": "func_37_groupBy",
+      "source": "gh",
+      "pin": "d8c5dd18941062d8db7e9310ecc8f53fd607df54",
+      "ref": "master",
+      "files": [
+        {
+          "path": "test/array-group-by/index.cjs",
+          "sha256": "4efc06602f580bbb2e40c790eec5db23f106361fc8725e5ab0509175e3b430a7"
+        },
+        {
+          "path": "test/util/test.js",
+          "sha256": "077c729840be43003bd1574a336d5a61b21206ef87f47dadc95e56396d038390"
+        }
+      ]
+    },
+    {
+      "id": "func_38_deepEqual",
+      "source": "gh",
+      "pin": "d807ffc5013e710deb1c63d463a03f729bcd144d",
+      "ref": "v3.1.3",
+      "files": [
+        {
+          "path": "spec/index.spec.js",
+          "sha256": "37f34d31145d987bfe68435da70d720f32ee45011e7e853d8dc782e2697bf8fa"
+        },
+        {
+          "path": "spec/tests.js",
+          "sha256": "5401d2a9251b88d90ec2cb3964fc7617a03005e1f76ba5d871119b5e3db27d99"
+        }
+      ]
+    },
+    {
+      "id": "func_39_cloneDeep",
+      "source": "npm",
+      "pin": "778f76c4fb731d93414e8f925fbecf64cce7f6ca",
+      "ref": null,
+      "files": [
+        {
+          "path": "test/index.js",
+          "sha256": "451902829edd5ecb3d9369621af041e67365836fe8faa3fa2cd3116564b67458"
+        }
+      ]
+    },
+    {
+      "id": "func_40_deepMerge",
+      "source": "gh",
+      "pin": "5b87756a5671635679001cbac72aa42f23472c81",
+      "ref": "v4.3.1",
+      "files": [
+        {
+          "path": "test/custom-array-merge.js",
+          "sha256": "437d8b2f5f6451dc4aab059f9023ed2df78f5e04520aa46d545e9bd45cef9121"
+        },
+        {
+          "path": "test/custom-is-mergeable-object.js",
+          "sha256": "d04f991a0e88c2cf54d1207641fc93fbf1cb4962cad82c123b21c08015eac1f6"
+        },
+        {
+          "path": "test/merge-all.js",
+          "sha256": "9fe9381aa7dd300b88ed0fd4d1ada6f805cb91c500e87cf6b4fd088423704ab6"
+        },
+        {
+          "path": "test/merge.js",
+          "sha256": "3a22b34fd8724d0d88cfb2dcc8326b96f1ed2f37cf1f64d203b6b97bc3dee13a"
+        },
+        {
+          "path": "test/prototype-poisoning.js",
+          "sha256": "92bf1738a2405b470f21d2e83fb5701d3a4cd101901ba3a4fc752e5942275b52"
+        }
+      ]
+    },
+    {
+      "id": "func_41_base64",
+      "source": "gh",
+      "pin": "f3ea7adb089960fefdba11bf3ec4bd3c907ecf8a",
+      "ref": "v1.5.1",
+      "files": [
+        {
+          "path": "test/convert.js",
+          "sha256": "e58e060743501dae1c0f31adadaeeca151824c36fd9ad7e8a80d6e06b59814bb"
+        },
+        {
+          "path": "test/corrupt.js",
+          "sha256": "7f5981eb9eeb6934386e41790fbe1e71fbaaff32119798991ac7c14473d8d290"
+        },
+        {
+          "path": "test/url-safe.js",
+          "sha256": "7896a7db5a8618fa796da9b8435a622d5ca4dd8dc5fdc8f808a6bbb0d18e0ffb"
+        }
+      ]
+    },
+    {
+      "id": "func_42_md5",
+      "source": "gh",
+      "pin": "458b6624c39df94cd938db3303ef77aa1e7a6800",
+      "ref": "v2.19.0",
+      "files": [
+        {
+          "path": "test/test.js",
+          "sha256": "ee370c8f6b6fd3d10f579ab0799c521d58be79ce5a63bedf5ca6215975bc709f"
+        }
+      ]
+    },
+    {
+      "id": "func_43_sha256",
+      "source": "gh",
+      "pin": "9a54fb31d4594762987e1b5d175265f6bac921de",
+      "ref": "v1.0.0",
+      "files": [
+        {
+          "path": "tests/hmac-test.js",
+          "sha256": "03429fba8b983fbd1e195075b5357194e1dce687e952542d5227b1f0fd09d107"
+        },
+        {
+          "path": "tests/test.js",
+          "sha256": "a9be9c50f9d2c93f20301eca88996fc7890e69e27f6d2d936b85c0ad9daa4435"
+        }
+      ]
+    },
+    {
+      "id": "func_44_sha1",
+      "source": "gh",
+      "pin": "33acf62431a91405fec29f8a0318b528f5e411a9",
+      "ref": "v0.7.0",
+      "files": [
+        {
+          "path": "tests/hmac-test.js",
+          "sha256": "b0a5fefd72ceb05fe7305131f83b6562cac376f0aeb5c09970edfc402848d0cf"
+        },
+        {
+          "path": "tests/test.js",
+          "sha256": "fe7aeb2ef805b7c609ca30bd01f459d4227d2929c8d7dbe88d7c35ca94e5a27a"
+        }
+      ]
+    },
+    {
+      "id": "func_45_crc32",
+      "source": "npm",
+      "pin": "f52bb40ad370f66559dae9fa3b2c02e8b9f136cc",
+      "ref": null,
+      "files": [
+        {
+          "path": "tests/test.js",
+          "sha256": "3e2193fc2b4216370212b29cf7b990a8925fd81286dfba021f159de6e0140c45"
+        }
+      ]
+    },
+    {
+      "id": "func_46_base32",
+      "source": "gh",
+      "pin": "59a75692f5d17441f8e1dc9dc914cfa033dc63e7",
+      "ref": "v0.5.1",
+      "files": [
+        {
+          "path": "tests/test.js",
+          "sha256": "b1432cacb51e38db7ecffbdbd04df381ff8caa8f24774414b333ad4c3e94d592"
+        }
+      ]
+    },
+    {
+      "id": "func_47_rc4",
+      "source": "gh",
+      "pin": "b14bc6871c5c01332e8ea49e61db99b897915640",
+      "ref": "v0.1.5",
+      "files": [
+        {
+          "path": "test/chisquare.js",
+          "sha256": "747de43a1edbf7378772bf5238cb54852384160fcd959d3f037fcfeb81bcb433"
+        }
+      ]
+    },
+    {
+      "id": "func_48_sha3",
+      "source": "gh",
+      "pin": "a6f6da7483f2ecd08dff4a100e4537f8042f173d",
+      "ref": "v0.9.3",
+      "files": [
+        {
+          "path": "tests/test.js",
+          "sha256": "a7b99aba90a6d69764e8591ab7b0a9d1d6e462cda4cf9b97b192f89b2bf5968e"
+        }
+      ]
+    },
+    {
+      "id": "func_49_bitTwiddle",
+      "source": "npm",
+      "pin": "0c6c1fabe2b23d17173d9a61b7b7093eb9e1769e",
+      "ref": null,
+      "files": [
+        {
+          "path": "test/interleave2.js",
+          "sha256": "794e4fcdaa0b6158d24d6c12596021b365e9852492d8349ead9857d16c173496"
+        },
+        {
+          "path": "test/interleave3.js",
+          "sha256": "cb220e6128a4d259df3348eb2bea2ea35776adc6d098caf1840bbf8db1b8de34"
+        },
+        {
+          "path": "test/test.js",
+          "sha256": "8e4c745da15957b5ff6190b40de10d15792d157a38d210e8109fa0c2b22caf40"
+        }
+      ]
+    },
+    {
+      "id": "func_50_hashSum",
+      "source": "npm",
+      "pin": "81d01bb5de8ea4a214ad5d6ead1b523460b0b45a",
+      "ref": null,
+      "files": [
+        {
+          "path": "test.js",
+          "sha256": "8e8de09a48696e0c464b4ca3164a8aa5c097c0f3e90bdd4087c3fc501cfa44ec"
+        }
+      ]
+    }
+  ]
+}
