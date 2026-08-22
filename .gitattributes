@@ -1,0 +1,7 @@
+# The corpus and the vendored upstream suites are byte-exact copies of published
+# artifacts, and their sha256 digests are recorded in dataset/00_raw/PROVENANCE.json
+# and tests/TESTS_PROVENANCE.json. Git must not normalise line endings in them:
+# two corpus files ship CRLF, and rewriting those bytes on commit or checkout
+# would break every digest and with it the reproducibility claim.
+dataset/**       -text
+tests/_upstream/** -text
