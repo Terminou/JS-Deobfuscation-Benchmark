@@ -58,7 +58,7 @@ tools/                        quality gates
   screen_candidates.py          mechanical eligibility screen -> tools/candidates.json
   make_sources.py               renders SOURCES.json as the readable SOURCES.md
 
-docs/SESSION_LOG.md           decision record for the corpus
+docs/SESSION_LOG.md           START HERE — current status, then the decision record
 docs/TESTS.md                 decision record for the oracle
 ```
 

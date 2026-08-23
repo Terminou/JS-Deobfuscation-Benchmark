@@ -1,12 +1,107 @@
-# Session Log — Ground-Truth Corpus Rebuild
+# Session Log
 
-**Date:** 2026-08-21
-**Paper:** *Benchmarking LLM-Based Deobfuscation Against Traditional AST Tools on Modern JavaScript Obfuscators*
-**Scope of this session:** audit of the pre-existing benchmark scaffolding, and a full rebuild of the ground-truth corpus (`dataset/00_raw/`).
+**Paper:** *Benchmarking LLM-Based Deobfuscation Against Traditional AST Tools on
+Modern JavaScript Obfuscators*
 
-This document is the decision record for the corpus. It exists so the *why* behind
-the dataset survives outside the chat window — much of it belongs, condensed, in the
-paper's Dataset and Threats-to-Validity sections.
+Sections 1–17 below are the decision record: why the corpus is what it is, what was
+rejected and why. Read them when writing the Dataset and Threats-to-Validity
+sections; you do not need them to continue the work. **Start here instead.**
+
+---
+
+# WHERE THINGS STAND — 2026-08-23
+
+## What the paper is
+
+A **comparison study, not a claim.** It measures how well LLMs deobfuscate
+JavaScript compared with traditional AST-based tools, across three obfuscation
+levels. There is no directional hypothesis — not "LLMs win", not "AST tools win".
+The contribution is the measurement and the benchmark it runs on.
+
+Two consequences follow from having no directional claim, and both are load-bearing:
+
+1. **The comparison has to be fair, or the paper has nothing.** The one structural
+   unfairness is contamination: the corpus packages are popular on npm, so a model
+   may recall them while an AST tool cannot. The mutated-corpus arm is therefore
+   **mandatory, not optional** — see "Decided" below.
+2. **The scoring instrument has to be credible.** That work is done (see §17) and
+   belongs in the Methods section, not in a footnote.
+
+## Done
+
+* **Corpus frozen at v1.0.** 50 CommonJS functions, 15 algorithms / 15 validation /
+  10 collections / 10 crypto, each extracted byte-exact from a pinned npm tarball.
+  Fingerprint `ff4a5551e43cfd6e9576a0d3134810616175a93f2af9930eaed45d2c85523484`.
+* **Oracle: the packages' own official test suites**, 50/50 vendored byte-identical
+  from pinned artifacts, 8 593 Jest blocks / 106 438 assertions, all passing.
+* **Oracle strength measured and closed at 78 %** (366/470 injected faults detected),
+  per-function scores in `docs/TEST_REPORT.md`. Two items below 50 %, both reported
+  rather than hidden — `func_22_isUuid` scores 0 % on 22 566 assertions and is the
+  paper's sharpest evidence that assertion count is not a proxy for oracle strength.
+* **Scoring harness** with per-suite timeouts and a four-way outcome taxonomy
+  (`pass` / `fail` / `load-error` / `timeout`).
+
+## Not done — this is the whole remaining paper
+
+**Zero experimental data exists.** No obfuscated corpus, no baseline run, no model
+run. Results and Discussion are empty.
+
+## Next concrete step
+
+Generate `dataset/01_obfuscated/{low,medium,high}/` — 50 files each, 150 total.
+
+* Tool: `javascript-obfuscator@5.5.1`, using **its own** `low-obfuscation`,
+  `medium-obfuscation`, `high-obfuscation` presets. Using the tool's documented
+  levels answers "why these three?" without appeal to our own judgement.
+* **Fixed `seed`.** Output is otherwise random per run and nothing is reproducible.
+* **Turn off `selfDefending`, `debugProtection`, `disableConsoleOutput`** in all
+  three. These are anti-tampering features, not comprehension barriers, and they
+  corrupt the experiment. Verified empirically: with `selfDefending` on, beautified
+  output enters an infinite loop — the js-beautify baseline would hang on every
+  file and its score would measure self-protection, not formatting.
+* Gate: `TARGET_DIR=dataset/01_obfuscated/<level> npm run score` must be **50/50**
+  before that level is used. A level that does not pass means the obfuscator changed
+  semantics, and every downstream number for those files is void.
+* Record size inflation per file; freeze the obfuscated set afterwards.
+
+Then, in order: AST baselines (free, deterministic, they prove the pipeline end to
+end before any money is spent) → a 5-file LLM pilot → the full matrix.
+
+## Decided
+
+* **Comparison only, no directional claim.**
+* **Three levels = the obfuscator's own presets.** No hand-rolled configs, no
+  per-technique ablation. If the results show an interesting gap between levels,
+  *then* run a small ablation to explain what was observed.
+* **Contamination arm is in scope.** A semantics-preserving mutated copy of the
+  corpus, run through the same matrix. The mutation must cover the expected values
+  in `tests/upstream/` too, or a recalling model still passes.
+* **Baselines:** `webcrack@2.16.0`, `deobfuscator@2.4.6` (this is Synchrony — the
+  npm package named `synchrony` is an unrelated 2016 package), `restringer@2.2.0`,
+  and `js-beautify@2.0.3` as a **formatting-only lower bound**, not a peer.
+  **JS-Nice is out** — jsnice.org serves a page but its API returns 405 to every
+  endpoint tried. Report that as an observation about the field.
+
+## Still open
+
+* Which 3 models, and which 3 prompting strategies. Needed before the LLM stage.
+* Venue and deadline. Determines whether n = 50 needs defending and how much
+  statistical work is expected.
+* Pass Rate is per-file binary (what `npm run score` reports). Confirm that as the
+  definition of record; keep partial pass counts as a secondary measure in case a
+  level floors everyone at zero.
+
+## Picking up on another machine
+
+```bash
+git clone <repo> && cd JS-Deobfuscation-Benchmark
+npm install
+npm run groundtruth     # frozen + loads + tests intact + 50/50
+npm run report          # per-function table with oracle strength
+```
+
+If `verify:freeze` fails, something changed the corpus — find out what before
+running anything else.
 
 ---
 
