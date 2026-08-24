@@ -1,0 +1,1830 @@
+{
+  "version": "stages-1.0",
+  "frozen": "2026-08-24",
+  "note": "Obfuscated stages frozen. Produced by obfuscate_dataset.js from corpus v1.0 with a fixed seed; see dataset/01_obfuscated/CONDITIONS.json for the exact options. Re-run tools/freeze.js --stages to confirm.",
+  "fingerprint": "d90486d1eaa23fa4f7107cdbeb8218b49b3b7a48603a40616a9139ca4e8c0fa4",
+  "counts": {
+    "functions": 200,
+    "byCategory": {
+      "algorithms": 60,
+      "validation": 60,
+      "collections": 40,
+      "crypto": 40
+    },
+    "conditions": [
+      "high",
+      "identity",
+      "low",
+      "medium"
+    ],
+    "corpusBytes": 872528,
+    "vendoredTestFiles": 0
+  },
+  "environment": {
+    "node": "v18.12.1",
+    "jest": "^29.7.0"
+  },
+  "corpus": [
+    {
+      "stage": "high",
+      "id": "func_01_binarySearch",
+      "package": "binary-search@1.3.6",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 1013,
+      "sha256": "e547c774820643af461ae4111d4735a3c489d548a7a7aff9b08091eca9c19af7"
+    },
+    {
+      "stage": "high",
+      "id": "func_02_binarySearchBounds",
+      "package": "binary-search-bounds@2.0.5",
+      "entry": "search-bounds.js",
+      "category": "algorithms",
+      "bytes": 1829,
+      "sha256": "01b0c032afef0e94641dff5f0060ec77462766bc67ada0214bb46416d3ab6bb4"
+    },
+    {
+      "stage": "high",
+      "id": "func_03_levenshtein",
+      "package": "js-levenshtein@1.1.6",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 1945,
+      "sha256": "d91eb757ac545a21bc025ea2639a0e18ee4cea178c0b0bc26e600d43d9d49885"
+    },
+    {
+      "stage": "high",
+      "id": "func_04_damerauLevenshtein",
+      "package": "damerau-levenshtein@1.0.8",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 1987,
+      "sha256": "11bd9f8f5f701bd5906c390c88906af5ecdfd11404485dcb2fd4ddb31b413d11"
+    },
+    {
+      "stage": "high",
+      "id": "func_05_unionFind",
+      "package": "union-find@1.0.2",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 1045,
+      "sha256": "e8b62154cc08db77d808c0f211eb87e47d24f7b2c6e55af5227576994025b8d6"
+    },
+    {
+      "stage": "high",
+      "id": "func_06_naturalCompare",
+      "package": "string-natural-compare@3.0.1",
+      "entry": "natural-compare.js",
+      "category": "algorithms",
+      "bytes": 3421,
+      "sha256": "1a6c294088f7fedd375ed26974d617226d55928fe6d6074e77ee6d4f379e0dff"
+    },
+    {
+      "stage": "high",
+      "id": "func_07_toposort",
+      "package": "toposort@2.0.2",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 2270,
+      "sha256": "5511208caeee02907af64fe0679da649e5a0d37deff18ebc53d8f0537faf3644"
+    },
+    {
+      "stage": "high",
+      "id": "func_08_deque",
+      "package": "denque@2.1.0",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 12497,
+      "sha256": "61842a5a5b132f58ef5a5f42512b5bd8ed4d4fb225be6e747c2ab57d2a135d3f"
+    },
+    {
+      "stage": "high",
+      "id": "func_09_dijkstra",
+      "package": "dijkstrajs@1.0.3",
+      "entry": "dijkstra.js",
+      "category": "algorithms",
+      "bytes": 5206,
+      "sha256": "44381141b531e79a5915abc25947fd22148d59bfd9b7033e90f15b2e4695248c"
+    },
+    {
+      "stage": "high",
+      "id": "func_10_priorityQueue",
+      "package": "priorityqueuejs@2.0.0",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 3678,
+      "sha256": "509ce65af6fa5e6c43b8065e30903363276ccc92880e17b076cf958eeb3f867e"
+    },
+    {
+      "stage": "high",
+      "id": "func_11_sortedArray",
+      "package": "sorted-array-functions@1.3.0",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 3159,
+      "sha256": "553c34374cc98374bc800a43d3342e7b97fdb49969db7c01a130843a4070e274"
+    },
+    {
+      "stage": "high",
+      "id": "func_12_jaroWinkler",
+      "package": "jaro-winkler@0.2.8",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 2221,
+      "sha256": "8b8d43e6bde3878cb9f074eb93fd5ebe5a3cc746196ac4cf2f8e4cdeeb910bcc"
+    },
+    {
+      "stage": "high",
+      "id": "func_13_mersenneTwister",
+      "package": "mersenne-twister@1.1.0",
+      "entry": "src/mersenne-twister.js",
+      "category": "algorithms",
+      "bytes": 7351,
+      "sha256": "175e83bba017a067e3ea886b83ff968628f22d9f4c2dc36b9e63f3e7a5ddf1de"
+    },
+    {
+      "stage": "high",
+      "id": "func_14_stringSimilarity",
+      "package": "string-similarity@4.0.4",
+      "entry": "src/index.js",
+      "category": "algorithms",
+      "bytes": 1985,
+      "sha256": "784bd03c46c66f787ffbb1f9b80bc97f95b4e994f6a4b6e2d2485e91bddb731c"
+    },
+    {
+      "stage": "high",
+      "id": "func_15_combinatorics",
+      "package": "js-combinatorics@2.1.4",
+      "entry": "commonjs/combinatorics.js",
+      "category": "algorithms",
+      "bytes": 12310,
+      "sha256": "0c9b87a4d05fce51f61ec8689135d7eb6dfd51ca42635416a825f19d29a48edc"
+    },
+    {
+      "stage": "high",
+      "id": "func_16_isEmail",
+      "package": "email-validator@2.0.4",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 898,
+      "sha256": "92d92b51a911d7d3db6b0ccec4be5a15c3a29c17de528b60f4cbc548866608ae"
+    },
+    {
+      "stage": "high",
+      "id": "func_17_isUrl",
+      "package": "is-url@1.2.4",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 856,
+      "sha256": "197c1f116ed11a78bce8a5858544c4262ab61a3900ce385db763bc21a45b5e14"
+    },
+    {
+      "stage": "high",
+      "id": "func_18_isUri",
+      "package": "valid-url@1.0.9",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 4090,
+      "sha256": "2d94aa6cd30be2a5df989178473a96cf565a5b46e871e5898c5776758892c662"
+    },
+    {
+      "stage": "high",
+      "id": "func_19_isJson",
+      "package": "is-json@3.0.1",
+      "entry": "dist/index.cjs",
+      "category": "validation",
+      "bytes": 1006,
+      "sha256": "668a52bbca69b3d199157f48e404e9e08e7d9456a49ced4c0e4265685230c560"
+    },
+    {
+      "stage": "high",
+      "id": "func_20_isBase64",
+      "package": "is-base64@1.1.0",
+      "entry": "is-base64.js",
+      "category": "validation",
+      "bytes": 1143,
+      "sha256": "2a341fd8002b1ec18331d6aa93f8495bb26e1d1fcbac945fe9419e68f17e7935"
+    },
+    {
+      "stage": "high",
+      "id": "func_21_msDuration",
+      "package": "ms@2.1.3",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 3024,
+      "sha256": "829893d11edfbd3a9fd631db54dadee5d0644f4b0c1dbb91d934ef31b5201910"
+    },
+    {
+      "stage": "high",
+      "id": "func_22_isUuid",
+      "package": "is-uuid@1.0.2",
+      "entry": "lib/is-uuid.js",
+      "category": "validation",
+      "bytes": 1109,
+      "sha256": "bced5db5de72cb9822c47599dffc77115ac551550a0396341bedf2a3789cb6a4"
+    },
+    {
+      "stage": "high",
+      "id": "func_23_uuidValidate",
+      "package": "uuid-validate@0.0.3",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 2853,
+      "sha256": "5419c995987780f7ac204ea68ec47ae1f366dee00c10e872ebda2121064c7e7e"
+    },
+    {
+      "stage": "high",
+      "id": "func_24_luhn",
+      "package": "luhn@2.4.1",
+      "entry": "src/luhn.js",
+      "category": "validation",
+      "bytes": 795,
+      "sha256": "9762f794101db07fdf23c7c28a7a871ecef039fdbb749e8517aa30ef1834e661"
+    },
+    {
+      "stage": "high",
+      "id": "func_25_jwtDecode",
+      "package": "jwt-decode@4.0.0",
+      "entry": "build/cjs/index.js",
+      "category": "validation",
+      "bytes": 1894,
+      "sha256": "dd05cdba48581b3b100c3635346fc250f102325f5d7c13f33f8965b962429283"
+    },
+    {
+      "stage": "high",
+      "id": "func_26_pluralize",
+      "package": "pluralize@8.0.0",
+      "entry": "pluralize.js",
+      "category": "validation",
+      "bytes": 12618,
+      "sha256": "2f02b5c9e060b76734dbd9f8dc7993755439cd5c6e79a5c31774d41f8a6c0c06"
+    },
+    {
+      "stage": "high",
+      "id": "func_27_wordWrap",
+      "package": "word-wrap@1.2.5",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 1455,
+      "sha256": "e5d6bab0db59545847ac837bc37cd0fb1d11afb99d9c79f743466e38c00233a7"
+    },
+    {
+      "stage": "high",
+      "id": "func_28_byteSize",
+      "package": "bytes@3.1.2",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 3613,
+      "sha256": "1b3e74b37330f9db021034f6480fd1b71247e9afabac73b190c3112b0047f446"
+    },
+    {
+      "stage": "high",
+      "id": "func_29_isHexColor",
+      "package": "hex-color-regex@1.1.0",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 459,
+      "sha256": "4ebb0d56725cfa45b9458a1dcf1e3ac30fdc7607a5fa9dfc22858a4fb17025d4"
+    },
+    {
+      "stage": "high",
+      "id": "func_30_queryString",
+      "package": "querystringify@2.2.0",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 2564,
+      "sha256": "fbfdf93e4e830459d1940669e40c85185a7e78678c5944dc1148bbf25e1359d7"
+    },
+    {
+      "stage": "high",
+      "id": "func_31_objectPath",
+      "package": "object-path@0.11.8",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 8138,
+      "sha256": "41124e424d24b09f3e7a2383c05cb2bf06d44c1235db82181d223cfd6ae509b6"
+    },
+    {
+      "stage": "high",
+      "id": "func_32_union",
+      "package": "arr-union@3.1.0",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 527,
+      "sha256": "fbb543b7f7b91747fb34379737d4d6b3db04f94a3a9339f887f203db88995179"
+    },
+    {
+      "stage": "high",
+      "id": "func_33_flatten",
+      "package": "arr-flatten@1.1.0",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 418,
+      "sha256": "7e9d8f41636d8ccdb1417433854ab91509d888e33a23a2d23abc0285e0875ac3"
+    },
+    {
+      "stage": "high",
+      "id": "func_34_unique",
+      "package": "array-unique@0.3.2",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 829,
+      "sha256": "9db0c84b081692f5f13949b2351fcfa3b241aad68e826b9bea59d816e7ce34a4"
+    },
+    {
+      "stage": "high",
+      "id": "func_35_difference",
+      "package": "arr-diff@4.0.0",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 805,
+      "sha256": "8da6e8085eddc9f6352f725f3a003a52c68d09373e2c93b40c5d767f7743e620"
+    },
+    {
+      "stage": "high",
+      "id": "func_36_intersect",
+      "package": "intersect@1.0.1",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 1016,
+      "sha256": "4a5206693cd07fb584d8edd8c1cf1b1fa09358f4028d5a53d23fc4e96d5268e5"
+    },
+    {
+      "stage": "high",
+      "id": "func_37_groupBy",
+      "package": "just-group-by@2.2.0",
+      "entry": "index.cjs",
+      "category": "collections",
+      "bytes": 571,
+      "sha256": "fb9dbf09251e40bb75af0940e376fc266ee470fa185bc22530a698858787fc4f"
+    },
+    {
+      "stage": "high",
+      "id": "func_38_deepEqual",
+      "package": "fast-deep-equal@3.1.3",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 1177,
+      "sha256": "4a8eecf88d012cc6a47e26f380c09b1ed68d04e3296a6f9d434e111d93b65a92"
+    },
+    {
+      "stage": "high",
+      "id": "func_39_cloneDeep",
+      "package": "rfdc@1.4.1",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 5847,
+      "sha256": "f9c4a38ec185702186e70c72f9c32021119610c5ad7f4541b4c35199e4653499"
+    },
+    {
+      "stage": "high",
+      "id": "func_40_deepMerge",
+      "package": "deepmerge@4.3.1",
+      "entry": "dist/cjs.js",
+      "category": "collections",
+      "bytes": 4048,
+      "sha256": "4abb9dc6901e940b166a582f5c39670c4c33469a029f4af56545c140e2dd945a"
+    },
+    {
+      "stage": "high",
+      "id": "func_41_base64",
+      "package": "base64-js@1.5.1",
+      "entry": "index.js",
+      "category": "crypto",
+      "bytes": 3932,
+      "sha256": "224048b18f4d15cc273fb8ea4638333d632749ff20824b1ecf68e65b07cbad92"
+    },
+    {
+      "stage": "high",
+      "id": "func_42_md5",
+      "package": "blueimp-md5@2.19.0",
+      "entry": "js/md5.js",
+      "category": "crypto",
+      "bytes": 11559,
+      "sha256": "9b069dd1b6092015c7412a3d7de09b7540a849d5750508bd754541ac31743684"
+    },
+    {
+      "stage": "high",
+      "id": "func_43_sha256",
+      "package": "js-sha256@1.0.0",
+      "entry": "build/sha256.node.cjs",
+      "category": "crypto",
+      "bytes": 3120,
+      "sha256": "ddeee4a65dc698254ba9395b28932a20cf256a4d427c857b10d8edccd8af10c0"
+    },
+    {
+      "stage": "high",
+      "id": "func_44_sha1",
+      "package": "js-sha1@0.7.0",
+      "entry": "src/sha1.js",
+      "category": "crypto",
+      "bytes": 16343,
+      "sha256": "05b4a675916bc7c5a9aca71cccc89712165057a9fba7241ea5df6d982acdf6f5"
+    },
+    {
+      "stage": "high",
+      "id": "func_45_crc32",
+      "package": "js-crc@0.3.1",
+      "entry": "src/crc.js",
+      "category": "crypto",
+      "bytes": 10436,
+      "sha256": "8f320015f4f4b803b44ce1d451daaa119adc5f204a6c10519fddf55b754f6203"
+    },
+    {
+      "stage": "high",
+      "id": "func_46_base32",
+      "package": "hi-base32@0.5.1",
+      "entry": "src/base32.js",
+      "category": "crypto",
+      "bytes": 16590,
+      "sha256": "d772cd6586f45d86a05433395c11fc47203a0e9b5366863d6b7af4f6cb9094c3"
+    },
+    {
+      "stage": "high",
+      "id": "func_47_rc4",
+      "package": "rc4@0.1.5",
+      "entry": "rc4.js",
+      "category": "crypto",
+      "bytes": 4633,
+      "sha256": "fc68e57e58358cd933cc1b704fbce5411c57f3fdf96c1b6acd1127160f25ec1c"
+    },
+    {
+      "stage": "high",
+      "id": "func_48_sha3",
+      "package": "js-sha3@0.9.3",
+      "entry": "src/sha3.js",
+      "category": "crypto",
+      "bytes": 21296,
+      "sha256": "dc9159f2b85ebb3e6e01dd645fc6fb566b5690ce3a833e8790f54738240d0040"
+    },
+    {
+      "stage": "high",
+      "id": "func_49_bitTwiddle",
+      "package": "bit-twiddle@1.0.2",
+      "entry": "twiddle.js",
+      "category": "crypto",
+      "bytes": 5011,
+      "sha256": "9b07871fa9dd5d04fa3e784d9ab129ff3d41148991e477ba6166f672c255c4e8"
+    },
+    {
+      "stage": "high",
+      "id": "func_50_hashSum",
+      "package": "hash-sum@2.0.0",
+      "entry": "hash-sum.js",
+      "category": "crypto",
+      "bytes": 1542,
+      "sha256": "f2c4b65f0ee9041f03d435f45ed4f9030604c4b755868ed682283f5aee1f89a6"
+    },
+    {
+      "stage": "identity",
+      "id": "func_01_binarySearch",
+      "package": "binary-search@1.3.6",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 1013,
+      "sha256": "996264c94801c3dd44556a300c5927c93e007eace6aab8ad4dd8f83093d1dac4"
+    },
+    {
+      "stage": "identity",
+      "id": "func_02_binarySearchBounds",
+      "package": "binary-search-bounds@2.0.5",
+      "entry": "search-bounds.js",
+      "category": "algorithms",
+      "bytes": 1829,
+      "sha256": "169e3fc28bac9455e12b07ad0eb815adcf5c28ed3d4f199d32cc91ca32b1842d"
+    },
+    {
+      "stage": "identity",
+      "id": "func_03_levenshtein",
+      "package": "js-levenshtein@1.1.6",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 1945,
+      "sha256": "794b92c99786824ca853ad2b6fce746baf136e662bbb60dc653fad2217d6f173"
+    },
+    {
+      "stage": "identity",
+      "id": "func_04_damerauLevenshtein",
+      "package": "damerau-levenshtein@1.0.8",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 1987,
+      "sha256": "3a4433a29b7023c608c3c483fce3b1c2723f2cd31300969335bc5ad3c62329ac"
+    },
+    {
+      "stage": "identity",
+      "id": "func_05_unionFind",
+      "package": "union-find@1.0.2",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 1045,
+      "sha256": "53adb5e7ebd16ac10e5e1b40d9fb1012ea35342029adf294e413b1ab42ae0e94"
+    },
+    {
+      "stage": "identity",
+      "id": "func_06_naturalCompare",
+      "package": "string-natural-compare@3.0.1",
+      "entry": "natural-compare.js",
+      "category": "algorithms",
+      "bytes": 3421,
+      "sha256": "afe55a3fe35cd6f7e89c2c29d190cbbc6ee17de87a0c01775babaa8c91361c26"
+    },
+    {
+      "stage": "identity",
+      "id": "func_07_toposort",
+      "package": "toposort@2.0.2",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 2270,
+      "sha256": "35d67383bc1ec9d82a599a61509782d3ae634fa5bce2d475a779ffb174b3dc3a"
+    },
+    {
+      "stage": "identity",
+      "id": "func_08_deque",
+      "package": "denque@2.1.0",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 12497,
+      "sha256": "d78f21f5a4d73bfdc8eceff35e6110113ce527e2442a2d2c208a5944ec4b6b8f"
+    },
+    {
+      "stage": "identity",
+      "id": "func_09_dijkstra",
+      "package": "dijkstrajs@1.0.3",
+      "entry": "dijkstra.js",
+      "category": "algorithms",
+      "bytes": 5206,
+      "sha256": "358ded4fa0428139353a6ffbbdc01d6d202bb75a28ee58300e875c568dc7fdaf"
+    },
+    {
+      "stage": "identity",
+      "id": "func_10_priorityQueue",
+      "package": "priorityqueuejs@2.0.0",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 3678,
+      "sha256": "9c324f6bc89069c40ec13697d592d98ed325f50e9c98158b2ba1f0da637c3956"
+    },
+    {
+      "stage": "identity",
+      "id": "func_11_sortedArray",
+      "package": "sorted-array-functions@1.3.0",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 3159,
+      "sha256": "ecdd9bd0555f16c88df73f5f0166458b8be8ff4111e70e3e0cde747af49597ec"
+    },
+    {
+      "stage": "identity",
+      "id": "func_12_jaroWinkler",
+      "package": "jaro-winkler@0.2.8",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 2221,
+      "sha256": "659543865461115c3ff712a85d8af7bed053df4399783bb907931c07a4efc95e"
+    },
+    {
+      "stage": "identity",
+      "id": "func_13_mersenneTwister",
+      "package": "mersenne-twister@1.1.0",
+      "entry": "src/mersenne-twister.js",
+      "category": "algorithms",
+      "bytes": 7351,
+      "sha256": "fcb376e9b91a0ae6bbaade6220e0434a583301cb16de5233d3381f821bd9d5c2"
+    },
+    {
+      "stage": "identity",
+      "id": "func_14_stringSimilarity",
+      "package": "string-similarity@4.0.4",
+      "entry": "src/index.js",
+      "category": "algorithms",
+      "bytes": 1985,
+      "sha256": "b1ec1a715a640a4cd38eb60bdb7eeb8b323a2e65e2b72ab50f9f643b817871a7"
+    },
+    {
+      "stage": "identity",
+      "id": "func_15_combinatorics",
+      "package": "js-combinatorics@2.1.4",
+      "entry": "commonjs/combinatorics.js",
+      "category": "algorithms",
+      "bytes": 12310,
+      "sha256": "fb8622cfae97e3977ed2c6b74d45e17e92f8534ebdfe4917f304eb22d6c279bb"
+    },
+    {
+      "stage": "identity",
+      "id": "func_16_isEmail",
+      "package": "email-validator@2.0.4",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 898,
+      "sha256": "4670241369ea80ab1cac9ffe77b9d37e1a03555f1959aa6dbc6655ba3b1a9b11"
+    },
+    {
+      "stage": "identity",
+      "id": "func_17_isUrl",
+      "package": "is-url@1.2.4",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 856,
+      "sha256": "13616ac619dba52bb9ca96abb467466510c54e7bfcc9edda2a3f6d85db338572"
+    },
+    {
+      "stage": "identity",
+      "id": "func_18_isUri",
+      "package": "valid-url@1.0.9",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 4090,
+      "sha256": "ec9de06533d49c005178a38138079cfc2ca18daa83128b1321a681f62df6c20c"
+    },
+    {
+      "stage": "identity",
+      "id": "func_19_isJson",
+      "package": "is-json@3.0.1",
+      "entry": "dist/index.cjs",
+      "category": "validation",
+      "bytes": 1006,
+      "sha256": "8986d6e6fec85abc9468deae51567cc55b5ebe3bc4b543dae0eaf647c0277848"
+    },
+    {
+      "stage": "identity",
+      "id": "func_20_isBase64",
+      "package": "is-base64@1.1.0",
+      "entry": "is-base64.js",
+      "category": "validation",
+      "bytes": 1143,
+      "sha256": "907994a6eadf38e171ff0c358a287c24678f20fedf8933460e270b3be062e072"
+    },
+    {
+      "stage": "identity",
+      "id": "func_21_msDuration",
+      "package": "ms@2.1.3",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 3024,
+      "sha256": "e011aef17875713a632285e8e5b94ef90906ea9dcff0aa5d7a326e286c6ec439"
+    },
+    {
+      "stage": "identity",
+      "id": "func_22_isUuid",
+      "package": "is-uuid@1.0.2",
+      "entry": "lib/is-uuid.js",
+      "category": "validation",
+      "bytes": 1109,
+      "sha256": "886aff6e45bf83581eaaecf33734a0ee5e0349333e9752801627388101840f5c"
+    },
+    {
+      "stage": "identity",
+      "id": "func_23_uuidValidate",
+      "package": "uuid-validate@0.0.3",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 2853,
+      "sha256": "bb6d13ef1d28fb4d050d9b9a63a185492d95639e8fc56cbe03891f5f1f276ede"
+    },
+    {
+      "stage": "identity",
+      "id": "func_24_luhn",
+      "package": "luhn@2.4.1",
+      "entry": "src/luhn.js",
+      "category": "validation",
+      "bytes": 795,
+      "sha256": "ea3df943fa39a190e5394ab9871c9c7d693e6ee8d3c8e0acb4802d68bc60da7c"
+    },
+    {
+      "stage": "identity",
+      "id": "func_25_jwtDecode",
+      "package": "jwt-decode@4.0.0",
+      "entry": "build/cjs/index.js",
+      "category": "validation",
+      "bytes": 1894,
+      "sha256": "077f8476dc5dea9d12168ef7f0023a39adf10a76d4706d6d6f6688e8c9262c31"
+    },
+    {
+      "stage": "identity",
+      "id": "func_26_pluralize",
+      "package": "pluralize@8.0.0",
+      "entry": "pluralize.js",
+      "category": "validation",
+      "bytes": 12618,
+      "sha256": "7d410277064f5535996fb1d43dd92308910148e6575deccf798c2e697039c036"
+    },
+    {
+      "stage": "identity",
+      "id": "func_27_wordWrap",
+      "package": "word-wrap@1.2.5",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 1455,
+      "sha256": "d0a5b79d5b4199dc49954669ed4990360343c1455b7ad024c218db5559ffd5ee"
+    },
+    {
+      "stage": "identity",
+      "id": "func_28_byteSize",
+      "package": "bytes@3.1.2",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 3613,
+      "sha256": "106ae190a3fd9606f1cbf2b070d35015d4b0a0e1bf9931613e4edabafca32a25"
+    },
+    {
+      "stage": "identity",
+      "id": "func_29_isHexColor",
+      "package": "hex-color-regex@1.1.0",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 459,
+      "sha256": "5e4c41a0c2316efe4624cac42ee83aaf2eab21ef6f520c9753048ec98082bda9"
+    },
+    {
+      "stage": "identity",
+      "id": "func_30_queryString",
+      "package": "querystringify@2.2.0",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 2564,
+      "sha256": "6031d9280fe43ad2d6c6de651ef233a1ef7037b440e620804bc6f5c5fec84a1a"
+    },
+    {
+      "stage": "identity",
+      "id": "func_31_objectPath",
+      "package": "object-path@0.11.8",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 8138,
+      "sha256": "22ceaec56eef173e7d39804be36cb8298338d4f8c84526bc35beae43337abe50"
+    },
+    {
+      "stage": "identity",
+      "id": "func_32_union",
+      "package": "arr-union@3.1.0",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 527,
+      "sha256": "62caac524b1c8aa01bae85ee48f280b1df6f3cb454be9b96f3c865b9c9b605d2"
+    },
+    {
+      "stage": "identity",
+      "id": "func_33_flatten",
+      "package": "arr-flatten@1.1.0",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 418,
+      "sha256": "95a4b14dc08975140fbb9e8b4cfb54984168419fff5754537557e2379a33c3c9"
+    },
+    {
+      "stage": "identity",
+      "id": "func_34_unique",
+      "package": "array-unique@0.3.2",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 829,
+      "sha256": "16eaffb21b26e5f03e032960a2e8f9c57673d26cb61fb5b37439386ec7023593"
+    },
+    {
+      "stage": "identity",
+      "id": "func_35_difference",
+      "package": "arr-diff@4.0.0",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 805,
+      "sha256": "5de0f141d940cf86da7645d9c46d3a4e1936c9cb61ba2eb91b6ca859b8894bdb"
+    },
+    {
+      "stage": "identity",
+      "id": "func_36_intersect",
+      "package": "intersect@1.0.1",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 1016,
+      "sha256": "6324a6b44013c451d7be245adbba21e6564d574159dbc71ed2082c0b06c55dff"
+    },
+    {
+      "stage": "identity",
+      "id": "func_37_groupBy",
+      "package": "just-group-by@2.2.0",
+      "entry": "index.cjs",
+      "category": "collections",
+      "bytes": 571,
+      "sha256": "4d4f93c00a8363664bf1cfbbad70e110f70f5d1667b9ff4214a3e03bee1a41c8"
+    },
+    {
+      "stage": "identity",
+      "id": "func_38_deepEqual",
+      "package": "fast-deep-equal@3.1.3",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 1177,
+      "sha256": "f98063698e322647adf8820d67a5c259e5a17996a13e326facf8c679ad484300"
+    },
+    {
+      "stage": "identity",
+      "id": "func_39_cloneDeep",
+      "package": "rfdc@1.4.1",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 5847,
+      "sha256": "ed847889a532e3c9f037f98669579f5de29e3da37daab66b22c0cc7ec6b5b5b7"
+    },
+    {
+      "stage": "identity",
+      "id": "func_40_deepMerge",
+      "package": "deepmerge@4.3.1",
+      "entry": "dist/cjs.js",
+      "category": "collections",
+      "bytes": 4048,
+      "sha256": "be3e4f13b4e00352d339577172da58df0fd05da5cc2dae2b0ed8d8236c6e7c34"
+    },
+    {
+      "stage": "identity",
+      "id": "func_41_base64",
+      "package": "base64-js@1.5.1",
+      "entry": "index.js",
+      "category": "crypto",
+      "bytes": 3932,
+      "sha256": "d9f2ac4a663be8f47bc0f86bb49812464663f449b3dde23f7d10f4493deb230d"
+    },
+    {
+      "stage": "identity",
+      "id": "func_42_md5",
+      "package": "blueimp-md5@2.19.0",
+      "entry": "js/md5.js",
+      "category": "crypto",
+      "bytes": 11559,
+      "sha256": "dbb632b0ad7ebe95ee1e7e566c52635f5d3421a8fd47fe3a9aa9acadd436b772"
+    },
+    {
+      "stage": "identity",
+      "id": "func_43_sha256",
+      "package": "js-sha256@1.0.0",
+      "entry": "build/sha256.node.cjs",
+      "category": "crypto",
+      "bytes": 3120,
+      "sha256": "6c2587c9f01db3c870d4c6918be3564424adf80e38934e46896e63d9b7bfec7b"
+    },
+    {
+      "stage": "identity",
+      "id": "func_44_sha1",
+      "package": "js-sha1@0.7.0",
+      "entry": "src/sha1.js",
+      "category": "crypto",
+      "bytes": 16343,
+      "sha256": "b28544a9b870b59fa50ef8ebf00555ce55f5cd5854d30fb02090f7e3d208cfc6"
+    },
+    {
+      "stage": "identity",
+      "id": "func_45_crc32",
+      "package": "js-crc@0.3.1",
+      "entry": "src/crc.js",
+      "category": "crypto",
+      "bytes": 10436,
+      "sha256": "0307d6896a49582d27930cc440069498cf01d76ab4f60a80b5b76e9fc8d41561"
+    },
+    {
+      "stage": "identity",
+      "id": "func_46_base32",
+      "package": "hi-base32@0.5.1",
+      "entry": "src/base32.js",
+      "category": "crypto",
+      "bytes": 16590,
+      "sha256": "b84c00bb158d3b5a64445f5264cf85e9e7a5931bb064b5582359a32ce882ab4c"
+    },
+    {
+      "stage": "identity",
+      "id": "func_47_rc4",
+      "package": "rc4@0.1.5",
+      "entry": "rc4.js",
+      "category": "crypto",
+      "bytes": 4633,
+      "sha256": "95584e55f4ef4b72508efc327cc46271857403fad5a8a80ea0c14b8f7a687709"
+    },
+    {
+      "stage": "identity",
+      "id": "func_48_sha3",
+      "package": "js-sha3@0.9.3",
+      "entry": "src/sha3.js",
+      "category": "crypto",
+      "bytes": 21296,
+      "sha256": "20d403689b122a6fab541192720c8dac2777807a3596f35d10d13ef797a5531f"
+    },
+    {
+      "stage": "identity",
+      "id": "func_49_bitTwiddle",
+      "package": "bit-twiddle@1.0.2",
+      "entry": "twiddle.js",
+      "category": "crypto",
+      "bytes": 5011,
+      "sha256": "926980db8c30bb6e744aadcb2338adba877ca9329693d2725770d86a92b3b4f4"
+    },
+    {
+      "stage": "identity",
+      "id": "func_50_hashSum",
+      "package": "hash-sum@2.0.0",
+      "entry": "hash-sum.js",
+      "category": "crypto",
+      "bytes": 1542,
+      "sha256": "ebe3b8eb752a65efdf48ee7864535e56012f98881ef67fa17f8280de1323a52f"
+    },
+    {
+      "stage": "low",
+      "id": "func_01_binarySearch",
+      "package": "binary-search@1.3.6",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 1013,
+      "sha256": "3c24addb73c6c179c683b009dd0cc21b644836b46450905acfff2c3d156d535f"
+    },
+    {
+      "stage": "low",
+      "id": "func_02_binarySearchBounds",
+      "package": "binary-search-bounds@2.0.5",
+      "entry": "search-bounds.js",
+      "category": "algorithms",
+      "bytes": 1829,
+      "sha256": "221ebc35e35b5751799f78031994e16aaef2b95c9a77cab654f3dd61955b9b96"
+    },
+    {
+      "stage": "low",
+      "id": "func_03_levenshtein",
+      "package": "js-levenshtein@1.1.6",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 1945,
+      "sha256": "ec6a434629f4690d830005d788a41a23bb07a8227501ca92e07cd94430cb3ac9"
+    },
+    {
+      "stage": "low",
+      "id": "func_04_damerauLevenshtein",
+      "package": "damerau-levenshtein@1.0.8",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 1987,
+      "sha256": "bff401798fd32ecc2a4767bc0a41c7ab2307fed3e1730a0fb3a2f55bf84bfdda"
+    },
+    {
+      "stage": "low",
+      "id": "func_05_unionFind",
+      "package": "union-find@1.0.2",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 1045,
+      "sha256": "fcc30224cbff9823c502a94716e25316159b91e329d52a11a26cec762917a0e6"
+    },
+    {
+      "stage": "low",
+      "id": "func_06_naturalCompare",
+      "package": "string-natural-compare@3.0.1",
+      "entry": "natural-compare.js",
+      "category": "algorithms",
+      "bytes": 3421,
+      "sha256": "27a3ff520870f5ed00269d0066646e4fc8f7daa0ca183acb7d073fa75bbb3ad2"
+    },
+    {
+      "stage": "low",
+      "id": "func_07_toposort",
+      "package": "toposort@2.0.2",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 2270,
+      "sha256": "f8fe65be6274ec528dc6dbb8535a5fbac5bb4e97508418158eebe42bc0ce5da0"
+    },
+    {
+      "stage": "low",
+      "id": "func_08_deque",
+      "package": "denque@2.1.0",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 12497,
+      "sha256": "adc046c66432288521ed92238e7c0802a5e57cdf0e97fe444ec2188db390fdeb"
+    },
+    {
+      "stage": "low",
+      "id": "func_09_dijkstra",
+      "package": "dijkstrajs@1.0.3",
+      "entry": "dijkstra.js",
+      "category": "algorithms",
+      "bytes": 5206,
+      "sha256": "7f59a9a0bcdcec97046b14fde57a80d9a5eb8472e56f26a2fa955eb82687b6e2"
+    },
+    {
+      "stage": "low",
+      "id": "func_10_priorityQueue",
+      "package": "priorityqueuejs@2.0.0",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 3678,
+      "sha256": "8590f3b4cd492821795bffe94431eb0f721328db8ee961773ce844be5dce9378"
+    },
+    {
+      "stage": "low",
+      "id": "func_11_sortedArray",
+      "package": "sorted-array-functions@1.3.0",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 3159,
+      "sha256": "708f1c40aba71f444a8387407b56b6d482f4259056237df067b837616daa726e"
+    },
+    {
+      "stage": "low",
+      "id": "func_12_jaroWinkler",
+      "package": "jaro-winkler@0.2.8",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 2221,
+      "sha256": "69d6fe8531cd08891938f498bcfa2d8d40bfcbed3dc11871e50d3528f019b893"
+    },
+    {
+      "stage": "low",
+      "id": "func_13_mersenneTwister",
+      "package": "mersenne-twister@1.1.0",
+      "entry": "src/mersenne-twister.js",
+      "category": "algorithms",
+      "bytes": 7351,
+      "sha256": "45a75e4a78ce0bba3927b48346502b14e7dbf3913eb57c925702bfdf0c46501b"
+    },
+    {
+      "stage": "low",
+      "id": "func_14_stringSimilarity",
+      "package": "string-similarity@4.0.4",
+      "entry": "src/index.js",
+      "category": "algorithms",
+      "bytes": 1985,
+      "sha256": "920992b9d1806cf33665f132349518ee8cd5282f16381aeef86e4bc188cf777b"
+    },
+    {
+      "stage": "low",
+      "id": "func_15_combinatorics",
+      "package": "js-combinatorics@2.1.4",
+      "entry": "commonjs/combinatorics.js",
+      "category": "algorithms",
+      "bytes": 12310,
+      "sha256": "eb31aba3f4263d55f5e6cc14a6477e59dd5d32608faa25e7e0469ff4872bd88b"
+    },
+    {
+      "stage": "low",
+      "id": "func_16_isEmail",
+      "package": "email-validator@2.0.4",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 898,
+      "sha256": "e10de61b504da546ba2146f30d3e6e5d11271116aaed3ce25053e562ee16b924"
+    },
+    {
+      "stage": "low",
+      "id": "func_17_isUrl",
+      "package": "is-url@1.2.4",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 856,
+      "sha256": "7601547573938a79663507ff796755c024d98d450e1f09030b4f457fc33db005"
+    },
+    {
+      "stage": "low",
+      "id": "func_18_isUri",
+      "package": "valid-url@1.0.9",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 4090,
+      "sha256": "73dd8bafe4684b50b0e8fd0896f04f3e65beb9c14ecda7bf2836cdf3aadcbe84"
+    },
+    {
+      "stage": "low",
+      "id": "func_19_isJson",
+      "package": "is-json@3.0.1",
+      "entry": "dist/index.cjs",
+      "category": "validation",
+      "bytes": 1006,
+      "sha256": "784308f07e1b33de645c4321e473ead0355e7a8199ad30a894a712fee02e97fb"
+    },
+    {
+      "stage": "low",
+      "id": "func_20_isBase64",
+      "package": "is-base64@1.1.0",
+      "entry": "is-base64.js",
+      "category": "validation",
+      "bytes": 1143,
+      "sha256": "db257764677c4b4e6f1589ae6f3bf1567d282f3e27653275269f40e6807a41e1"
+    },
+    {
+      "stage": "low",
+      "id": "func_21_msDuration",
+      "package": "ms@2.1.3",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 3024,
+      "sha256": "e5a44db71cad86b65364f830fb03df31952feab118dee3a7a0660699338c3942"
+    },
+    {
+      "stage": "low",
+      "id": "func_22_isUuid",
+      "package": "is-uuid@1.0.2",
+      "entry": "lib/is-uuid.js",
+      "category": "validation",
+      "bytes": 1109,
+      "sha256": "dc90413fc1acddb068e74e8ab502d9df84543696141a00e0a8a3545b366fb4a9"
+    },
+    {
+      "stage": "low",
+      "id": "func_23_uuidValidate",
+      "package": "uuid-validate@0.0.3",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 2853,
+      "sha256": "6bfaf205ecfcae7622ba87e37b547a59af43f55378abebfa1e532132485bc778"
+    },
+    {
+      "stage": "low",
+      "id": "func_24_luhn",
+      "package": "luhn@2.4.1",
+      "entry": "src/luhn.js",
+      "category": "validation",
+      "bytes": 795,
+      "sha256": "6192735efce1cad3c12064dc53ca016bcab1d09499fff379f6879bf097dd9170"
+    },
+    {
+      "stage": "low",
+      "id": "func_25_jwtDecode",
+      "package": "jwt-decode@4.0.0",
+      "entry": "build/cjs/index.js",
+      "category": "validation",
+      "bytes": 1894,
+      "sha256": "ffa882d98bc3da1a547c68bc0f8d1d46d2d87b518815076f3f088874c28c6dd2"
+    },
+    {
+      "stage": "low",
+      "id": "func_26_pluralize",
+      "package": "pluralize@8.0.0",
+      "entry": "pluralize.js",
+      "category": "validation",
+      "bytes": 12618,
+      "sha256": "4a1c868ccd082e8e230fc442ebef24814e1401f3c397d1fee5d2082bb49589bd"
+    },
+    {
+      "stage": "low",
+      "id": "func_27_wordWrap",
+      "package": "word-wrap@1.2.5",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 1455,
+      "sha256": "27d261a82b401078eade1145091439bb6876d314ba3afe650c2d4574b4e4f9f7"
+    },
+    {
+      "stage": "low",
+      "id": "func_28_byteSize",
+      "package": "bytes@3.1.2",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 3613,
+      "sha256": "b74b5cce61e7b69dfd45a3fe7419c714316765173abd2fd491af5a3adecef1d0"
+    },
+    {
+      "stage": "low",
+      "id": "func_29_isHexColor",
+      "package": "hex-color-regex@1.1.0",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 459,
+      "sha256": "5d1713fe32ae6fb94f2978360e6968e02256525773752e4a6dfc06f972da5820"
+    },
+    {
+      "stage": "low",
+      "id": "func_30_queryString",
+      "package": "querystringify@2.2.0",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 2564,
+      "sha256": "d9381675d1f3ab2b80411a33ccf4259965f05ac6daa03a29fabb4e84a72f45b7"
+    },
+    {
+      "stage": "low",
+      "id": "func_31_objectPath",
+      "package": "object-path@0.11.8",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 8138,
+      "sha256": "a7130d4deb1afe0d785766d352b97aed3e4c68db2d31404df8ab096bf750183b"
+    },
+    {
+      "stage": "low",
+      "id": "func_32_union",
+      "package": "arr-union@3.1.0",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 527,
+      "sha256": "b074132aa7200eb7a91a835e9393f37a50f6f97d2c18596711844e7bb89d56bd"
+    },
+    {
+      "stage": "low",
+      "id": "func_33_flatten",
+      "package": "arr-flatten@1.1.0",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 418,
+      "sha256": "38111ade46135d8ff2cf9cddedfd857ef3384b2e07c805c4f5cd0501a97f2336"
+    },
+    {
+      "stage": "low",
+      "id": "func_34_unique",
+      "package": "array-unique@0.3.2",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 829,
+      "sha256": "d1229119a7b6ccad9ac9284ff1534050853dccfeca6da4452a9bac77c8698f54"
+    },
+    {
+      "stage": "low",
+      "id": "func_35_difference",
+      "package": "arr-diff@4.0.0",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 805,
+      "sha256": "feb3be1ef7ea37acd0b21ea18fc3689e356d5804039c161cf232e8f2c36bfffd"
+    },
+    {
+      "stage": "low",
+      "id": "func_36_intersect",
+      "package": "intersect@1.0.1",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 1016,
+      "sha256": "743c4c7d6a2488addefe4473adaf136941cf46868e075e113d0699cede0a79dc"
+    },
+    {
+      "stage": "low",
+      "id": "func_37_groupBy",
+      "package": "just-group-by@2.2.0",
+      "entry": "index.cjs",
+      "category": "collections",
+      "bytes": 571,
+      "sha256": "d6dedb4fca5dbca814cb7ed0bcfa7a9e2123c90b16a7b3516a84e37775a2aeb5"
+    },
+    {
+      "stage": "low",
+      "id": "func_38_deepEqual",
+      "package": "fast-deep-equal@3.1.3",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 1177,
+      "sha256": "c89eace6749db2c6bff2dd86e9ebbe934f86bd38aabde3c4839de6c40950f268"
+    },
+    {
+      "stage": "low",
+      "id": "func_39_cloneDeep",
+      "package": "rfdc@1.4.1",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 5847,
+      "sha256": "0ffc575ea31d7454a3eb22aab83ff0c62f8f5ab12c1c269e9594769f8ed90dfb"
+    },
+    {
+      "stage": "low",
+      "id": "func_40_deepMerge",
+      "package": "deepmerge@4.3.1",
+      "entry": "dist/cjs.js",
+      "category": "collections",
+      "bytes": 4048,
+      "sha256": "cefcc47978afe5dff150fa259ba2bd96daa91437126962eee3d44fbb1b84872d"
+    },
+    {
+      "stage": "low",
+      "id": "func_41_base64",
+      "package": "base64-js@1.5.1",
+      "entry": "index.js",
+      "category": "crypto",
+      "bytes": 3932,
+      "sha256": "564f4f83abc260c1a40d0cf9818a6792c08ce6139d02c7a8ae64cf30812feea3"
+    },
+    {
+      "stage": "low",
+      "id": "func_42_md5",
+      "package": "blueimp-md5@2.19.0",
+      "entry": "js/md5.js",
+      "category": "crypto",
+      "bytes": 11559,
+      "sha256": "68e02ce61079f17d3e095fbdbfa8228888d72db9f98f014ab48ca856c9388e3d"
+    },
+    {
+      "stage": "low",
+      "id": "func_43_sha256",
+      "package": "js-sha256@1.0.0",
+      "entry": "build/sha256.node.cjs",
+      "category": "crypto",
+      "bytes": 3120,
+      "sha256": "be2bd1266015a9a3055f8621b6700680ae46f98b4ec93082a344c52ca6588b7d"
+    },
+    {
+      "stage": "low",
+      "id": "func_44_sha1",
+      "package": "js-sha1@0.7.0",
+      "entry": "src/sha1.js",
+      "category": "crypto",
+      "bytes": 16343,
+      "sha256": "fda334cb266f96127b3497c8365c09f07412dd5223ba29c3c1ff5b73ad343a81"
+    },
+    {
+      "stage": "low",
+      "id": "func_45_crc32",
+      "package": "js-crc@0.3.1",
+      "entry": "src/crc.js",
+      "category": "crypto",
+      "bytes": 10436,
+      "sha256": "af7c669640e0b841eb03c7c6d799a8337d9166c9563bb996403cc9a9e8456c73"
+    },
+    {
+      "stage": "low",
+      "id": "func_46_base32",
+      "package": "hi-base32@0.5.1",
+      "entry": "src/base32.js",
+      "category": "crypto",
+      "bytes": 16590,
+      "sha256": "9ea59e8133a7ca3d56dcf6fa613eeac9c02cde397d68598f9f564f635fedae40"
+    },
+    {
+      "stage": "low",
+      "id": "func_47_rc4",
+      "package": "rc4@0.1.5",
+      "entry": "rc4.js",
+      "category": "crypto",
+      "bytes": 4633,
+      "sha256": "1f66fab17dfe06270ce6774a607070be7c2d6e81e9c9e1d2e041c14ae7984883"
+    },
+    {
+      "stage": "low",
+      "id": "func_48_sha3",
+      "package": "js-sha3@0.9.3",
+      "entry": "src/sha3.js",
+      "category": "crypto",
+      "bytes": 21296,
+      "sha256": "071f0a5c9d76057f9105e2e314deef3866fb943740ba3225f3fe101b9d5f05c0"
+    },
+    {
+      "stage": "low",
+      "id": "func_49_bitTwiddle",
+      "package": "bit-twiddle@1.0.2",
+      "entry": "twiddle.js",
+      "category": "crypto",
+      "bytes": 5011,
+      "sha256": "a5b9b50fc3d415b1ed7067496a7ad7a1252166cc928945a6860fab928a093310"
+    },
+    {
+      "stage": "low",
+      "id": "func_50_hashSum",
+      "package": "hash-sum@2.0.0",
+      "entry": "hash-sum.js",
+      "category": "crypto",
+      "bytes": 1542,
+      "sha256": "91c05009ef0545f7239d24e561623d79201a4b3516712e45cb164fc46cc96822"
+    },
+    {
+      "stage": "medium",
+      "id": "func_01_binarySearch",
+      "package": "binary-search@1.3.6",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 1013,
+      "sha256": "58d20a63800b3807b06bc1286e2d0c0eae61fab6665f9ff0058d16b9236ed240"
+    },
+    {
+      "stage": "medium",
+      "id": "func_02_binarySearchBounds",
+      "package": "binary-search-bounds@2.0.5",
+      "entry": "search-bounds.js",
+      "category": "algorithms",
+      "bytes": 1829,
+      "sha256": "05caab9002017571bcb5588d12ddff008267eae8b90be41704f8176aa6d78bf8"
+    },
+    {
+      "stage": "medium",
+      "id": "func_03_levenshtein",
+      "package": "js-levenshtein@1.1.6",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 1945,
+      "sha256": "95c6baf64833f77d8c78c64ef5bc6c7412bdc07c9cec959d3503f40274b1c7f7"
+    },
+    {
+      "stage": "medium",
+      "id": "func_04_damerauLevenshtein",
+      "package": "damerau-levenshtein@1.0.8",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 1987,
+      "sha256": "81d5db599a803827620e83f675ae1ceaf224e075efd3db3748fb02a7bf56dd09"
+    },
+    {
+      "stage": "medium",
+      "id": "func_05_unionFind",
+      "package": "union-find@1.0.2",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 1045,
+      "sha256": "040aaba3a2b615842c601a06067948ec52295040aaa379e00b62ad97428abd00"
+    },
+    {
+      "stage": "medium",
+      "id": "func_06_naturalCompare",
+      "package": "string-natural-compare@3.0.1",
+      "entry": "natural-compare.js",
+      "category": "algorithms",
+      "bytes": 3421,
+      "sha256": "1b7aabecd7b82a736781074315ae14bd170da865682f655789bbca90f243c947"
+    },
+    {
+      "stage": "medium",
+      "id": "func_07_toposort",
+      "package": "toposort@2.0.2",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 2270,
+      "sha256": "9bbf4b4d63f1930e40582fbd7b52331c502d6b3f6f63d32e1f7d68539cd35146"
+    },
+    {
+      "stage": "medium",
+      "id": "func_08_deque",
+      "package": "denque@2.1.0",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 12497,
+      "sha256": "270568d939d986ea09720b70a324ef3d4e585639b1e2e4ad85efa76d2c3e279a"
+    },
+    {
+      "stage": "medium",
+      "id": "func_09_dijkstra",
+      "package": "dijkstrajs@1.0.3",
+      "entry": "dijkstra.js",
+      "category": "algorithms",
+      "bytes": 5206,
+      "sha256": "a7eb9b1a0d88c7fa7371059292787f97139035acc476cb581e24e5701601c909"
+    },
+    {
+      "stage": "medium",
+      "id": "func_10_priorityQueue",
+      "package": "priorityqueuejs@2.0.0",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 3678,
+      "sha256": "b8c9c1e6afb0a13048bfb905a8ecf14aa10219c68860152bf75762d5d3f36e21"
+    },
+    {
+      "stage": "medium",
+      "id": "func_11_sortedArray",
+      "package": "sorted-array-functions@1.3.0",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 3159,
+      "sha256": "6d04d8ef12d5929bb0c0aa2d5eba9404a6fd4181b8b72af4238f942c50aedc2a"
+    },
+    {
+      "stage": "medium",
+      "id": "func_12_jaroWinkler",
+      "package": "jaro-winkler@0.2.8",
+      "entry": "index.js",
+      "category": "algorithms",
+      "bytes": 2221,
+      "sha256": "1d8e1838d3827ee1e84352f5a2aaefe42c3e5c99164fb51e6550aea8fea73658"
+    },
+    {
+      "stage": "medium",
+      "id": "func_13_mersenneTwister",
+      "package": "mersenne-twister@1.1.0",
+      "entry": "src/mersenne-twister.js",
+      "category": "algorithms",
+      "bytes": 7351,
+      "sha256": "c72ae615b9b05fb54e62e4374c4260d5effe14fdb458f1b3c4c3ae9a7e460d3c"
+    },
+    {
+      "stage": "medium",
+      "id": "func_14_stringSimilarity",
+      "package": "string-similarity@4.0.4",
+      "entry": "src/index.js",
+      "category": "algorithms",
+      "bytes": 1985,
+      "sha256": "3d12cc5a4b843b53de07f4db98d87dc1baca1681814576306d95dff1d02c756f"
+    },
+    {
+      "stage": "medium",
+      "id": "func_15_combinatorics",
+      "package": "js-combinatorics@2.1.4",
+      "entry": "commonjs/combinatorics.js",
+      "category": "algorithms",
+      "bytes": 12310,
+      "sha256": "7fec99c54f70218f98589302a8e654eee9f659b62917e549f352209424b998b0"
+    },
+    {
+      "stage": "medium",
+      "id": "func_16_isEmail",
+      "package": "email-validator@2.0.4",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 898,
+      "sha256": "5be6973c1e2a5e987b44940bd56afb43f08ec965821f1c53f785eb29c9acedfd"
+    },
+    {
+      "stage": "medium",
+      "id": "func_17_isUrl",
+      "package": "is-url@1.2.4",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 856,
+      "sha256": "f0ea2c6f0780951eba43c8af9dd81b91e0bf101b80f072b90e1ae3ae8762fa21"
+    },
+    {
+      "stage": "medium",
+      "id": "func_18_isUri",
+      "package": "valid-url@1.0.9",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 4090,
+      "sha256": "61f4ceb85a715286632c61ca08da6a49d7d87f5c815d6643a4e9798f7bbf3291"
+    },
+    {
+      "stage": "medium",
+      "id": "func_19_isJson",
+      "package": "is-json@3.0.1",
+      "entry": "dist/index.cjs",
+      "category": "validation",
+      "bytes": 1006,
+      "sha256": "c87ae6e4674da37fb310568ea4d4a6990f9af5b7790a6746fc40753b554e39ca"
+    },
+    {
+      "stage": "medium",
+      "id": "func_20_isBase64",
+      "package": "is-base64@1.1.0",
+      "entry": "is-base64.js",
+      "category": "validation",
+      "bytes": 1143,
+      "sha256": "8ee7b48123b4083bb6765d2fced25104259904935eedfb13826478156a281191"
+    },
+    {
+      "stage": "medium",
+      "id": "func_21_msDuration",
+      "package": "ms@2.1.3",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 3024,
+      "sha256": "9f82d376dbda6b7e69c55eda027e838aeca993f6f594c8d44f02c676037585d3"
+    },
+    {
+      "stage": "medium",
+      "id": "func_22_isUuid",
+      "package": "is-uuid@1.0.2",
+      "entry": "lib/is-uuid.js",
+      "category": "validation",
+      "bytes": 1109,
+      "sha256": "fb366e55abee05a3b8d1e7932b08f4054105cacbe41d6f2e88f198c7b7e053b3"
+    },
+    {
+      "stage": "medium",
+      "id": "func_23_uuidValidate",
+      "package": "uuid-validate@0.0.3",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 2853,
+      "sha256": "43bbea1603513b5886c31b7a8628e27efaac1f6c8fb125043496ed31cf57e803"
+    },
+    {
+      "stage": "medium",
+      "id": "func_24_luhn",
+      "package": "luhn@2.4.1",
+      "entry": "src/luhn.js",
+      "category": "validation",
+      "bytes": 795,
+      "sha256": "256a47acb4e2ae4833587011c3cf15436fe8602128b51eccafdaa542839fe70e"
+    },
+    {
+      "stage": "medium",
+      "id": "func_25_jwtDecode",
+      "package": "jwt-decode@4.0.0",
+      "entry": "build/cjs/index.js",
+      "category": "validation",
+      "bytes": 1894,
+      "sha256": "c7da2ec98ecdc4702c3cd60f8f5003bcfdd306986af2af61f7df2b486d454a07"
+    },
+    {
+      "stage": "medium",
+      "id": "func_26_pluralize",
+      "package": "pluralize@8.0.0",
+      "entry": "pluralize.js",
+      "category": "validation",
+      "bytes": 12618,
+      "sha256": "98d25dd154a2a614835922880a9cc738a381cdedfe92160bbe972c9af9eb12d2"
+    },
+    {
+      "stage": "medium",
+      "id": "func_27_wordWrap",
+      "package": "word-wrap@1.2.5",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 1455,
+      "sha256": "35019fc0c35cf23b243d399d91698161449620c2f73bf7c486c8fabe4d05438d"
+    },
+    {
+      "stage": "medium",
+      "id": "func_28_byteSize",
+      "package": "bytes@3.1.2",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 3613,
+      "sha256": "97d4d48addfebdab85323df11d17f7f0291270201b91a6a4eb02d2fa83c8c054"
+    },
+    {
+      "stage": "medium",
+      "id": "func_29_isHexColor",
+      "package": "hex-color-regex@1.1.0",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 459,
+      "sha256": "35897370328655cd551935f2539b1804d5c62b6263cc38d7d3a950b02fd20d27"
+    },
+    {
+      "stage": "medium",
+      "id": "func_30_queryString",
+      "package": "querystringify@2.2.0",
+      "entry": "index.js",
+      "category": "validation",
+      "bytes": 2564,
+      "sha256": "2cc57c01866afb6ee6ec20622b7920f5ee538258932479dab1f66f3590a24f31"
+    },
+    {
+      "stage": "medium",
+      "id": "func_31_objectPath",
+      "package": "object-path@0.11.8",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 8138,
+      "sha256": "e1f3564222c1f36777ded19ee9b6965fe6fafeaba21b3cd5978dacdbd1f2e8c0"
+    },
+    {
+      "stage": "medium",
+      "id": "func_32_union",
+      "package": "arr-union@3.1.0",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 527,
+      "sha256": "64edafcda80e99c14591816f90b7a11c4172019aa2aa9ef8cfc508a7c85e8ba4"
+    },
+    {
+      "stage": "medium",
+      "id": "func_33_flatten",
+      "package": "arr-flatten@1.1.0",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 418,
+      "sha256": "ce3fecd2a4ac44956865f33cf3890cb93bef122d09d8d6425464c82ce47473e7"
+    },
+    {
+      "stage": "medium",
+      "id": "func_34_unique",
+      "package": "array-unique@0.3.2",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 829,
+      "sha256": "016522526a6171458286784f3ebbb970fc075c2189b95cee3b7df6acd899ec97"
+    },
+    {
+      "stage": "medium",
+      "id": "func_35_difference",
+      "package": "arr-diff@4.0.0",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 805,
+      "sha256": "579f19f3bb9ea7dcbcc1fc85b0d03f9585eac811f0647f4f035287678f7496a1"
+    },
+    {
+      "stage": "medium",
+      "id": "func_36_intersect",
+      "package": "intersect@1.0.1",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 1016,
+      "sha256": "c740053ee2af00dbdd0d730c10f7a10db3158672c6193fad2fbee3f7fb869c30"
+    },
+    {
+      "stage": "medium",
+      "id": "func_37_groupBy",
+      "package": "just-group-by@2.2.0",
+      "entry": "index.cjs",
+      "category": "collections",
+      "bytes": 571,
+      "sha256": "5df918c4fdbea8e412eb4ec7fb69eaa33377f68030c194edbffc26bbe268a4e6"
+    },
+    {
+      "stage": "medium",
+      "id": "func_38_deepEqual",
+      "package": "fast-deep-equal@3.1.3",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 1177,
+      "sha256": "0d8f3be8428a69d43d48a197353f643043f41045fdb6b3c22f3cbc4fce1643bb"
+    },
+    {
+      "stage": "medium",
+      "id": "func_39_cloneDeep",
+      "package": "rfdc@1.4.1",
+      "entry": "index.js",
+      "category": "collections",
+      "bytes": 5847,
+      "sha256": "f8b731ce6a4514e98b4d992ac6211ec119eafcb0e4ea8329b938cf2b87e6c94e"
+    },
+    {
+      "stage": "medium",
+      "id": "func_40_deepMerge",
+      "package": "deepmerge@4.3.1",
+      "entry": "dist/cjs.js",
+      "category": "collections",
+      "bytes": 4048,
+      "sha256": "99ded41a8e2cf1fa6c0fc0a5520203e0ea4ac2eee04672b9f807982a8647253a"
+    },
+    {
+      "stage": "medium",
+      "id": "func_41_base64",
+      "package": "base64-js@1.5.1",
+      "entry": "index.js",
+      "category": "crypto",
+      "bytes": 3932,
+      "sha256": "8fbb4f503c68b8c4bb64cc79fd75b57b323c362f8ec1ca21eb8abdab49accb8a"
+    },
+    {
+      "stage": "medium",
+      "id": "func_42_md5",
+      "package": "blueimp-md5@2.19.0",
+      "entry": "js/md5.js",
+      "category": "crypto",
+      "bytes": 11559,
+      "sha256": "882a849182cb17e49b40a978ca88b2d651fccab8199fc5b608bf5b0460133d44"
+    },
+    {
+      "stage": "medium",
+      "id": "func_43_sha256",
+      "package": "js-sha256@1.0.0",
+      "entry": "build/sha256.node.cjs",
+      "category": "crypto",
+      "bytes": 3120,
+      "sha256": "c28a6bed34c162c418ef231dca2c155536b7bba682f65fbcf38aad5283e25821"
+    },
+    {
+      "stage": "medium",
+      "id": "func_44_sha1",
+      "package": "js-sha1@0.7.0",
+      "entry": "src/sha1.js",
+      "category": "crypto",
+      "bytes": 16343,
+      "sha256": "9e71a1ab3ddcb7441bcc1e27823696ab36d2d90ec7d9bf940a2120e06bc979d4"
+    },
+    {
+      "stage": "medium",
+      "id": "func_45_crc32",
+      "package": "js-crc@0.3.1",
+      "entry": "src/crc.js",
+      "category": "crypto",
+      "bytes": 10436,
+      "sha256": "df889b6666bec091215aca731301bd52b4b0645949aad971090e78c2a66be39c"
+    },
+    {
+      "stage": "medium",
+      "id": "func_46_base32",
+      "package": "hi-base32@0.5.1",
+      "entry": "src/base32.js",
+      "category": "crypto",
+      "bytes": 16590,
+      "sha256": "5933a2535fde1b08babd28b139ec25c3b4e9e5a71d8bcc5b89cce2504a1019ab"
+    },
+    {
+      "stage": "medium",
+      "id": "func_47_rc4",
+      "package": "rc4@0.1.5",
+      "entry": "rc4.js",
+      "category": "crypto",
+      "bytes": 4633,
+      "sha256": "75a3dda8080605d8780ffc21d0937687068d97743f62d0eb6620709f1c784495"
+    },
+    {
+      "stage": "medium",
+      "id": "func_48_sha3",
+      "package": "js-sha3@0.9.3",
+      "entry": "src/sha3.js",
+      "category": "crypto",
+      "bytes": 21296,
+      "sha256": "edd768c7411b8d48d57a2e3a4027904f228d025b2b91d0e7a4879e09e64520cb"
+    },
+    {
+      "stage": "medium",
+      "id": "func_49_bitTwiddle",
+      "package": "bit-twiddle@1.0.2",
+      "entry": "twiddle.js",
+      "category": "crypto",
+      "bytes": 5011,
+      "sha256": "7cdafe992e7ad2284e109b497454032cd2df7e86aedff0d76c2b2d57f64795be"
+    },
+    {
+      "stage": "medium",
+      "id": "func_50_hashSum",
+      "package": "hash-sum@2.0.0",
+      "entry": "hash-sum.js",
+      "category": "crypto",
+      "bytes": 1542,
+      "sha256": "7b879c9d9341c422fab65a82062af6288fa19ded525b158a0be96bd6454fb3b3"
+    }
+  ],
+  "tests": []
+}

@@ -41,31 +41,118 @@ Two consequences follow from having no directional claim, and both are load-bear
 * **Scoring harness** with per-suite timeouts and a four-way outcome taxonomy
   (`pass` / `fail` / `load-error` / `timeout`).
 
+* **Obfuscated stages generated and gated (2026-08-24).**
+  **Obfuscator: `javascript-obfuscator@5.6.0`** (BSD-2-Clause, pinned exactly in
+  package.json — no caret; it went 5.5.1 → 5.6.0 mid-project). Levels are the
+  tool's **own** `low-obfuscation` / `medium-obfuscation` / `high-obfuscation`
+  presets via `getOptionsByPreset()`, so "why these three?" is answered by the
+  tool's documentation rather than by our judgement. Seed `20260824` fixed;
+  `target: 'node'` (the presets ship `'browser'`, wrong for a CommonJS corpus).
+  Four conditions, 200 files.
+  **All four score 50/50** — the obfuscator preserved semantics everywhere, so any
+  later failure belongs to the deobfuscation and not to broken input. Frozen
+  separately as `dataset/01_obfuscated/STAGES.lock.json`, fingerprint
+  `d90486d1eaa23fa4f7107cdbeb8218b49b3b7a48603a40616a9139ca4e8c0fa4`; exact
+  options in `dataset/01_obfuscated/CONDITIONS.json` (that file is the appendix).
+
+  | Condition | Inflation | Largest file |
+  |---|---|---|
+  | `identity` | 0.89x | 23 KB |
+  | `low` | 1.24x | 25 KB |
+  | `medium` | 5.74x | 134 KB |
+  | `high` | **13.89x** | **511 KB (24.6x)** |
+
+  `identity` is not a preset: it is every transformation switched off, a
+  parse-and-reprint that every tool should score 100 % on. It is the pipeline's
+  sanity check, and it is needed because the tool's own `low` preset already
+  renames identifiers and builds a string array — there is no mild setting.
+
 ## Not done — this is the whole remaining paper
 
-**Zero experimental data exists.** No obfuscated corpus, no baseline run, no model
-run. Results and Discussion are empty.
+**No baseline run, no model run.** Results and Discussion are empty.
 
 ## Next concrete step
 
-Generate `dataset/01_obfuscated/{low,medium,high}/` — 50 files each, 150 total.
+**Run the AST baselines.** They are free and deterministic, so they prove the whole
+pipeline end to end before any money is spent on model calls: obfuscated file in →
+tool → output file → `npm run score`.
 
-* Tool: `javascript-obfuscator@5.5.1`, using **its own** `low-obfuscation`,
-  `medium-obfuscation`, `high-obfuscation` presets. Using the tool's documented
-  levels answers "why these three?" without appeal to our own judgement.
-* **Fixed `seed`.** Output is otherwise random per run and nothing is reproducible.
-* **Turn off `selfDefending`, `debugProtection`, `disableConsoleOutput`** in all
-  three. These are anti-tampering features, not comprehension barriers, and they
-  corrupt the experiment. Verified empirically: with `selfDefending` on, beautified
-  output enters an infinite loop — the js-beautify baseline would hang on every
-  file and its score would measure self-protection, not formatting.
-* Gate: `TARGET_DIR=dataset/01_obfuscated/<level> npm run score` must be **50/50**
-  before that level is used. A level that does not pass means the obfuscator changed
-  semantics, and every downstream number for those files is void.
-* Record size inflation per file; freeze the obfuscated set afterwards.
+    webcrack@2.16.0                 general purpose
+    restringer@2.2.0                general purpose
+    deobfuscator@2.4.6              Synchrony — purpose-built for this obfuscator
+    obfuscator-io-deobfuscator      also purpose-built
+    js-beautify@2.0.3               formatting-only LOWER BOUND, not a peer
 
-Then, in order: AST baselines (free, deterministic, they prove the pipeline end to
-end before any money is spent) → a 5-file LLM pilot → the full matrix.
+Report the purpose-built tools separately from the general ones: with a single
+obfuscator they have home-field advantage, and that has to be visible rather than
+buried in an average.
+
+### The deobfuscators need a newer Node than the benchmark runs on
+
+Found while trying to demonstrate string recovery on a `high` file:
+
+    webcrack@2.16.0     engines: node >=22 — its isolated-vm dependency will not
+                        compile against Node 18 headers
+    restringer@2.2.0    refuses to start: "Node.js 22.20.0 or newer required for
+                        the hardened sandbox flags. Found: v18.12.1"
+
+**Do not upgrade Node to fix this.** The corpus was frozen and its tests verified
+on v18.12.1, recorded in `CORPUS.lock.json`; changing the runtime can change what
+the suites do (error message wording, language surface) and would invalidate the
+frozen result.
+
+Separate the two environments instead — they are separate jobs anyway:
+
+    deobfuscation   Node 22+     the tools only transform a file
+    scoring         Node 18.12.1 the frozen environment, unchanged
+
+The output of a tool is just a `.js` file; where it was produced does not matter,
+only where it is scored. Record the tool environment alongside the results.
+
+### How the RC4 strings are actually recovered — and why an LLM might not need to
+
+At `high`, `stringArrayEncoding: ["rc4"]` hides every string. This is obfuscation,
+not cryptography: the ciphertext array, the decoder and the key are all inside the
+file, because the code has to decrypt its own strings to run.
+
+Verified directly on `high/func_33_flatten.js` by exporting its decoder and calling
+it: the array literal `"WQCbW4LMWPtcNmoniq"` comes back as readable text. So an AST
+tool does not break RC4 — it locates the decoder and **executes** it, then replaces
+the calls with literals. That is exactly why webcrack depends on `isolated-vm`.
+
+An LLM cannot execute anything. But it may not have to, and this is the interesting
+asymmetry for the comparison:
+
+* **Structural strings can be inferred.** `arr[_0x1439aa(...)]` used as a loop bound
+  is almost certainly `length`. Scoring by unit tests asks whether the code does the
+  same job, not whether the strings were recovered — so a correct inference passes.
+  This is the main argument for Pass Rate over CodeBLEU, which would penalise it.
+* **Data strings cannot.** UUID patterns in `func_22_isUuid`, the colour pattern in
+  `func_29_isHexColor`, constant tables in the crypto items. These must be decoded —
+  or recalled from the original package, which is precisely what the contamination
+  arm exists to detect.
+
+A further wrinkle at `high`: `splitStrings` with `splitStringsChunkLength: 5` cuts
+strings into five-character pieces, so decoding yields fragments (`'expor'`) that
+still have to be reassembled.
+
+### Context overflow is now a measured, not a hypothetical, problem
+
+At `high`, roughly 4 chars/token:
+
+| Condition | files > 32k tok | > 64k | > 128k | largest |
+|---|---|---|---|---|
+| identity / low | 0 | 0 | 0 | 6k |
+| medium | 2 | 0 | 0 | 34k |
+| high | **7** | **3** | **1** | **131k** |
+
+So at `high`, seven files are large enough to strain a model's context and one is
+131k tokens on its own. Decide the policy BEFORE the model runs: truncation is not
+acceptable (it changes the task), so these should be recorded as a distinct outcome
+— the harness already has `load-error` / `timeout` and needs a `too-large` sibling.
+This is the reportable failure mode §8 anticipated.
+
+Then: a 5-file LLM pilot → the full matrix → the contamination arm.
 
 ## Decided
 
