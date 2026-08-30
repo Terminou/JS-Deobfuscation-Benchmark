@@ -94,8 +94,25 @@ Two consequences follow from having no directional claim, and both are load-bear
   * **Synchrony (`deobfuscator@2.4.6`) excluded** — 50/50 load-error at every level
     (decoder removed, call sites left). Not a version lag; recorded in
     `results/ast_baselines.md`, not dropped silently.
-  * **restringer@2.2.0 incomplete** — `identity`/`low` done; `medium` 49/50;
-    `high` 3/50 when last attempted (`spawn EAGAIN`). Not in the main table yet.
+  * **restringer@2.2.0 excluded** — partial run only (`high` 3/50 when last attempted,
+    `spawn EAGAIN`); baseline set closed before completion. Recorded in
+    `results/ast_baselines.md`, not in the main table.
+
+* **AST baseline set closed (2026-08-30).** No further classic deobfuscators will
+  be added. The comparison uses exactly three tools plus documented exclusions:
+
+  | In main table | Role |
+  |---|---|
+  | webcrack 2.16.0 | general-purpose |
+  | js-deobfuscator 1.1.7 | purpose-built |
+  | obfuscator-io-deobfuscator 1.0.6 | purpose-built |
+
+  | Excluded (appendix) | Reason |
+  |---|---|
+  | Synchrony (`deobfuscator@2.4.6`) | 50/50 load-error |
+  | restringer 2.2.0 | incomplete; baseline set closed |
+  | JS-Nice | API unavailable |
+  | js-beautify, wakaru | formatting class — not run; cite as lower-bound class only if needed |
 
 ## Not done — this is the whole remaining paper
 
@@ -116,8 +133,8 @@ and Discussion are empty.
    any LLM Pass Rate.
 5. Full matrix: models × prompts × four conditions × 50 files.
 
-Formatting-only lower bound (`js-beautify`, `wakaru`) and finishing restringer
-are optional polish; neither blocks the LLM stage.
+Formatting-only lower bound (`js-beautify`, `wakaru`) was never run and is not
+required — the three-tool AST set is final.
 
 Report purpose-built AST tools separately from general-purpose ones and from LLMs:
 with a single obfuscator, purpose-built tools have home-field advantage, and that
@@ -236,13 +253,10 @@ Then: a 5-file LLM pilot → the full matrix → the contamination arm.
 * **Contamination arm is in scope.** A semantics-preserving mutated copy of the
   corpus, run through the same matrix. The mutation must cover the expected values
   in `tests/upstream/` too, or a recalling model still passes.
-* **Baselines:** `webcrack@2.16.0` (general), `js-deobfuscator@1.1.7` and
-  `obfuscator-io-deobfuscator@1.0.6` (purpose-built, reported separately).
-  **Synchrony (`deobfuscator@2.4.6`) excluded** after 50/50 load-error — see AST
-  baselines above. `restringer@2.2.0` incomplete. `js-beautify@2.0.3` and `wakaru`
-  as **formatting-only lower bounds**, not peers. **JS-Nice is out** — jsnice.org
-  serves a page but its API returns 405 to every endpoint tried. Report that as an
-  observation about the field.
+* **Baselines — closed set of three**, reported by role (see Done above).
+  **Synchrony** and **restringer** excluded with reasons in `results/ast_baselines.md`.
+  **JS-Nice** unavailable. **js-beautify** / **wakaru** cited as formatting class
+  only; not evaluated. No further classic deobfuscators will be added.
 
 ## Still open
 
@@ -255,8 +269,6 @@ Then: a 5-file LLM pilot → the full matrix → the contamination arm.
 * **Determinism not yet verified for AST tools** — run one stage twice before
   claiming k = 1 in the paper.
 * **`too-large` outcome** not yet implemented in the harness (needed for LLM runs).
-* Finish or formally exclude **restringer**; run **formatting lower bound** if
-  there is room in the paper.
 
 ## Picking up on another machine
 

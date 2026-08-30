@@ -67,26 +67,26 @@ plausibly do better.
   (`shift-parser` error) — a consistent, file-specific defect.
 * `obfuscator-io-deobfuscator` fails only on `func_09_dijkstra`, at every stage.
 
-## Excluded tools
+## Excluded tools — baseline set closed
 
-* **Synchrony (`deobfuscator@2.4.6`) — removed from the comparison.** It located
-  the string array, deleted the function defining it, and left the call sites, so
-  every output file threw `_0x... is not defined` on load: 50/50 unloadable at
-  `low`, `medium` and `high`. Verified via both the CLI and the API, and against
+No further classic deobfuscators will be evaluated. The main comparison is three
+tools (one general-purpose, two purpose-built for `javascript-obfuscator`).
+
+* **Synchrony (`deobfuscator@2.4.6`) — excluded.** It located the string array,
+  deleted the function defining it, and left the call sites, so every output file
+  threw `_0x... is not defined` on load: 50/50 unloadable at `low`, `medium` and
+  `high`. Verified via both the CLI and the API, and against
   `javascript-obfuscator@5.4.3` (the version current when Synchrony was last
-  released), so it is neither our misuse nor a version lag. It contributes no
-  signal and is excluded — recorded here rather than dropped silently.
-* **JS-Nice** — jsnice.org serves a page but its API returns 405 to every
-  endpoint tried. Report as an observation about the state of the field.
-* **wakaru, js-beautify** — formatting class, not peers. On this obfuscation
-  family both leave the string decoder and arithmetic obfuscation intact and the
-  output grows (wakaru: 7 509 B → 9 330 B). They belong in a lower-bound row.
+  released), so it is neither our misuse nor a version lag.
+* **restringer@2.2.0 — excluded (incomplete).** Partial runs only: `identity` and
+  `low` done, `medium` 49/50, `high` 3/50 before `spawn EAGAIN`. Baseline set
+  closed before a clean full run; not in the main table.
+* **JS-Nice** — jsnice.org serves a page but its API returns 405 to every endpoint
+  tried. Report as an observation about the state of the field.
+* **js-beautify, wakaru** — formatting class, not peers; not run. May be cited in
+  text as a lower-bound *class* without measured numbers.
 
-## Still open
+## Still open (AST stage)
 
-* `restringer@2.2.0` incomplete: `identity` and `low` done, `medium` 49/50,
-  `high` 3/50. Its earlier run died of `spawn EAGAIN` under self-inflicted load.
-* **Determinism is assumed, not shown.** These tools are deterministic and the
-  plan is to run them once (k=1). Before claiming that, run one stage twice and
-  confirm the results are identical.
+* **Determinism not yet verified** — run one stage twice before claiming k = 1.
 
