@@ -9,7 +9,7 @@ sections; you do not need them to continue the work. **Start here instead.**
 
 ---
 
-# WHERE THINGS STAND — 2026-08-23
+# WHERE THINGS STAND — 2026-08-30
 
 ## What the paper is
 
@@ -63,29 +63,65 @@ Two consequences follow from having no directional claim, and both are load-bear
   | `high` | **13.89x** | **511 KB (24.6x)** |
 
   `identity` is not a preset: it is every transformation switched off, a
-  parse-and-reprint that every tool should score 100 % on. It is the pipeline's
-  sanity check, and it is needed because the tool's own `low` preset already
-  renames identifiers and builds a string array — there is no mild setting.
+  parse-and-reprint. The obfuscated inputs all score 50/50 before any
+  deobfuscation — that is the pipeline sanity check. Purpose-built deobfuscators
+  are *not* expected to score 100 % here: they run their recovery pipeline on
+  minified code with no obfuscation to undo, and can break it (see AST baselines
+  below). The tool's own `low` preset already renames identifiers and builds a
+  string array — there is no milder setting.
+
+* **AST deobfuscator baselines run and recorded (2026-08-30).** Pipeline:
+  `tools/deobfuscators/deobfuscate.mjs` on Node 24.19.0 →
+  `dataset/02_deobfuscated/<tool>/<stage>/` → `tools/score_stage.js` on Node
+  18.12.1. Authoritative scores in `results/runs_v2/` (1 800 s timeout,
+  `--jobs 2`, serial machine load). Summary in `results/ast_baselines.md`;
+  per-file spreadsheet in `results/all_test_results.xlsx`.
+
+  | Tool | Type | identity | low | medium | high |
+  |---|---|---:|---:|---:|---:|
+  | webcrack 2.16.0 | general | 100 % | 100 % | 100 % | 100 % |
+  | obfuscator-io-deobfuscator 1.0.6 | purpose-built | 98 % | 98 % | 100 % | 98 % |
+  | js-deobfuscator 1.1.7 | purpose-built | 80 % | 82 % | 88 % | 94 % |
+
+  Key findings for the paper:
+
+  * **Pass Rate alone is misleading.** At `high`, webcrack scores 100 % and
+    collapses output to **226 KB** (original corpus scale); js-deobfuscator
+    scores 94 % but leaves **1 996 KB** — survival, not full recovery.
+  * **Purpose-built tools are non-monotonic in obfuscation level.** js-deobfuscator
+    scores *better* as obfuscation increases (80 % → 94 %) because it is tuned for
+    heavy `javascript-obfuscator` patterns and damages lightly obfuscated input.
+  * **Synchrony (`deobfuscator@2.4.6`) excluded** — 50/50 load-error at every level
+    (decoder removed, call sites left). Not a version lag; recorded in
+    `results/ast_baselines.md`, not dropped silently.
+  * **restringer@2.2.0 incomplete** — `identity`/`low` done; `medium` 49/50;
+    `high` 3/50 when last attempted (`spawn EAGAIN`). Not in the main table yet.
 
 ## Not done — this is the whole remaining paper
 
-**No baseline run, no model run.** Results and Discussion are empty.
+**No model run, no contamination arm.** AST Results can be drafted; LLM Results
+and Discussion are empty.
 
 ## Next concrete step
 
-**Run the AST baselines.** They are free and deterministic, so they prove the whole
-pipeline end to end before any money is spent on model calls: obfuscated file in →
-tool → output file → `npm run score`.
+**LLM pilot, then the full matrix, then the contamination arm.**
 
-    webcrack@2.16.0                 general purpose
-    restringer@2.2.0                general purpose
-    deobfuscator@2.4.6              Synchrony — purpose-built for this obfuscator
-    obfuscator-io-deobfuscator      also purpose-built
-    js-beautify@2.0.3               formatting-only LOWER BOUND, not a peer
+1. Lock model and prompting choices (see Still open).
+2. Add a `too-large` outcome for files that exceed a model's context window —
+   truncation changes the task. At `high`, seven files exceed 32 k tokens and one
+   is 131 k tokens on its own.
+3. Run a **5-file pilot** on `high` (one model, one prompt) to validate the
+   extract-JS → score pipeline and API cost.
+4. Build the **mutated corpus** (code *and* test expected values) before trusting
+   any LLM Pass Rate.
+5. Full matrix: models × prompts × four conditions × 50 files.
 
-Report the purpose-built tools separately from the general ones: with a single
-obfuscator they have home-field advantage, and that has to be visible rather than
-buried in an average.
+Formatting-only lower bound (`js-beautify`, `wakaru`) and finishing restringer
+are optional polish; neither blocks the LLM stage.
+
+Report purpose-built AST tools separately from general-purpose ones and from LLMs:
+with a single obfuscator, purpose-built tools have home-field advantage, and that
+has to be visible rather than buried in an average.
 
 ### The scoring timeout is a measurement parameter, not a hang guard
 
@@ -107,8 +143,12 @@ same module scored `pass` in one run and `timeout` in the next, which would make
 Pass Rate non-deterministic — unacceptable for a benchmark, since a model's output
 could score differently on a re-run.
 
-Default is now **600 s**, roughly 4x the slowest clean measurement, so noise cannot
-cross it. At that limit `high` scores **50/50** reliably.
+Default in `score_stage.js` is now **600 s** (~4× the slowest clean measurement).
+The **authoritative AST baseline run** used **1 800 s** explicitly
+(`results/runs_v2/`). At 1 800 s serial there are **no timeouts** in the recorded
+baselines; an earlier pass at 600 s with `--jobs 4` produced measurement artefacts
+(up to 8 points lower for two tools). Obfuscated `high` inputs score 50/50 at 600 s
+on the frozen corpus when nothing else is competing.
 
 Three things follow for the write-up:
 
@@ -196,11 +236,13 @@ Then: a 5-file LLM pilot → the full matrix → the contamination arm.
 * **Contamination arm is in scope.** A semantics-preserving mutated copy of the
   corpus, run through the same matrix. The mutation must cover the expected values
   in `tests/upstream/` too, or a recalling model still passes.
-* **Baselines:** `webcrack@2.16.0`, `deobfuscator@2.4.6` (this is Synchrony — the
-  npm package named `synchrony` is an unrelated 2016 package), `restringer@2.2.0`,
-  and `js-beautify@2.0.3` as a **formatting-only lower bound**, not a peer.
-  **JS-Nice is out** — jsnice.org serves a page but its API returns 405 to every
-  endpoint tried. Report that as an observation about the field.
+* **Baselines:** `webcrack@2.16.0` (general), `js-deobfuscator@1.1.7` and
+  `obfuscator-io-deobfuscator@1.0.6` (purpose-built, reported separately).
+  **Synchrony (`deobfuscator@2.4.6`) excluded** after 50/50 load-error — see AST
+  baselines above. `restringer@2.2.0` incomplete. `js-beautify@2.0.3` and `wakaru`
+  as **formatting-only lower bounds**, not peers. **JS-Nice is out** — jsnice.org
+  serves a page but its API returns 405 to every endpoint tried. Report that as an
+  observation about the field.
 
 ## Still open
 
@@ -210,6 +252,11 @@ Then: a 5-file LLM pilot → the full matrix → the contamination arm.
 * Pass Rate is per-file binary (what `npm run score` reports). Confirm that as the
   definition of record; keep partial pass counts as a secondary measure in case a
   level floors everyone at zero.
+* **Determinism not yet verified for AST tools** — run one stage twice before
+  claiming k = 1 in the paper.
+* **`too-large` outcome** not yet implemented in the harness (needed for LLM runs).
+* Finish or formally exclude **restringer**; run **formatting lower bound** if
+  there is room in the paper.
 
 ## Picking up on another machine
 
@@ -218,6 +265,8 @@ git clone <repo> && cd JS-Deobfuscation-Benchmark
 npm install
 npm run groundtruth     # frozen + loads + tests intact + 50/50
 npm run report          # per-function table with oracle strength
+# AST baseline scores: results/runs_v2/*.json, results/ast_baselines.md
+# Spreadsheet: results/all_test_results.xlsx
 ```
 
 If `verify:freeze` fails, something changed the corpus — find out what before
@@ -898,7 +947,7 @@ be a deliberate re-freeze with a version bump, not a silent drift.
   mutator set must be fixed, measured once, and declared. Do not cite 80 %.
 * **Pass Rate granularity**: `score_stage.js` now reports per-file binary, which
   is what the Ground Truth Rule implies. Confirm this is the definition of record.
-* No obfuscation pipeline, no baseline run, no model run. Zero experimental data.
+* Obfuscation pipeline and AST baselines are done; **no model run yet**.
 
 ---
 
