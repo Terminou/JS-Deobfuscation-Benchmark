@@ -1,0 +1,14 @@
+{
+  "name": "deobfuscator-workspace",
+  "private": true,
+  "type": "module",
+  "description": "Deobfuscation tools live here, isolated from the benchmark. webcrack and restringer require Node >=22; the corpus and its tests are frozen on Node 18.12.1 and must not be moved. Tools only transform files, so they can run on a different runtime than the scoring does.",
+  "dependencies": {
+    "deobfuscator": "^2.4.6",
+    "js-deobfuscator": "^1.1.7",
+    "obfuscator-io-deobfuscator": "^1.0.6",
+    "restringer": "^2.2.0",
+    "wakaru": "^1.10.0",
+    "webcrack": "2.16.0"
+  }
+}

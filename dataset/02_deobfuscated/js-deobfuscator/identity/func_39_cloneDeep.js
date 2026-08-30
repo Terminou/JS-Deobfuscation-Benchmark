@@ -1,0 +1,183 @@
+"use strict";
+module.exports = rfdc;
+function copyBuffer(_0x2aa2e3) {
+  if (_0x2aa2e3 instanceof Buffer) {
+    return Buffer.from(_0x2aa2e3);
+  }
+  return new _0x2aa2e3.constructor(_0x2aa2e3.buffer.slice(), _0x2aa2e3.byteOffset, _0x2aa2e3.length);
+}
+function rfdc(_0x28cac9) {
+  _0x28cac9 = _0x28cac9 || {};
+  if (_0x28cac9.circles) return rfdcCircles(_0x28cac9);
+  const _0x3ad11a = new Map;
+  _0x3ad11a.set(Date, _0x3925f9 => new Date(_0x3925f9));
+  _0x3ad11a.set(Map, (_0x27d2e2, _0x5e128c) => new Map(_0x41a664(Array.from(_0x27d2e2), _0x5e128c)));
+  _0x3ad11a.set(Set, (_0x474ede, _0x497a24) => new Set(_0x41a664(Array.from(_0x474ede), _0x497a24)));
+  if (_0x28cac9.constructorHandlers) {
+    for (const _0x4bb61b of _0x28cac9.constructorHandlers) {
+      _0x3ad11a.set(_0x4bb61b[0], _0x4bb61b[1]);
+    }
+  }
+  let _0x4247a6 = null;
+  return _0x28cac9.proto ? _0x5b57b0 : _0xd9b232;
+  function _0x41a664(_0x1e9922, _0xd6ae01) {
+    const _0x3d82d5 = Object.keys(_0x1e9922);
+    const _0x1b3e5a = new Array(_0x3d82d5.length);
+    for (let _0x2d9fb5 = 0; _0x2d9fb5 < _0x3d82d5.length; _0x2d9fb5++) {
+      const _0x4d9f1d = _0x3d82d5[_0x2d9fb5];
+      const _0x119fd1 = _0x1e9922[_0x4d9f1d];
+      if (typeof _0x119fd1 !== "object" || _0x119fd1 === null) {
+        _0x1b3e5a[_0x4d9f1d] = _0x119fd1;
+      } else if (_0x119fd1.constructor !== Object && (_0x4247a6 = _0x3ad11a.get(_0x119fd1.constructor))) {
+        _0x1b3e5a[_0x4d9f1d] = _0x4247a6(_0x119fd1, _0xd6ae01);
+      } else if (ArrayBuffer.isView(_0x119fd1)) {
+        _0x1b3e5a[_0x4d9f1d] = copyBuffer(_0x119fd1);
+      } else {
+        _0x1b3e5a[_0x4d9f1d] = _0xd6ae01(_0x119fd1);
+      }
+    }
+    return _0x1b3e5a;
+  }
+  function _0xd9b232(_0x2a7878) {
+    if (typeof _0x2a7878 !== "object" || _0x2a7878 === null) return _0x2a7878;
+    if (Array.isArray(_0x2a7878)) return _0x41a664(_0x2a7878, _0xd9b232);
+    if (_0x2a7878.constructor !== Object && (_0x4247a6 = _0x3ad11a.get(_0x2a7878.constructor))) {
+      return _0x4247a6(_0x2a7878, _0xd9b232);
+    }
+    const _0x24e4cb = {};
+    for (const _0x587342 in _0x2a7878) {
+      if (Object.hasOwnProperty.call(_0x2a7878, _0x587342) === false) continue;
+      const _0x21902e = _0x2a7878[_0x587342];
+      if (typeof _0x21902e !== "object" || _0x21902e === null) {
+        _0x24e4cb[_0x587342] = _0x21902e;
+      } else if (_0x21902e.constructor !== Object && (_0x4247a6 = _0x3ad11a.get(_0x21902e.constructor))) {
+        _0x24e4cb[_0x587342] = _0x4247a6(_0x21902e, _0xd9b232);
+      } else if (ArrayBuffer.isView(_0x21902e)) {
+        _0x24e4cb[_0x587342] = copyBuffer(_0x21902e);
+      } else {
+        _0x24e4cb[_0x587342] = _0xd9b232(_0x21902e);
+      }
+    }
+    return _0x24e4cb;
+  }
+  function _0x5b57b0(_0x26ddbc) {
+    if (typeof _0x26ddbc !== "object" || _0x26ddbc === null) return _0x26ddbc;
+    if (Array.isArray(_0x26ddbc)) return _0x41a664(_0x26ddbc, _0x5b57b0);
+    if (_0x26ddbc.constructor !== Object && (_0x4247a6 = _0x3ad11a.get(_0x26ddbc.constructor))) {
+      return _0x4247a6(_0x26ddbc, _0x5b57b0);
+    }
+    const _0x3a6467 = {};
+    for (const _0x1acf2a in _0x26ddbc) {
+      const _0x7307bf = _0x26ddbc[_0x1acf2a];
+      if (typeof _0x7307bf !== "object" || _0x7307bf === null) {
+        _0x3a6467[_0x1acf2a] = _0x7307bf;
+      } else if (_0x7307bf.constructor !== Object && (_0x4247a6 = _0x3ad11a.get(_0x7307bf.constructor))) {
+        _0x3a6467[_0x1acf2a] = _0x4247a6(_0x7307bf, _0x5b57b0);
+      } else if (ArrayBuffer.isView(_0x7307bf)) {
+        _0x3a6467[_0x1acf2a] = copyBuffer(_0x7307bf);
+      } else {
+        _0x3a6467[_0x1acf2a] = _0x5b57b0(_0x7307bf);
+      }
+    }
+    return _0x3a6467;
+  }
+}
+function rfdcCircles(_0x3ab049) {
+  const _0x367e28 = [];
+  const _0x35f13f = [];
+  const _0x5835ef = new Map;
+  _0x5835ef.set(Date, _0x51b798 => new Date(_0x51b798));
+  _0x5835ef.set(Map, (_0x4d292c, _0x47354b) => new Map(_0x17f0e0(Array.from(_0x4d292c), _0x47354b)));
+  _0x5835ef.set(Set, (_0x3c294e, _0x36e6d6) => new Set(_0x17f0e0(Array.from(_0x3c294e), _0x36e6d6)));
+  if (_0x3ab049.constructorHandlers) {
+    for (const _0x1d4ac8 of _0x3ab049.constructorHandlers) {
+      _0x5835ef.set(_0x1d4ac8[0], _0x1d4ac8[1]);
+    }
+  }
+  let _0x358ef1 = null;
+  return _0x3ab049.proto ? _0x1258b2 : _0x3d66c1;
+  function _0x17f0e0(_0x51fc30, _0x1efcc9) {
+    const _0x2d98c2 = Object.keys(_0x51fc30);
+    const _0x412760 = new Array(_0x2d98c2.length);
+    for (let _0x45f548 = 0; _0x45f548 < _0x2d98c2.length; _0x45f548++) {
+      const _0x22d8fc = _0x2d98c2[_0x45f548];
+      const _0x33045f = _0x51fc30[_0x22d8fc];
+      if (typeof _0x33045f !== "object" || _0x33045f === null) {
+        _0x412760[_0x22d8fc] = _0x33045f;
+      } else if (_0x33045f.constructor !== Object && (_0x358ef1 = _0x5835ef.get(_0x33045f.constructor))) {
+        _0x412760[_0x22d8fc] = _0x358ef1(_0x33045f, _0x1efcc9);
+      } else if (ArrayBuffer.isView(_0x33045f)) {
+        _0x412760[_0x22d8fc] = copyBuffer(_0x33045f);
+      } else {
+        const _0xea4400 = _0x367e28.indexOf(_0x33045f);
+        if (_0xea4400 !== -1) {
+          _0x412760[_0x22d8fc] = _0x35f13f[_0xea4400];
+        } else {
+          _0x412760[_0x22d8fc] = _0x1efcc9(_0x33045f);
+        }
+      }
+    }
+    return _0x412760;
+  }
+  function _0x3d66c1(_0x54b6a7) {
+    if (typeof _0x54b6a7 !== "object" || _0x54b6a7 === null) return _0x54b6a7;
+    if (Array.isArray(_0x54b6a7)) return _0x17f0e0(_0x54b6a7, _0x3d66c1);
+    if (_0x54b6a7.constructor !== Object && (_0x358ef1 = _0x5835ef.get(_0x54b6a7.constructor))) {
+      return _0x358ef1(_0x54b6a7, _0x3d66c1);
+    }
+    const _0x1c29b1 = {};
+    _0x367e28.push(_0x54b6a7);
+    _0x35f13f.push(_0x1c29b1);
+    for (const _0x440905 in _0x54b6a7) {
+      if (Object.hasOwnProperty.call(_0x54b6a7, _0x440905) === false) continue;
+      const _0x2decbf = _0x54b6a7[_0x440905];
+      if (typeof _0x2decbf !== "object" || _0x2decbf === null) {
+        _0x1c29b1[_0x440905] = _0x2decbf;
+      } else if (_0x2decbf.constructor !== Object && (_0x358ef1 = _0x5835ef.get(_0x2decbf.constructor))) {
+        _0x1c29b1[_0x440905] = _0x358ef1(_0x2decbf, _0x3d66c1);
+      } else if (ArrayBuffer.isView(_0x2decbf)) {
+        _0x1c29b1[_0x440905] = copyBuffer(_0x2decbf);
+      } else {
+        const _0x5487f5 = _0x367e28.indexOf(_0x2decbf);
+        if (_0x5487f5 !== -1) {
+          _0x1c29b1[_0x440905] = _0x35f13f[_0x5487f5];
+        } else {
+          _0x1c29b1[_0x440905] = _0x3d66c1(_0x2decbf);
+        }
+      }
+    }
+    _0x367e28.pop();
+    _0x35f13f.pop();
+    return _0x1c29b1;
+  }
+  function _0x1258b2(_0x529921) {
+    if (typeof _0x529921 !== "object" || _0x529921 === null) return _0x529921;
+    if (Array.isArray(_0x529921)) return _0x17f0e0(_0x529921, _0x1258b2);
+    if (_0x529921.constructor !== Object && (_0x358ef1 = _0x5835ef.get(_0x529921.constructor))) {
+      return _0x358ef1(_0x529921, _0x1258b2);
+    }
+    const _0x429150 = {};
+    _0x367e28.push(_0x529921);
+    _0x35f13f.push(_0x429150);
+    for (const _0x539f18 in _0x529921) {
+      const _0x394f48 = _0x529921[_0x539f18];
+      if (typeof _0x394f48 !== "object" || _0x394f48 === null) {
+        _0x429150[_0x539f18] = _0x394f48;
+      } else if (_0x394f48.constructor !== Object && (_0x358ef1 = _0x5835ef.get(_0x394f48.constructor))) {
+        _0x429150[_0x539f18] = _0x358ef1(_0x394f48, _0x1258b2);
+      } else if (ArrayBuffer.isView(_0x394f48)) {
+        _0x429150[_0x539f18] = copyBuffer(_0x394f48);
+      } else {
+        const _0x585145 = _0x367e28.indexOf(_0x394f48);
+        if (_0x585145 !== -1) {
+          _0x429150[_0x539f18] = _0x35f13f[_0x585145];
+        } else {
+          _0x429150[_0x539f18] = _0x1258b2(_0x394f48);
+        }
+      }
+    }
+    _0x367e28.pop();
+    _0x35f13f.pop();
+    return _0x429150;
+  }
+}

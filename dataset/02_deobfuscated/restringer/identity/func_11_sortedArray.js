@@ -1,0 +1,160 @@
+exports.add = add;
+exports.addFromFront = addFromFront;
+exports.remove = remove;
+exports.has = has;
+exports.eq = eq;
+exports.lte = lte;
+exports.lt = lt;
+exports.gte = gte;
+exports.gt = gt;
+exports.nearest = nearest;
+function defaultCmp(_0x1f1663, _0x4e1fde) {
+  if (_0x1f1663 === _0x4e1fde)
+    return 0;
+  return _0x1f1663 < _0x4e1fde ? -1 : 1;
+}
+function add(_0xbf1079, _0x5cfb09, _0x47bfa1) {
+  if (!_0x47bfa1)
+    _0x47bfa1 = defaultCmp;
+  var _0x4306db = _0xbf1079.push(_0x5cfb09) - 1;
+  while (_0x4306db) {
+    if (_0x47bfa1(_0xbf1079[_0x4306db - 1], _0x5cfb09) < 0)
+      return;
+    _0xbf1079[_0x4306db] = _0xbf1079[_0x4306db - 1];
+    _0xbf1079[_0x4306db - 1] = _0x5cfb09;
+    _0x4306db--;
+  }
+}
+function addFromFront(_0x3a15ac, _0x134b94, _0x2e07ef) {
+  if (!_0x2e07ef)
+    _0x2e07ef = defaultCmp;
+  var _0x168e5e = _0x3a15ac.unshift(_0x134b94) - 1;
+  for (var _0x4a1d81 = 0; _0x4a1d81 < _0x168e5e; _0x4a1d81++) {
+    if (_0x2e07ef(_0x134b94, _0x3a15ac[_0x4a1d81 + 1]) < 0)
+      return;
+    _0x3a15ac[_0x4a1d81] = _0x3a15ac[_0x4a1d81 + 1];
+    _0x3a15ac[_0x4a1d81 + 1] = _0x134b94;
+  }
+}
+function lte(_0x13d3a9, _0x1aa99b, _0x1db79c) {
+  if (!_0x1db79c)
+    _0x1db79c = defaultCmp;
+  var _0x59730f = indexOf(_0x13d3a9, _0x1aa99b, _0x1db79c);
+  if (_0x59730f === -1)
+    return -1;
+  for (; _0x59730f >= 0; _0x59730f--) {
+    var _0x2979fa = _0x1db79c(_0x13d3a9[_0x59730f], _0x1aa99b);
+    if (_0x2979fa <= 0)
+      return _0x59730f;
+  }
+  return -1;
+}
+function lt(_0xe84f42, _0x2584fa, _0x53dd18) {
+  if (!_0x53dd18)
+    _0x53dd18 = defaultCmp;
+  var _0x13066e = indexOf(_0xe84f42, _0x2584fa, _0x53dd18);
+  if (_0x13066e === -1)
+    return -1;
+  for (; _0x13066e >= 0; _0x13066e--) {
+    var _0x13e354 = _0x53dd18(_0xe84f42[_0x13066e], _0x2584fa);
+    if (_0x13e354 < 0)
+      return _0x13066e;
+  }
+  return -1;
+}
+function gte(_0x25519b, _0x86fb4c, _0x35785a) {
+  if (!_0x35785a)
+    _0x35785a = defaultCmp;
+  var _0x5e13d1 = indexOf(_0x25519b, _0x86fb4c, _0x35785a);
+  if (_0x5e13d1 === -1)
+    return -1;
+  for (; _0x5e13d1 < _0x25519b.length; _0x5e13d1++) {
+    var _0xd7ef2d = _0x35785a(_0x25519b[_0x5e13d1], _0x86fb4c);
+    if (_0xd7ef2d >= 0)
+      return _0x5e13d1;
+  }
+  return -1;
+}
+function gt(_0x4876bb, _0x10b12a, _0x189d7d) {
+  if (!_0x189d7d)
+    _0x189d7d = defaultCmp;
+  var _0x59f03b = indexOf(_0x4876bb, _0x10b12a, _0x189d7d);
+  if (_0x59f03b === -1)
+    return -1;
+  for (; _0x59f03b < _0x4876bb.length; _0x59f03b++) {
+    var _0x302727 = _0x189d7d(_0x4876bb[_0x59f03b], _0x10b12a);
+    if (_0x302727 > 0)
+      return _0x59f03b;
+  }
+  return -1;
+}
+function eq(_0x29e424, _0x49a288, _0x12a67e) {
+  if (!_0x12a67e)
+    _0x12a67e = defaultCmp;
+  var _0x1ab860 = indexOf(_0x29e424, _0x49a288, _0x12a67e);
+  if (_0x1ab860 === -1)
+    return -1;
+  return _0x12a67e(_0x29e424[_0x1ab860], _0x49a288) === 0 ? _0x1ab860 : -1;
+}
+function nearest(_0x30eb56, _0x44fd9d, _0x1ed764) {
+  if (!_0x1ed764)
+    _0x1ed764 = defaultCmp;
+  var _0x281ffd = _0x30eb56.length;
+  var _0x370afb = _0x30eb56.length - 1;
+  var _0x551313 = 0;
+  var _0x4a8513 = -1;
+  var _0x3cd449 = 1;
+  while (_0x370afb >= _0x551313 && _0x551313 >= 0 && _0x370afb < _0x30eb56.length) {
+    _0x4a8513 = Math.floor((_0x370afb + _0x551313) / 2);
+    var _0x4a8b04 = _0x1ed764(_0x30eb56[_0x4a8513], _0x44fd9d);
+    if (_0x4a8b04 === 0)
+      return _0x4a8513;
+    if (_0x4a8b04 >= 0) {
+      if (_0x3cd449 === 1)
+        _0x3cd449 = 0;
+      else if (_0x3cd449 === 2) {
+        if (Math.abs(_0x30eb56[_0x4a8513] - _0x44fd9d) > Math.abs(_0x30eb56[_0x4a8513 - 1] - _0x44fd9d))
+          return _0x4a8513 - 1;
+        return _0x4a8513;
+      }
+      _0x370afb = _0x4a8513 - 1;
+    } else {
+      if (_0x3cd449 === 1)
+        _0x3cd449 = 2;
+      else if (_0x3cd449 === 0)
+        return _0x4a8513;
+      _0x551313 = _0x4a8513 + 1;
+    }
+  }
+  return _0x4a8513;
+}
+function indexOf(_0x54e078, _0xd1fdc3, _0x50db67) {
+  if (!_0x50db67)
+    _0x50db67 = defaultCmp;
+  var _0x1cbd37 = _0x54e078.length;
+  var _0xb06642 = _0x54e078.length - 1;
+  var _0x1975e7 = 0;
+  var _0x4416b2 = -1;
+  while (_0xb06642 >= _0x1975e7 && _0x1975e7 >= 0 && _0xb06642 < _0x54e078.length) {
+    _0x4416b2 = Math.floor((_0xb06642 + _0x1975e7) / 2);
+    var _0x44815a = _0x50db67(_0x54e078[_0x4416b2], _0xd1fdc3);
+    if (_0x44815a === 0)
+      return _0x4416b2;
+    if (_0x44815a >= 0) {
+      _0xb06642 = _0x4416b2 - 1;
+    } else {
+      _0x1975e7 = _0x4416b2 + 1;
+    }
+  }
+  return _0x4416b2;
+}
+function has(_0x3b03aa, _0x1b6c85, _0x189f8b) {
+  return eq(_0x3b03aa, _0x1b6c85, _0x189f8b) > -1;
+}
+function remove(_0x247c0d, _0x286a9a, _0x4c99d8) {
+  var _0x26818c = eq(_0x247c0d, _0x286a9a, _0x4c99d8);
+  if (_0x26818c === -1)
+    return false;
+  _0x247c0d.splice(_0x26818c, 1);
+  return true;
+}

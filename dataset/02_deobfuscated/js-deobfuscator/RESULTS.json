@@ -1,0 +1,1046 @@
+{
+  "identity": {
+    "tool": "js-deobfuscator",
+    "produced": 49,
+    "of": 50,
+    "inBytes": 193750,
+    "outBytes": 222259,
+    "ratio": 1.15,
+    "results": [
+      {
+        "file": "func_01_binarySearch.js",
+        "ok": true,
+        "ms": 168
+      },
+      {
+        "file": "func_02_binarySearchBounds.js",
+        "ok": true,
+        "ms": 173
+      },
+      {
+        "file": "func_03_levenshtein.js",
+        "ok": true,
+        "ms": 171
+      },
+      {
+        "file": "func_04_damerauLevenshtein.js",
+        "ok": true,
+        "ms": 170
+      },
+      {
+        "file": "func_05_unionFind.js",
+        "ok": true,
+        "ms": 111
+      },
+      {
+        "file": "func_06_naturalCompare.js",
+        "ok": true,
+        "ms": 114
+      },
+      {
+        "file": "func_07_toposort.js",
+        "ok": true,
+        "ms": 128
+      },
+      {
+        "file": "func_08_deque.js",
+        "ok": true,
+        "ms": 142
+      },
+      {
+        "file": "func_09_dijkstra.js",
+        "ok": true,
+        "ms": 127
+      },
+      {
+        "file": "func_10_priorityQueue.js",
+        "ok": true,
+        "ms": 119
+      },
+      {
+        "file": "func_11_sortedArray.js",
+        "ok": true,
+        "ms": 130
+      },
+      {
+        "file": "func_12_jaroWinkler.js",
+        "ok": true,
+        "ms": 119
+      },
+      {
+        "file": "func_13_mersenneTwister.js",
+        "ok": true,
+        "ms": 164
+      },
+      {
+        "file": "func_14_stringSimilarity.js",
+        "ok": true,
+        "ms": 188
+      },
+      {
+        "file": "func_15_combinatorics.js",
+        "ok": false,
+        "why": "/Users/erenkilic/Documents/GitHub/JS-Deobfuscation-Benchmark/tools/deobfuscators/node_modules/shift-parser/src/tokenizer",
+        "ms": 165
+      },
+      {
+        "file": "func_16_isEmail.js",
+        "ok": true,
+        "ms": 160
+      },
+      {
+        "file": "func_17_isUrl.js",
+        "ok": true,
+        "ms": 121
+      },
+      {
+        "file": "func_18_isUri.js",
+        "ok": true,
+        "ms": 143
+      },
+      {
+        "file": "func_19_isJson.js",
+        "ok": true,
+        "ms": 138
+      },
+      {
+        "file": "func_20_isBase64.js",
+        "ok": true,
+        "ms": 131
+      },
+      {
+        "file": "func_21_msDuration.js",
+        "ok": true,
+        "ms": 150
+      },
+      {
+        "file": "func_22_isUuid.js",
+        "ok": true,
+        "ms": 131
+      },
+      {
+        "file": "func_23_uuidValidate.js",
+        "ok": true,
+        "ms": 129
+      },
+      {
+        "file": "func_24_luhn.js",
+        "ok": true,
+        "ms": 122
+      },
+      {
+        "file": "func_25_jwtDecode.js",
+        "ok": true,
+        "ms": 118
+      },
+      {
+        "file": "func_26_pluralize.js",
+        "ok": true,
+        "ms": 149
+      },
+      {
+        "file": "func_27_wordWrap.js",
+        "ok": true,
+        "ms": 128
+      },
+      {
+        "file": "func_28_byteSize.js",
+        "ok": true,
+        "ms": 124
+      },
+      {
+        "file": "func_29_isHexColor.js",
+        "ok": true,
+        "ms": 118
+      },
+      {
+        "file": "func_30_queryString.js",
+        "ok": true,
+        "ms": 151
+      },
+      {
+        "file": "func_31_objectPath.js",
+        "ok": true,
+        "ms": 155
+      },
+      {
+        "file": "func_32_union.js",
+        "ok": true,
+        "ms": 134
+      },
+      {
+        "file": "func_33_flatten.js",
+        "ok": true,
+        "ms": 123
+      },
+      {
+        "file": "func_34_unique.js",
+        "ok": true,
+        "ms": 128
+      },
+      {
+        "file": "func_35_difference.js",
+        "ok": true,
+        "ms": 119
+      },
+      {
+        "file": "func_36_intersect.js",
+        "ok": true,
+        "ms": 127
+      },
+      {
+        "file": "func_37_groupBy.js",
+        "ok": true,
+        "ms": 120
+      },
+      {
+        "file": "func_38_deepEqual.js",
+        "ok": true,
+        "ms": 130
+      },
+      {
+        "file": "func_39_cloneDeep.js",
+        "ok": true,
+        "ms": 135
+      },
+      {
+        "file": "func_40_deepMerge.js",
+        "ok": true,
+        "ms": 130
+      },
+      {
+        "file": "func_41_base64.js",
+        "ok": true,
+        "ms": 137
+      },
+      {
+        "file": "func_42_md5.js",
+        "ok": true,
+        "ms": 198
+      },
+      {
+        "file": "func_43_sha256.js",
+        "ok": true,
+        "ms": 132
+      },
+      {
+        "file": "func_44_sha1.js",
+        "ok": true,
+        "ms": 182
+      },
+      {
+        "file": "func_45_crc32.js",
+        "ok": true,
+        "ms": 151
+      },
+      {
+        "file": "func_46_base32.js",
+        "ok": true,
+        "ms": 190
+      },
+      {
+        "file": "func_47_rc4.js",
+        "ok": true,
+        "ms": 143
+      },
+      {
+        "file": "func_48_sha3.js",
+        "ok": true,
+        "ms": 166
+      },
+      {
+        "file": "func_49_bitTwiddle.js",
+        "ok": true,
+        "ms": 138
+      },
+      {
+        "file": "func_50_hashSum.js",
+        "ok": true,
+        "ms": 99
+      }
+    ]
+  },
+  "low": {
+    "tool": "js-deobfuscator",
+    "produced": 49,
+    "of": 50,
+    "inBytes": 270390,
+    "outBytes": 295541,
+    "ratio": 1.09,
+    "results": [
+      {
+        "file": "func_01_binarySearch.js",
+        "ok": true,
+        "ms": 137
+      },
+      {
+        "file": "func_02_binarySearchBounds.js",
+        "ok": true,
+        "ms": 143
+      },
+      {
+        "file": "func_03_levenshtein.js",
+        "ok": true,
+        "ms": 145
+      },
+      {
+        "file": "func_04_damerauLevenshtein.js",
+        "ok": true,
+        "ms": 143
+      },
+      {
+        "file": "func_05_unionFind.js",
+        "ok": true,
+        "ms": 140
+      },
+      {
+        "file": "func_06_naturalCompare.js",
+        "ok": true,
+        "ms": 132
+      },
+      {
+        "file": "func_07_toposort.js",
+        "ok": true,
+        "ms": 134
+      },
+      {
+        "file": "func_08_deque.js",
+        "ok": true,
+        "ms": 156
+      },
+      {
+        "file": "func_09_dijkstra.js",
+        "ok": true,
+        "ms": 134
+      },
+      {
+        "file": "func_10_priorityQueue.js",
+        "ok": true,
+        "ms": 134
+      },
+      {
+        "file": "func_11_sortedArray.js",
+        "ok": true,
+        "ms": 136
+      },
+      {
+        "file": "func_12_jaroWinkler.js",
+        "ok": true,
+        "ms": 142
+      },
+      {
+        "file": "func_13_mersenneTwister.js",
+        "ok": true,
+        "ms": 125
+      },
+      {
+        "file": "func_14_stringSimilarity.js",
+        "ok": true,
+        "ms": 123
+      },
+      {
+        "file": "func_15_combinatorics.js",
+        "ok": false,
+        "why": "/Users/erenkilic/Documents/GitHub/JS-Deobfuscation-Benchmark/tools/deobfuscators/node_modules/shift-parser/src/tokenizer",
+        "ms": 115
+      },
+      {
+        "file": "func_16_isEmail.js",
+        "ok": true,
+        "ms": 120
+      },
+      {
+        "file": "func_17_isUrl.js",
+        "ok": true,
+        "ms": 125
+      },
+      {
+        "file": "func_18_isUri.js",
+        "ok": true,
+        "ms": 132
+      },
+      {
+        "file": "func_19_isJson.js",
+        "ok": true,
+        "ms": 122
+      },
+      {
+        "file": "func_20_isBase64.js",
+        "ok": true,
+        "ms": 125
+      },
+      {
+        "file": "func_21_msDuration.js",
+        "ok": true,
+        "ms": 208
+      },
+      {
+        "file": "func_22_isUuid.js",
+        "ok": true,
+        "ms": 200
+      },
+      {
+        "file": "func_23_uuidValidate.js",
+        "ok": true,
+        "ms": 192
+      },
+      {
+        "file": "func_24_luhn.js",
+        "ok": true,
+        "ms": 203
+      },
+      {
+        "file": "func_25_jwtDecode.js",
+        "ok": true,
+        "ms": 136
+      },
+      {
+        "file": "func_26_pluralize.js",
+        "ok": true,
+        "ms": 160
+      },
+      {
+        "file": "func_27_wordWrap.js",
+        "ok": true,
+        "ms": 143
+      },
+      {
+        "file": "func_28_byteSize.js",
+        "ok": true,
+        "ms": 132
+      },
+      {
+        "file": "func_29_isHexColor.js",
+        "ok": true,
+        "ms": 122
+      },
+      {
+        "file": "func_30_queryString.js",
+        "ok": true,
+        "ms": 129
+      },
+      {
+        "file": "func_31_objectPath.js",
+        "ok": true,
+        "ms": 140
+      },
+      {
+        "file": "func_32_union.js",
+        "ok": true,
+        "ms": 118
+      },
+      {
+        "file": "func_33_flatten.js",
+        "ok": true,
+        "ms": 123
+      },
+      {
+        "file": "func_34_unique.js",
+        "ok": true,
+        "ms": 131
+      },
+      {
+        "file": "func_35_difference.js",
+        "ok": true,
+        "ms": 122
+      },
+      {
+        "file": "func_36_intersect.js",
+        "ok": true,
+        "ms": 138
+      },
+      {
+        "file": "func_37_groupBy.js",
+        "ok": true,
+        "ms": 123
+      },
+      {
+        "file": "func_38_deepEqual.js",
+        "ok": true,
+        "ms": 125
+      },
+      {
+        "file": "func_39_cloneDeep.js",
+        "ok": true,
+        "ms": 162
+      },
+      {
+        "file": "func_40_deepMerge.js",
+        "ok": true,
+        "ms": 139
+      },
+      {
+        "file": "func_41_base64.js",
+        "ok": true,
+        "ms": 130
+      },
+      {
+        "file": "func_42_md5.js",
+        "ok": true,
+        "ms": 189
+      },
+      {
+        "file": "func_43_sha256.js",
+        "ok": true,
+        "ms": 149
+      },
+      {
+        "file": "func_44_sha1.js",
+        "ok": true,
+        "ms": 197
+      },
+      {
+        "file": "func_45_crc32.js",
+        "ok": true,
+        "ms": 180
+      },
+      {
+        "file": "func_46_base32.js",
+        "ok": true,
+        "ms": 170
+      },
+      {
+        "file": "func_47_rc4.js",
+        "ok": true,
+        "ms": 147
+      },
+      {
+        "file": "func_48_sha3.js",
+        "ok": true,
+        "ms": 178
+      },
+      {
+        "file": "func_49_bitTwiddle.js",
+        "ok": true,
+        "ms": 150
+      },
+      {
+        "file": "func_50_hashSum.js",
+        "ok": true,
+        "ms": 131
+      }
+    ]
+  },
+  "medium": {
+    "tool": "js-deobfuscator",
+    "produced": 49,
+    "of": 50,
+    "inBytes": 1253105,
+    "outBytes": 937714,
+    "ratio": 0.75,
+    "results": [
+      {
+        "file": "func_01_binarySearch.js",
+        "ok": true,
+        "ms": 168
+      },
+      {
+        "file": "func_02_binarySearchBounds.js",
+        "ok": true,
+        "ms": 216
+      },
+      {
+        "file": "func_03_levenshtein.js",
+        "ok": true,
+        "ms": 222
+      },
+      {
+        "file": "func_04_damerauLevenshtein.js",
+        "ok": true,
+        "ms": 223
+      },
+      {
+        "file": "func_05_unionFind.js",
+        "ok": true,
+        "ms": 202
+      },
+      {
+        "file": "func_06_naturalCompare.js",
+        "ok": true,
+        "ms": 206
+      },
+      {
+        "file": "func_07_toposort.js",
+        "ok": true,
+        "ms": 207
+      },
+      {
+        "file": "func_08_deque.js",
+        "ok": true,
+        "ms": 318
+      },
+      {
+        "file": "func_09_dijkstra.js",
+        "ok": true,
+        "ms": 210
+      },
+      {
+        "file": "func_10_priorityQueue.js",
+        "ok": true,
+        "ms": 186
+      },
+      {
+        "file": "func_11_sortedArray.js",
+        "ok": true,
+        "ms": 204
+      },
+      {
+        "file": "func_12_jaroWinkler.js",
+        "ok": true,
+        "ms": 183
+      },
+      {
+        "file": "func_13_mersenneTwister.js",
+        "ok": true,
+        "ms": 211
+      },
+      {
+        "file": "func_14_stringSimilarity.js",
+        "ok": true,
+        "ms": 156
+      },
+      {
+        "file": "func_15_combinatorics.js",
+        "ok": false,
+        "why": "/Users/erenkilic/Documents/GitHub/JS-Deobfuscation-Benchmark/tools/deobfuscators/node_modules/shift-parser/src/tokenizer",
+        "ms": 118
+      },
+      {
+        "file": "func_16_isEmail.js",
+        "ok": true,
+        "ms": 154
+      },
+      {
+        "file": "func_17_isUrl.js",
+        "ok": true,
+        "ms": 143
+      },
+      {
+        "file": "func_18_isUri.js",
+        "ok": true,
+        "ms": 173
+      },
+      {
+        "file": "func_19_isJson.js",
+        "ok": true,
+        "ms": 144
+      },
+      {
+        "file": "func_20_isBase64.js",
+        "ok": true,
+        "ms": 184
+      },
+      {
+        "file": "func_21_msDuration.js",
+        "ok": true,
+        "ms": 193
+      },
+      {
+        "file": "func_22_isUuid.js",
+        "ok": true,
+        "ms": 185
+      },
+      {
+        "file": "func_23_uuidValidate.js",
+        "ok": true,
+        "ms": 173
+      },
+      {
+        "file": "func_24_luhn.js",
+        "ok": true,
+        "ms": 149
+      },
+      {
+        "file": "func_25_jwtDecode.js",
+        "ok": true,
+        "ms": 174
+      },
+      {
+        "file": "func_26_pluralize.js",
+        "ok": true,
+        "ms": 220
+      },
+      {
+        "file": "func_27_wordWrap.js",
+        "ok": true,
+        "ms": 163
+      },
+      {
+        "file": "func_28_byteSize.js",
+        "ok": true,
+        "ms": 183
+      },
+      {
+        "file": "func_29_isHexColor.js",
+        "ok": true,
+        "ms": 148
+      },
+      {
+        "file": "func_30_queryString.js",
+        "ok": true,
+        "ms": 188
+      },
+      {
+        "file": "func_31_objectPath.js",
+        "ok": true,
+        "ms": 341
+      },
+      {
+        "file": "func_32_union.js",
+        "ok": true,
+        "ms": 263
+      },
+      {
+        "file": "func_33_flatten.js",
+        "ok": true,
+        "ms": 262
+      },
+      {
+        "file": "func_34_unique.js",
+        "ok": true,
+        "ms": 263
+      },
+      {
+        "file": "func_35_difference.js",
+        "ok": true,
+        "ms": 181
+      },
+      {
+        "file": "func_36_intersect.js",
+        "ok": true,
+        "ms": 178
+      },
+      {
+        "file": "func_37_groupBy.js",
+        "ok": true,
+        "ms": 175
+      },
+      {
+        "file": "func_38_deepEqual.js",
+        "ok": true,
+        "ms": 193
+      },
+      {
+        "file": "func_39_cloneDeep.js",
+        "ok": true,
+        "ms": 220
+      },
+      {
+        "file": "func_40_deepMerge.js",
+        "ok": true,
+        "ms": 228
+      },
+      {
+        "file": "func_41_base64.js",
+        "ok": true,
+        "ms": 243
+      },
+      {
+        "file": "func_42_md5.js",
+        "ok": true,
+        "ms": 402
+      },
+      {
+        "file": "func_43_sha256.js",
+        "ok": true,
+        "ms": 312
+      },
+      {
+        "file": "func_44_sha1.js",
+        "ok": true,
+        "ms": 594
+      },
+      {
+        "file": "func_45_crc32.js",
+        "ok": true,
+        "ms": 405
+      },
+      {
+        "file": "func_46_base32.js",
+        "ok": true,
+        "ms": 539
+      },
+      {
+        "file": "func_47_rc4.js",
+        "ok": true,
+        "ms": 362
+      },
+      {
+        "file": "func_48_sha3.js",
+        "ok": true,
+        "ms": 512
+      },
+      {
+        "file": "func_49_bitTwiddle.js",
+        "ok": true,
+        "ms": 302
+      },
+      {
+        "file": "func_50_hashSum.js",
+        "ok": true,
+        "ms": 198
+      }
+    ]
+  },
+  "high": {
+    "tool": "js-deobfuscator",
+    "produced": 49,
+    "of": 50,
+    "inBytes": 3029960,
+    "outBytes": 2043414,
+    "ratio": 0.67,
+    "results": [
+      {
+        "file": "func_01_binarySearch.js",
+        "ok": true,
+        "ms": 204
+      },
+      {
+        "file": "func_02_binarySearchBounds.js",
+        "ok": true,
+        "ms": 240
+      },
+      {
+        "file": "func_03_levenshtein.js",
+        "ok": true,
+        "ms": 260
+      },
+      {
+        "file": "func_04_damerauLevenshtein.js",
+        "ok": true,
+        "ms": 240
+      },
+      {
+        "file": "func_05_unionFind.js",
+        "ok": true,
+        "ms": 227
+      },
+      {
+        "file": "func_06_naturalCompare.js",
+        "ok": true,
+        "ms": 223
+      },
+      {
+        "file": "func_07_toposort.js",
+        "ok": true,
+        "ms": 248
+      },
+      {
+        "file": "func_08_deque.js",
+        "ok": true,
+        "ms": 404
+      },
+      {
+        "file": "func_09_dijkstra.js",
+        "ok": true,
+        "ms": 220
+      },
+      {
+        "file": "func_10_priorityQueue.js",
+        "ok": true,
+        "ms": 261
+      },
+      {
+        "file": "func_11_sortedArray.js",
+        "ok": true,
+        "ms": 270
+      },
+      {
+        "file": "func_12_jaroWinkler.js",
+        "ok": true,
+        "ms": 191
+      },
+      {
+        "file": "func_13_mersenneTwister.js",
+        "ok": true,
+        "ms": 265
+      },
+      {
+        "file": "func_14_stringSimilarity.js",
+        "ok": true,
+        "ms": 220
+      },
+      {
+        "file": "func_15_combinatorics.js",
+        "ok": false,
+        "why": "/Users/erenkilic/Documents/GitHub/JS-Deobfuscation-Benchmark/tools/deobfuscators/node_modules/shift-parser/src/tokenizer",
+        "ms": 119
+      },
+      {
+        "file": "func_16_isEmail.js",
+        "ok": true,
+        "ms": 165
+      },
+      {
+        "file": "func_17_isUrl.js",
+        "ok": true,
+        "ms": 157
+      },
+      {
+        "file": "func_18_isUri.js",
+        "ok": true,
+        "ms": 223
+      },
+      {
+        "file": "func_19_isJson.js",
+        "ok": true,
+        "ms": 163
+      },
+      {
+        "file": "func_20_isBase64.js",
+        "ok": true,
+        "ms": 198
+      },
+      {
+        "file": "func_21_msDuration.js",
+        "ok": true,
+        "ms": 262
+      },
+      {
+        "file": "func_22_isUuid.js",
+        "ok": true,
+        "ms": 191
+      },
+      {
+        "file": "func_23_uuidValidate.js",
+        "ok": true,
+        "ms": 209
+      },
+      {
+        "file": "func_24_luhn.js",
+        "ok": true,
+        "ms": 154
+      },
+      {
+        "file": "func_25_jwtDecode.js",
+        "ok": true,
+        "ms": 235
+      },
+      {
+        "file": "func_26_pluralize.js",
+        "ok": true,
+        "ms": 324
+      },
+      {
+        "file": "func_27_wordWrap.js",
+        "ok": true,
+        "ms": 211
+      },
+      {
+        "file": "func_28_byteSize.js",
+        "ok": true,
+        "ms": 240
+      },
+      {
+        "file": "func_29_isHexColor.js",
+        "ok": true,
+        "ms": 150
+      },
+      {
+        "file": "func_30_queryString.js",
+        "ok": true,
+        "ms": 195
+      },
+      {
+        "file": "func_31_objectPath.js",
+        "ok": true,
+        "ms": 378
+      },
+      {
+        "file": "func_32_union.js",
+        "ok": true,
+        "ms": 141
+      },
+      {
+        "file": "func_33_flatten.js",
+        "ok": true,
+        "ms": 153
+      },
+      {
+        "file": "func_34_unique.js",
+        "ok": true,
+        "ms": 187
+      },
+      {
+        "file": "func_35_difference.js",
+        "ok": true,
+        "ms": 162
+      },
+      {
+        "file": "func_36_intersect.js",
+        "ok": true,
+        "ms": 198
+      },
+      {
+        "file": "func_37_groupBy.js",
+        "ok": true,
+        "ms": 167
+      },
+      {
+        "file": "func_38_deepEqual.js",
+        "ok": true,
+        "ms": 159
+      },
+      {
+        "file": "func_39_cloneDeep.js",
+        "ok": true,
+        "ms": 283
+      },
+      {
+        "file": "func_40_deepMerge.js",
+        "ok": true,
+        "ms": 265
+      },
+      {
+        "file": "func_41_base64.js",
+        "ok": true,
+        "ms": 281
+      },
+      {
+        "file": "func_42_md5.js",
+        "ok": true,
+        "ms": 507
+      },
+      {
+        "file": "func_43_sha256.js",
+        "ok": true,
+        "ms": 304
+      },
+      {
+        "file": "func_44_sha1.js",
+        "ok": true,
+        "ms": 717
+      },
+      {
+        "file": "func_45_crc32.js",
+        "ok": true,
+        "ms": 515
+      },
+      {
+        "file": "func_46_base32.js",
+        "ok": true,
+        "ms": 621
+      },
+      {
+        "file": "func_47_rc4.js",
+        "ok": true,
+        "ms": 301
+      },
+      {
+        "file": "func_48_sha3.js",
+        "ok": true,
+        "ms": 707
+      },
+      {
+        "file": "func_49_bitTwiddle.js",
+        "ok": true,
+        "ms": 287
+      },
+      {
+        "file": "func_50_hashSum.js",
+        "ok": true,
+        "ms": 199
+      }
+    ]
+  }
+}

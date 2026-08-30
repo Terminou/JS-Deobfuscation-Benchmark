@@ -87,6 +87,39 @@ Report the purpose-built tools separately from the general ones: with a single
 obfuscator they have home-field advantage, and that has to be visible rather than
 buried in an average.
 
+### The scoring timeout is a measurement parameter, not a hang guard
+
+Scoring `high` twice gave two different answers — 50/50 at one limit, 49/50 at
+another, with no other change. The cause is `func_13_mersenneTwister`:
+
+| Where | Time |
+|---|---|
+| raw corpus | 6 s |
+| `high`, three consecutive clean runs | **75 s, 76 s, 135 s** |
+| `high`, with a parallel scoring run competing | **> 580 s, unfinished** |
+
+Its suite loops millions of times and at `high` every string access goes through an
+array lookup, so its cost swings with JIT warm-up and machine load. The rest of the
+corpus is nowhere near it — median 0.5 s, second slowest 6.6 s.
+
+**The hazard is the variance, not the slowness.** At the original 60 s default the
+same module scored `pass` in one run and `timeout` in the next, which would make
+Pass Rate non-deterministic — unacceptable for a benchmark, since a model's output
+could score differently on a re-run.
+
+Default is now **600 s**, roughly 4x the slowest clean measurement, so noise cannot
+cross it. At that limit `high` scores **50/50** reliably.
+
+Three things follow for the write-up:
+
+* **Report the limit with the results.** A `timeout` means "did not finish within
+  N seconds", not "did not terminate".
+* **Keep parallelism modest when scoring.** Contention was what pushed one file
+  past 580 s. `--jobs 4` is fine; do not run two scoring passes at once.
+* **The slowdown is itself a result.** Obfuscation costs an order of magnitude in
+  run time on compute-heavy code. Worth a line in the results, and worth
+  remembering when budgeting the model runs.
+
 ### The deobfuscators need a newer Node than the benchmark runs on
 
 Found while trying to demonstrate string recovery on a `high` file:

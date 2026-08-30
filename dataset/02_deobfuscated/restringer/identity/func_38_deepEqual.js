@@ -1,0 +1,41 @@
+'use strict';
+module.exports = function equal(_0x4d5b50, _0x4106b8) {
+  if (_0x4d5b50 === _0x4106b8)
+    return true;
+  if (_0x4d5b50 && _0x4106b8 && typeof _0x4d5b50 == 'object' && typeof _0x4106b8 == 'object') {
+    if (_0x4d5b50.constructor !== _0x4106b8.constructor)
+      return false;
+    var _0x5c6d69;
+    var _0x1b06cf;
+    var _0x1e9278;
+    if (Array.isArray(_0x4d5b50)) {
+      _0x5c6d69 = _0x4d5b50.length;
+      if (_0x5c6d69 != _0x4106b8.length)
+        return false;
+      for (_0x1b06cf = _0x5c6d69; _0x1b06cf-- !== 0;)
+        if (!equal(_0x4d5b50[_0x1b06cf], _0x4106b8[_0x1b06cf]))
+          return false;
+      return true;
+    }
+    if (_0x4d5b50.constructor === RegExp)
+      return _0x4d5b50.source === _0x4106b8.source && _0x4d5b50.flags === _0x4106b8.flags;
+    if (_0x4d5b50.valueOf !== Object.prototype.valueOf)
+      return _0x4d5b50.valueOf() === _0x4106b8.valueOf();
+    if (_0x4d5b50.toString !== Object.prototype.toString)
+      return _0x4d5b50.toString() === _0x4106b8.toString();
+    _0x1e9278 = Object.keys(_0x4d5b50);
+    _0x5c6d69 = _0x1e9278.length;
+    if (_0x5c6d69 !== Object.keys(_0x4106b8).length)
+      return false;
+    for (_0x1b06cf = _0x5c6d69; _0x1b06cf-- !== 0;)
+      if (!Object.prototype.hasOwnProperty.call(_0x4106b8, _0x1e9278[_0x1b06cf]))
+        return false;
+    for (_0x1b06cf = _0x5c6d69; _0x1b06cf-- !== 0;) {
+      var _0x1e872f = _0x1e9278[_0x1b06cf];
+      if (!equal(_0x4d5b50[_0x1e9278[_0x1b06cf]], _0x4106b8[_0x1e9278[_0x1b06cf]]))
+        return false;
+    }
+    return true;
+  }
+  return _0x4d5b50 !== _0x4d5b50 && _0x4106b8 !== _0x4106b8;
+};

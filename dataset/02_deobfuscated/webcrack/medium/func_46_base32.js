@@ -1,0 +1,421 @@
+/*
+ * [hi-base32]{@link https://github.com/emn178/hi-base32}
+ *
+ * @version 0.5.0
+ * @author Chen, Yi-Cyuan [emn178@gmail.com]
+ * @copyright Chen, Yi-Cyuan 2015-2018
+ * @license MIT
+ */
+(function () {
+  'use strict';
+
+  var _0x4b198d = typeof window === "object" ? window : {};
+  var _0x22253b = !_0x4b198d.HI_BASE32_NO_NODE_JS && typeof process === "object" && process.versions && process.versions.node;
+  if (_0x22253b) {
+    _0x4b198d = global;
+  }
+  var _0x4da490 = !_0x4b198d.HI_BASE32_NO_COMMON_JS && typeof module === "object" && module.exports;
+  var _0x25a9ae = typeof define === "function" && define.amd;
+  var _0x276e8f = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567".split("");
+  var _0x24002d = {
+    A: 0,
+    B: 1,
+    C: 2,
+    D: 3,
+    E: 4,
+    F: 5,
+    G: 6,
+    H: 7,
+    I: 8,
+    J: 9,
+    K: 10,
+    L: 11,
+    M: 12,
+    N: 13,
+    O: 14,
+    P: 15,
+    Q: 16,
+    R: 17,
+    S: 18,
+    T: 19,
+    U: 20,
+    V: 21,
+    W: 22,
+    X: 23,
+    Y: 24,
+    Z: 25,
+    "2": 26,
+    "3": 27,
+    "4": 28,
+    "5": 29,
+    "6": 30,
+    "7": 31
+  };
+  var _0x26ecfa = [0, 0, 0, 0, 0, 0, 0, 0];
+  function _0x147aef(_0x2f100d, _0x434a18) {
+    if (_0x434a18.length > 10) {
+      _0x434a18 = "..." + _0x434a18.substr(-10);
+    }
+    var _0x3366d4 = new Error("Decoded data is not valid UTF-8. Maybe try base32.decode.asBytes()? Partial data after reading " + _0x2f100d + " bytes: " + _0x434a18 + " <-");
+    _0x3366d4.position = _0x2f100d;
+    throw _0x3366d4;
+  }
+  function _0x1cd1ff(_0x4d6b46) {
+    var _0x1132f3 = "";
+    var _0x564e12 = _0x4d6b46.length;
+    var _0x524cc3 = 0;
+    var _0x18e64f = 0;
+    var _0xd3cc86;
+    var _0x3d180d;
+    while (_0x524cc3 < _0x564e12) {
+      _0xd3cc86 = _0x4d6b46[_0x524cc3++];
+      if (_0xd3cc86 <= 127) {
+        _0x1132f3 += String.fromCharCode(_0xd3cc86);
+        continue;
+      } else if (_0xd3cc86 > 191 && _0xd3cc86 <= 223) {
+        _0x3d180d = _0xd3cc86 & 31;
+        _0x18e64f = 1;
+      } else if (_0xd3cc86 <= 239) {
+        _0x3d180d = _0xd3cc86 & 15;
+        _0x18e64f = 2;
+      } else if (_0xd3cc86 <= 247) {
+        _0x3d180d = _0xd3cc86 & 7;
+        _0x18e64f = 3;
+      } else {
+        _0x147aef(_0x524cc3, _0x1132f3);
+      }
+      for (var _0x1ac1fd = 0; _0x1ac1fd < _0x18e64f; ++_0x1ac1fd) {
+        _0xd3cc86 = _0x4d6b46[_0x524cc3++];
+        if (_0xd3cc86 < 128 || _0xd3cc86 > 191) {
+          _0x147aef(_0x524cc3, _0x1132f3);
+        }
+        _0x3d180d <<= 6;
+        _0x3d180d += _0xd3cc86 & 63;
+      }
+      if (_0x3d180d >= 55296 && _0x3d180d <= 57343) {
+        _0x147aef(_0x524cc3, _0x1132f3);
+      }
+      if (_0x3d180d > 1114111) {
+        _0x147aef(_0x524cc3, _0x1132f3);
+      }
+      if (_0x3d180d <= 65535) {
+        _0x1132f3 += String.fromCharCode(_0x3d180d);
+      } else {
+        _0x3d180d -= 65536;
+        _0x1132f3 += String.fromCharCode((_0x3d180d >> 10) + 55296);
+        _0x1132f3 += String.fromCharCode((_0x3d180d & 1023) + 56320);
+      }
+    }
+    return _0x1132f3;
+  }
+  function _0x581797(_0x714b6d) {
+    if (_0x714b6d === "") {
+      return [];
+    } else if (!/^[A-Z2-7=]+$/.test(_0x714b6d)) {
+      throw new Error("Invalid base32 characters");
+    }
+    _0x714b6d = _0x714b6d.replace(/=/g, "");
+    var _0xe98863;
+    var _0x2f16c9;
+    var _0x4f540a;
+    var _0x413fe8;
+    var _0x14e0da;
+    var _0x11342a;
+    var _0x276187;
+    var _0xad6dc1;
+    var _0x584524 = [];
+    var _0x502b81 = 0;
+    var _0x5017f9 = _0x714b6d.length;
+    for (var _0xbd00f4 = 0, _0x1f034d = _0x5017f9 >> 3 << 3; _0xbd00f4 < _0x1f034d;) {
+      _0xe98863 = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x2f16c9 = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x4f540a = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x413fe8 = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x14e0da = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x11342a = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x276187 = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0xad6dc1 = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x584524[_0x502b81++] = (_0xe98863 << 3 | _0x2f16c9 >>> 2) & 255;
+      _0x584524[_0x502b81++] = (_0x2f16c9 << 6 | _0x4f540a << 1 | _0x413fe8 >>> 4) & 255;
+      _0x584524[_0x502b81++] = (_0x413fe8 << 4 | _0x14e0da >>> 1) & 255;
+      _0x584524[_0x502b81++] = (_0x14e0da << 7 | _0x11342a << 2 | _0x276187 >>> 3) & 255;
+      _0x584524[_0x502b81++] = (_0x276187 << 5 | _0xad6dc1) & 255;
+    }
+    var _0x18b46d = _0x5017f9 - _0x1f034d;
+    if (_0x18b46d === 2) {
+      _0xe98863 = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x2f16c9 = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x584524[_0x502b81++] = (_0xe98863 << 3 | _0x2f16c9 >>> 2) & 255;
+    } else if (_0x18b46d === 4) {
+      _0xe98863 = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x2f16c9 = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x4f540a = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x413fe8 = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x584524[_0x502b81++] = (_0xe98863 << 3 | _0x2f16c9 >>> 2) & 255;
+      _0x584524[_0x502b81++] = (_0x2f16c9 << 6 | _0x4f540a << 1 | _0x413fe8 >>> 4) & 255;
+    } else if (_0x18b46d === 5) {
+      _0xe98863 = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x2f16c9 = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x4f540a = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x413fe8 = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x14e0da = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x584524[_0x502b81++] = (_0xe98863 << 3 | _0x2f16c9 >>> 2) & 255;
+      _0x584524[_0x502b81++] = (_0x2f16c9 << 6 | _0x4f540a << 1 | _0x413fe8 >>> 4) & 255;
+      _0x584524[_0x502b81++] = (_0x413fe8 << 4 | _0x14e0da >>> 1) & 255;
+    } else if (_0x18b46d === 7) {
+      _0xe98863 = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x2f16c9 = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x4f540a = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x413fe8 = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x14e0da = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x11342a = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x276187 = _0x24002d[_0x714b6d.charAt(_0xbd00f4++)];
+      _0x584524[_0x502b81++] = (_0xe98863 << 3 | _0x2f16c9 >>> 2) & 255;
+      _0x584524[_0x502b81++] = (_0x2f16c9 << 6 | _0x4f540a << 1 | _0x413fe8 >>> 4) & 255;
+      _0x584524[_0x502b81++] = (_0x413fe8 << 4 | _0x14e0da >>> 1) & 255;
+      _0x584524[_0x502b81++] = (_0x14e0da << 7 | _0x11342a << 2 | _0x276187 >>> 3) & 255;
+    }
+    return _0x584524;
+  }
+  function _0x8fbdd7(_0x129f4e) {
+    var _0x51ca23;
+    var _0x17ef21;
+    var _0x38f7f1;
+    var _0x522c12;
+    var _0x122983;
+    var _0x4cb42e = "";
+    var _0x45bc1a = _0x129f4e.length;
+    for (var _0x96fba8 = 0, _0x4d5fec = parseInt(_0x45bc1a / 5) * 5; _0x96fba8 < _0x4d5fec;) {
+      _0x51ca23 = _0x129f4e.charCodeAt(_0x96fba8++);
+      _0x17ef21 = _0x129f4e.charCodeAt(_0x96fba8++);
+      _0x38f7f1 = _0x129f4e.charCodeAt(_0x96fba8++);
+      _0x522c12 = _0x129f4e.charCodeAt(_0x96fba8++);
+      _0x122983 = _0x129f4e.charCodeAt(_0x96fba8++);
+      _0x4cb42e += _0x276e8f[_0x51ca23 >>> 3] + _0x276e8f[(_0x51ca23 << 2 | _0x17ef21 >>> 6) & 31] + _0x276e8f[_0x17ef21 >>> 1 & 31] + _0x276e8f[(_0x17ef21 << 4 | _0x38f7f1 >>> 4) & 31] + _0x276e8f[(_0x38f7f1 << 1 | _0x522c12 >>> 7) & 31] + _0x276e8f[_0x522c12 >>> 2 & 31] + _0x276e8f[(_0x522c12 << 3 | _0x122983 >>> 5) & 31] + _0x276e8f[_0x122983 & 31];
+    }
+    var _0x9acfb0 = _0x45bc1a - _0x4d5fec;
+    if (_0x9acfb0 === 1) {
+      _0x51ca23 = _0x129f4e.charCodeAt(_0x96fba8);
+      _0x4cb42e += _0x276e8f[_0x51ca23 >>> 3] + _0x276e8f[_0x51ca23 << 2 & 31] + "======";
+    } else if (_0x9acfb0 === 2) {
+      _0x51ca23 = _0x129f4e.charCodeAt(_0x96fba8++);
+      _0x17ef21 = _0x129f4e.charCodeAt(_0x96fba8);
+      _0x4cb42e += _0x276e8f[_0x51ca23 >>> 3] + _0x276e8f[(_0x51ca23 << 2 | _0x17ef21 >>> 6) & 31] + _0x276e8f[_0x17ef21 >>> 1 & 31] + _0x276e8f[_0x17ef21 << 4 & 31] + "====";
+    } else if (_0x9acfb0 === 3) {
+      _0x51ca23 = _0x129f4e.charCodeAt(_0x96fba8++);
+      _0x17ef21 = _0x129f4e.charCodeAt(_0x96fba8++);
+      _0x38f7f1 = _0x129f4e.charCodeAt(_0x96fba8);
+      _0x4cb42e += _0x276e8f[_0x51ca23 >>> 3] + _0x276e8f[(_0x51ca23 << 2 | _0x17ef21 >>> 6) & 31] + _0x276e8f[_0x17ef21 >>> 1 & 31] + _0x276e8f[(_0x17ef21 << 4 | _0x38f7f1 >>> 4) & 31] + _0x276e8f[_0x38f7f1 << 1 & 31] + "===";
+    } else if (_0x9acfb0 === 4) {
+      _0x51ca23 = _0x129f4e.charCodeAt(_0x96fba8++);
+      _0x17ef21 = _0x129f4e.charCodeAt(_0x96fba8++);
+      _0x38f7f1 = _0x129f4e.charCodeAt(_0x96fba8++);
+      _0x522c12 = _0x129f4e.charCodeAt(_0x96fba8);
+      _0x4cb42e += _0x276e8f[_0x51ca23 >>> 3] + _0x276e8f[(_0x51ca23 << 2 | _0x17ef21 >>> 6) & 31] + _0x276e8f[_0x17ef21 >>> 1 & 31] + _0x276e8f[(_0x17ef21 << 4 | _0x38f7f1 >>> 4) & 31] + _0x276e8f[(_0x38f7f1 << 1 | _0x522c12 >>> 7) & 31] + _0x276e8f[_0x522c12 >>> 2 & 31] + _0x276e8f[_0x522c12 << 3 & 31] + "=";
+    }
+    return _0x4cb42e;
+  }
+  function _0x544171(_0x387642) {
+    var _0x57a779;
+    var _0x2b5d0b;
+    var _0x4d5f3e;
+    var _0x3e9a19;
+    var _0x50a916;
+    var _0x3d3c38;
+    var _0x957f6d = false;
+    var _0x5e6353 = "";
+    var _0x2f2a30 = 0;
+    var _0x4accba;
+    var _0x42c1ab = 0;
+    var _0x492490 = 0;
+    var _0x1946c2 = _0x387642.length;
+    if (_0x387642 === "") {
+      return _0x5e6353;
+    }
+    do {
+      _0x26ecfa[0] = _0x26ecfa[5];
+      _0x26ecfa[1] = _0x26ecfa[6];
+      _0x26ecfa[2] = _0x26ecfa[7];
+      for (_0x4accba = _0x42c1ab; _0x2f2a30 < _0x1946c2 && _0x4accba < 5; ++_0x2f2a30) {
+        _0x3d3c38 = _0x387642.charCodeAt(_0x2f2a30);
+        if (_0x3d3c38 < 128) {
+          _0x26ecfa[_0x4accba++] = _0x3d3c38;
+        } else if (_0x3d3c38 < 2048) {
+          _0x26ecfa[_0x4accba++] = _0x3d3c38 >> 6 | 192;
+          _0x26ecfa[_0x4accba++] = _0x3d3c38 & 63 | 128;
+        } else if (_0x3d3c38 < 55296 || _0x3d3c38 >= 57344) {
+          _0x26ecfa[_0x4accba++] = _0x3d3c38 >> 12 | 224;
+          _0x26ecfa[_0x4accba++] = _0x3d3c38 >> 6 & 63 | 128;
+          _0x26ecfa[_0x4accba++] = _0x3d3c38 & 63 | 128;
+        } else {
+          _0x3d3c38 = 65536 + ((_0x3d3c38 & 1023) << 10 | _0x387642.charCodeAt(++_0x2f2a30) & 1023);
+          _0x26ecfa[_0x4accba++] = _0x3d3c38 >> 18 | 240;
+          _0x26ecfa[_0x4accba++] = _0x3d3c38 >> 12 & 63 | 128;
+          _0x26ecfa[_0x4accba++] = _0x3d3c38 >> 6 & 63 | 128;
+          _0x26ecfa[_0x4accba++] = _0x3d3c38 & 63 | 128;
+        }
+      }
+      _0x492490 += _0x4accba - _0x42c1ab;
+      _0x42c1ab = _0x4accba - 5;
+      if (_0x2f2a30 === _0x1946c2) {
+        ++_0x2f2a30;
+      }
+      if (_0x2f2a30 > _0x1946c2 && _0x4accba < 6) {
+        _0x957f6d = true;
+      }
+      _0x57a779 = _0x26ecfa[0];
+      if (_0x4accba > 4) {
+        _0x2b5d0b = _0x26ecfa[1];
+        _0x4d5f3e = _0x26ecfa[2];
+        _0x3e9a19 = _0x26ecfa[3];
+        _0x50a916 = _0x26ecfa[4];
+        _0x5e6353 += _0x276e8f[_0x57a779 >>> 3] + _0x276e8f[(_0x57a779 << 2 | _0x2b5d0b >>> 6) & 31] + _0x276e8f[_0x2b5d0b >>> 1 & 31] + _0x276e8f[(_0x2b5d0b << 4 | _0x4d5f3e >>> 4) & 31] + _0x276e8f[(_0x4d5f3e << 1 | _0x3e9a19 >>> 7) & 31] + _0x276e8f[_0x3e9a19 >>> 2 & 31] + _0x276e8f[(_0x3e9a19 << 3 | _0x50a916 >>> 5) & 31] + _0x276e8f[_0x50a916 & 31];
+      } else if (_0x4accba === 1) {
+        _0x5e6353 += _0x276e8f[_0x57a779 >>> 3] + _0x276e8f[_0x57a779 << 2 & 31] + "======";
+      } else if (_0x4accba === 2) {
+        _0x2b5d0b = _0x26ecfa[1];
+        _0x5e6353 += _0x276e8f[_0x57a779 >>> 3] + _0x276e8f[(_0x57a779 << 2 | _0x2b5d0b >>> 6) & 31] + _0x276e8f[_0x2b5d0b >>> 1 & 31] + _0x276e8f[_0x2b5d0b << 4 & 31] + "====";
+      } else if (_0x4accba === 3) {
+        _0x2b5d0b = _0x26ecfa[1];
+        _0x4d5f3e = _0x26ecfa[2];
+        _0x5e6353 += _0x276e8f[_0x57a779 >>> 3] + _0x276e8f[(_0x57a779 << 2 | _0x2b5d0b >>> 6) & 31] + _0x276e8f[_0x2b5d0b >>> 1 & 31] + _0x276e8f[(_0x2b5d0b << 4 | _0x4d5f3e >>> 4) & 31] + _0x276e8f[_0x4d5f3e << 1 & 31] + "===";
+      } else {
+        _0x2b5d0b = _0x26ecfa[1];
+        _0x4d5f3e = _0x26ecfa[2];
+        _0x3e9a19 = _0x26ecfa[3];
+        _0x5e6353 += _0x276e8f[_0x57a779 >>> 3] + _0x276e8f[(_0x57a779 << 2 | _0x2b5d0b >>> 6) & 31] + _0x276e8f[_0x2b5d0b >>> 1 & 31] + _0x276e8f[(_0x2b5d0b << 4 | _0x4d5f3e >>> 4) & 31] + _0x276e8f[(_0x4d5f3e << 1 | _0x3e9a19 >>> 7) & 31] + _0x276e8f[_0x3e9a19 >>> 2 & 31] + _0x276e8f[_0x3e9a19 << 3 & 31] + "=";
+      }
+    } while (!_0x957f6d);
+    return _0x5e6353;
+  }
+  function _0x469f46(_0x60d438) {
+    var _0x12aed5;
+    var _0x4ebe6d;
+    var _0x66947d;
+    var _0x2ee59e;
+    var _0x60c8af;
+    var _0x33c606 = "";
+    var _0x4bedda = _0x60d438.length;
+    for (var _0xd1f7ec = 0, _0xc6372b = parseInt(_0x4bedda / 5) * 5; _0xd1f7ec < _0xc6372b;) {
+      _0x12aed5 = _0x60d438[_0xd1f7ec++];
+      _0x4ebe6d = _0x60d438[_0xd1f7ec++];
+      _0x66947d = _0x60d438[_0xd1f7ec++];
+      _0x2ee59e = _0x60d438[_0xd1f7ec++];
+      _0x60c8af = _0x60d438[_0xd1f7ec++];
+      _0x33c606 += _0x276e8f[_0x12aed5 >>> 3] + _0x276e8f[(_0x12aed5 << 2 | _0x4ebe6d >>> 6) & 31] + _0x276e8f[_0x4ebe6d >>> 1 & 31] + _0x276e8f[(_0x4ebe6d << 4 | _0x66947d >>> 4) & 31] + _0x276e8f[(_0x66947d << 1 | _0x2ee59e >>> 7) & 31] + _0x276e8f[_0x2ee59e >>> 2 & 31] + _0x276e8f[(_0x2ee59e << 3 | _0x60c8af >>> 5) & 31] + _0x276e8f[_0x60c8af & 31];
+    }
+    var _0x3ca2e0 = _0x4bedda - _0xc6372b;
+    if (_0x3ca2e0 === 1) {
+      _0x12aed5 = _0x60d438[_0xd1f7ec];
+      _0x33c606 += _0x276e8f[_0x12aed5 >>> 3] + _0x276e8f[_0x12aed5 << 2 & 31] + "======";
+    } else if (_0x3ca2e0 === 2) {
+      _0x12aed5 = _0x60d438[_0xd1f7ec++];
+      _0x4ebe6d = _0x60d438[_0xd1f7ec];
+      _0x33c606 += _0x276e8f[_0x12aed5 >>> 3] + _0x276e8f[(_0x12aed5 << 2 | _0x4ebe6d >>> 6) & 31] + _0x276e8f[_0x4ebe6d >>> 1 & 31] + _0x276e8f[_0x4ebe6d << 4 & 31] + "====";
+    } else if (_0x3ca2e0 === 3) {
+      _0x12aed5 = _0x60d438[_0xd1f7ec++];
+      _0x4ebe6d = _0x60d438[_0xd1f7ec++];
+      _0x66947d = _0x60d438[_0xd1f7ec];
+      _0x33c606 += _0x276e8f[_0x12aed5 >>> 3] + _0x276e8f[(_0x12aed5 << 2 | _0x4ebe6d >>> 6) & 31] + _0x276e8f[_0x4ebe6d >>> 1 & 31] + _0x276e8f[(_0x4ebe6d << 4 | _0x66947d >>> 4) & 31] + _0x276e8f[_0x66947d << 1 & 31] + "===";
+    } else if (_0x3ca2e0 === 4) {
+      _0x12aed5 = _0x60d438[_0xd1f7ec++];
+      _0x4ebe6d = _0x60d438[_0xd1f7ec++];
+      _0x66947d = _0x60d438[_0xd1f7ec++];
+      _0x2ee59e = _0x60d438[_0xd1f7ec];
+      _0x33c606 += _0x276e8f[_0x12aed5 >>> 3] + _0x276e8f[(_0x12aed5 << 2 | _0x4ebe6d >>> 6) & 31] + _0x276e8f[_0x4ebe6d >>> 1 & 31] + _0x276e8f[(_0x4ebe6d << 4 | _0x66947d >>> 4) & 31] + _0x276e8f[(_0x66947d << 1 | _0x2ee59e >>> 7) & 31] + _0x276e8f[_0x2ee59e >>> 2 & 31] + _0x276e8f[_0x2ee59e << 3 & 31] + "=";
+    }
+    return _0x33c606;
+  }
+  function _0x418c76(_0x287992, _0xc37049) {
+    var _0x4af604 = typeof _0x287992 !== "string";
+    if (_0x4af604 && _0x287992.constructor === ArrayBuffer) {
+      _0x287992 = new Uint8Array(_0x287992);
+    }
+    if (_0x4af604) {
+      return _0x469f46(_0x287992);
+    } else if (_0xc37049) {
+      return _0x8fbdd7(_0x287992);
+    } else {
+      return _0x544171(_0x287992);
+    }
+  }
+  function _0x3d61ed(_0x537cb3, _0x3b935d) {
+    if (!_0x3b935d) {
+      return _0x1cd1ff(_0x581797(_0x537cb3));
+    }
+    if (_0x537cb3 === "") {
+      return "";
+    } else if (!/^[A-Z2-7=]+$/.test(_0x537cb3)) {
+      throw new Error("Invalid base32 characters");
+    }
+    var _0x3beb94;
+    var _0x3ceeaa;
+    var _0x122dbe;
+    var _0x3476e9;
+    var _0x35d26e;
+    var _0x387ac4;
+    var _0x26d2a4;
+    var _0x1467a9;
+    var _0x4eab34 = "";
+    var _0x1cd55b = _0x537cb3.indexOf("=");
+    if (_0x1cd55b === -1) {
+      _0x1cd55b = _0x537cb3.length;
+    }
+    for (var _0x4acfad = 0, _0x43626b = _0x1cd55b >> 3 << 3; _0x4acfad < _0x43626b;) {
+      _0x3beb94 = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x3ceeaa = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x122dbe = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x3476e9 = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x35d26e = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x387ac4 = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x26d2a4 = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x1467a9 = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x4eab34 += String.fromCharCode((_0x3beb94 << 3 | _0x3ceeaa >>> 2) & 255) + String.fromCharCode((_0x3ceeaa << 6 | _0x122dbe << 1 | _0x3476e9 >>> 4) & 255) + String.fromCharCode((_0x3476e9 << 4 | _0x35d26e >>> 1) & 255) + String.fromCharCode((_0x35d26e << 7 | _0x387ac4 << 2 | _0x26d2a4 >>> 3) & 255) + String.fromCharCode((_0x26d2a4 << 5 | _0x1467a9) & 255);
+    }
+    var _0x534633 = _0x1cd55b - _0x43626b;
+    if (_0x534633 === 2) {
+      _0x3beb94 = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x3ceeaa = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x4eab34 += String.fromCharCode((_0x3beb94 << 3 | _0x3ceeaa >>> 2) & 255);
+    } else if (_0x534633 === 4) {
+      _0x3beb94 = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x3ceeaa = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x122dbe = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x3476e9 = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x4eab34 += String.fromCharCode((_0x3beb94 << 3 | _0x3ceeaa >>> 2) & 255) + String.fromCharCode((_0x3ceeaa << 6 | _0x122dbe << 1 | _0x3476e9 >>> 4) & 255);
+    } else if (_0x534633 === 5) {
+      _0x3beb94 = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x3ceeaa = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x122dbe = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x3476e9 = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x35d26e = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x4eab34 += String.fromCharCode((_0x3beb94 << 3 | _0x3ceeaa >>> 2) & 255) + String.fromCharCode((_0x3ceeaa << 6 | _0x122dbe << 1 | _0x3476e9 >>> 4) & 255) + String.fromCharCode((_0x3476e9 << 4 | _0x35d26e >>> 1) & 255);
+    } else if (_0x534633 === 7) {
+      _0x3beb94 = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x3ceeaa = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x122dbe = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x3476e9 = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x35d26e = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x387ac4 = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x26d2a4 = _0x24002d[_0x537cb3.charAt(_0x4acfad++)];
+      _0x4eab34 += String.fromCharCode((_0x3beb94 << 3 | _0x3ceeaa >>> 2) & 255) + String.fromCharCode((_0x3ceeaa << 6 | _0x122dbe << 1 | _0x3476e9 >>> 4) & 255) + String.fromCharCode((_0x3476e9 << 4 | _0x35d26e >>> 1) & 255) + String.fromCharCode((_0x35d26e << 7 | _0x387ac4 << 2 | _0x26d2a4 >>> 3) & 255);
+    }
+    return _0x4eab34;
+  }
+  var _0x23f10b = {
+    encode: _0x418c76,
+    decode: _0x3d61ed
+  };
+  var _0x504cd9 = _0x23f10b;
+  _0x3d61ed.asBytes = _0x581797;
+  if (_0x4da490) {
+    module.exports = _0x504cd9;
+  } else {
+    _0x4b198d.base32 = _0x504cd9;
+    if (_0x25a9ae) {
+      define(function () {
+        return _0x504cd9;
+      });
+    }
+  }
+})();

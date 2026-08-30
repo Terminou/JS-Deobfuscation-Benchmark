@@ -1,0 +1,29 @@
+'use strict';
+
+module.exports = function unique(_0x3dd188) {
+  if (!Array.isArray(_0x3dd188)) {
+    throw new TypeError("array-unique expects an array.");
+  }
+  var _0x34a472 = _0x3dd188.length;
+  var _0x1baa17 = -0x1;
+  while (_0x1baa17++ < _0x34a472) {
+    var _0x554376 = _0x1baa17 + 0x1;
+    for (; _0x554376 < _0x3dd188.length; ++_0x554376) {
+      if (_0x3dd188[_0x1baa17] === _0x3dd188[_0x554376]) {
+        _0x3dd188.splice(_0x554376--, 0x1);
+      }
+    }
+  }
+  return _0x3dd188;
+};
+module.exports.immutable = function uniqueImmutable(_0x595e9d) {
+  if (!Array.isArray(_0x595e9d)) {
+    throw new TypeError("array-unique expects an array.");
+  }
+  var _0x34a47b = _0x595e9d.length;
+  var _0xfde660 = new Array(_0x34a47b);
+  for (var _0x1fc202 = 0x0; _0x1fc202 < _0x34a47b; _0x1fc202++) {
+    _0xfde660[_0x1fc202] = _0x595e9d[_0x1fc202];
+  }
+  return module.exports(_0xfde660);
+};

@@ -1,0 +1,58 @@
+"use strict";
+const _0x322fe0 = _0x947c;
+function _0x947c(_0x4f7849, _0xdad7c5) {
+  _0x4f7849 = _0x4f7849 - 439;
+  const _0x1e4ee3 = _0x1e4e();
+  let _0x947c8c = _0x1e4ee3[_0x4f7849];
+  return _0x947c8c;
+}
+(function (_0x26a969, _0x711d1) {
+  const _0x17e3ba = _0x947c, _0x351f96 = _0x26a969();
+  while (true) {
+    try {
+      const _0x4bfdba = -parseInt(_0x17e3ba(448)) / 1 + parseInt(_0x17e3ba(439)) / 2 * (parseInt(_0x17e3ba(440)) / 3) + -parseInt(_0x17e3ba(455)) / 4 + parseInt(_0x17e3ba(441)) / 5 * (-parseInt(_0x17e3ba(450)) / 6) + -parseInt(_0x17e3ba(453)) / 7 + parseInt(_0x17e3ba(454)) / 8 * (parseInt(_0x17e3ba(452)) / 9) + -parseInt(_0x17e3ba(449)) / 10 * (-parseInt(_0x17e3ba(456)) / 11);
+      if (_0x4bfdba === _0x711d1) break; else _0x351f96.push(_0x351f96.shift());
+    } catch (_0x310d6d) {
+      _0x351f96.push(_0x351f96.shift());
+    }
+  }
+}(_0x1e4e, 780027));
+function isPlainObject(_0x45053d) {
+  const _0x30d240 = _0x947c;
+  if (_0x45053d === null || typeof _0x45053d !== "object") return false;
+  const _0xe73eec = Object[_0x30d240(445)](_0x45053d);
+  return _0xe73eec === null || _0xe73eec === Object[_0x30d240(446)];
+}
+function tryParseJSON(_0x2ece53) {
+  const _0x369d7e = _0x947c;
+  try {
+    return JSON[_0x369d7e(444)](_0x2ece53), true;
+  } catch {
+    return false;
+  }
+}
+function isJSONImpl(_0x23630c, _0xf91ac) {
+  const _0x1ea93a = _0x947c;
+  if (_0xf91ac && isPlainObject(_0x23630c)) return true;
+  if (typeof _0x23630c !== _0x1ea93a(451)) return false;
+  const _0x7127c8 = _0x23630c.trim();
+  if (_0x7127c8[_0x1ea93a(442)] === 0) return false;
+  const _0x44530c = _0x7127c8[0];
+  if (_0x44530c !== "{" && _0x44530c !== "[") return false;
+  return tryParseJSON(_0x7127c8);
+}
+function strict(_0x5e82f8) {
+  const _0x539933 = _0x947c;
+  if (isPlainObject(_0x5e82f8)) return true;
+  if (typeof _0x5e82f8 !== _0x539933(451)) return false;
+  return tryParseJSON(_0x5e82f8);
+}
+function _0x1e4e() {
+  const _0x1609a5 = ["length", "exports", "parse", "getPrototypeOf", "prototype", "assign", "667848mrbvuw", "1308670UJJiag", "69192JmKdQD", "string", "3809601gjxMeo", "10823799EXUFNx", "8vbCoGL", "1119028KHSwfA", "121NKcaqo", "26UAwNnK", "349581xZdYNY", "45USrrOf"];
+  _0x1e4e = function () {
+    return _0x1609a5;
+  };
+  return _0x1e4e();
+}
+var isJSON = Object[_0x322fe0(447)](isJSONImpl, {strict: strict}), index_default = isJSON;
+module[_0x322fe0(443)] = index_default;

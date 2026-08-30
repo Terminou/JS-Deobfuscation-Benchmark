@@ -39,7 +39,24 @@ const opt = (name, fallback) => {
   const i = argv.indexOf(`--${name}`);
   return i === -1 ? fallback : argv[i + 1];
 };
-const TIMEOUT_MS = Number(opt('timeout', 60)) * 1000;
+// 600 s, set from the worst observed case with margin -- not from intuition.
+//
+// Obfuscation is not free at run time. func_13_mersenneTwister runs in 6 s on the
+// raw corpus; at `high` three consecutive measurements gave 75 s, 76 s and 135 s,
+// and under contention from a parallel run it passed 580 s without finishing. Its
+// suite loops millions of times and every string access now goes through an array
+// lookup, so its cost swings with JIT warm-up and machine load.
+//
+// That variance is the real hazard: at the original 60 s default the SAME module
+// scored `pass` in one run and `timeout` in the next, which would make Pass Rate
+// non-deterministic. The limit has to sit far enough above the worst case that
+// noise cannot cross it -- 600 s is ~4x the slowest clean measurement. The rest of
+// the corpus is nowhere near: median 0.5 s, second slowest 6.6 s.
+//
+// So the limit is a MEASUREMENT PARAMETER, not just a hang guard, and the value
+// used must be reported with the results. A `timeout` outcome means "did not
+// finish within N seconds", never "did not terminate".
+const TIMEOUT_MS = Number(opt('timeout', 600)) * 1000;
 const JOBS = Number(opt('jobs', Math.max(2, Math.min(6, os.cpus().length - 1))));
 const JSON_OUT = opt('json', null);
 
@@ -48,6 +65,12 @@ const entries = ['tests/entries/generated', 'tests/entries/handwritten']
   .filter((e) => e.file.endsWith('.test.js'))
   .sort((a, b) => a.file.localeCompare(b.file));
 
+/** Kill the child AND everything it spawned; a bare child.kill leaves workers. */
+function killGroup(child) {
+  try { process.kill(-child.pid, 'SIGKILL'); } catch { /* group already gone */ }
+  try { child.kill('SIGKILL'); } catch { /* already dead */ }
+}
+
 function runOne(entry) {
   return new Promise((resolve) => {
     const id = entry.file.replace('.test.js', '');
@@ -55,15 +78,21 @@ function runOne(entry) {
     // --testPathPattern rather than a positional path: a positional argument ends
     // up in the child's process.argv, and a vendored suite that parses argv
     // (arr-union does) then sees it as its own.
+    // detached:true puts the child in its own process GROUP. Jest spawns worker
+    // processes, and killing only the jest binary leaves those workers spinning:
+    // a run that timed out once left 33 orphaned jest processes behind, which
+    // then poisoned every later timing measurement and eventually made spawn
+    // fail with EAGAIN. The whole group has to go.
     const child = spawn(JEST, ['--testPathPattern', `${entry.dir}/${entry.file}`.replace(/[.]/g, '\\.'), '--silent', '--ci'], {
       cwd: ROOT,
       env: { ...process.env, TARGET_DIR: TARGET },
+      detached: true,
     });
     let out = '';
     const timer = setTimeout(() => {
       // SIGKILL, not SIGTERM: a process spinning in a synchronous loop never
       // reaches an event-loop turn and will ignore a polite signal.
-      child.kill('SIGKILL');
+      killGroup(child);
       resolve({ id, outcome: 'timeout', ms: Date.now() - started, tests: 0 });
     }, TIMEOUT_MS);
     child.stdout.on('data', (d) => { out += d; });

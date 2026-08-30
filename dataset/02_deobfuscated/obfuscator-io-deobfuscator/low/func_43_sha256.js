@@ -1,0 +1,142 @@
+/**
+ * [js-sha256]{@link https://github.com/emn178/js-sha256}
+ *
+ * @version 1.0.0
+ * @author Chen, Yi-Cyuan [emn178@gmail.com]
+ * @copyright Chen, Yi-Cyuan 2014-2026
+ * @license MIT
+ */
+'use strict';
+
+(function (_0x25fc27, _0x155295) {
+  const _0x570e37 = _0x25fc27();
+  while (true) {
+    try {
+      const _0x503533 = parseInt(_0x4f51(0x124)) / 0x1 + -parseInt(_0x4f51(0x112)) / 0x2 * (parseInt(_0x4f51(0x11b)) / 0x3) + -parseInt(_0x4f51(0x12c)) / 0x4 * (parseInt(_0x4f51(0x111)) / 0x5) + -parseInt(_0x4f51(0x125)) / 0x6 * (parseInt(_0x4f51(0x11d)) / 0x7) + -parseInt(_0x4f51(0x132)) / 0x8 + -parseInt(_0x4f51(0x120)) / 0x9 + parseInt(_0x4f51(0x116)) / 0xa * (parseInt(_0x4f51(0x126)) / 0xb);
+      if (_0x503533 === _0x155295) {
+        break;
+      } else {
+        _0x570e37.push(_0x570e37.shift());
+      }
+    } catch (_0x387f3d) {
+      _0x570e37.push(_0x570e37.shift());
+    }
+  }
+})(_0x55c3, 0xa5ae3);
+var crypto = require(_0x4f51(0x115));
+var FINALIZE_ERROR = _0x4f51(0x129);
+var ARRAY_BUFFER = typeof ArrayBuffer !== _0x4f51(0x123);
+var formatMessage = function (_0x40ff46) {
+  var _0x1a9ae6 = typeof _0x40ff46;
+  if (_0x1a9ae6 === _0x4f51(0x12a)) {
+    return [_0x40ff46, true];
+  }
+  if (Array.isArray(_0x40ff46)) {
+    return [_0x40ff46, false];
+  }
+  if (ARRAY_BUFFER && _0x40ff46) {
+    if (_0x40ff46[_0x4f51(0x133)] === ArrayBuffer) {
+      return [new Uint8Array(_0x40ff46), false];
+    } else {
+      if (ArrayBuffer[_0x4f51(0x12d)](_0x40ff46)) {
+        return [_0x40ff46, false];
+      }
+    }
+  }
+  throw new Error("input is invalid type");
+};
+function toNodeInput(_0x1c7434) {
+  const [_0x1b82cb, _0xd8f375] = formatMessage(_0x1c7434);
+  return _0xd8f375 ? Buffer.from(_0x1b82cb, _0x4f51(0x119)) : Buffer[_0x4f51(0x11f)](_0x1b82cb);
+}
+class NodeHasher {
+  constructor(_0x44fae0) {
+    this[_0x4f51(0x12b)] = _0x44fae0;
+    this[_0x4f51(0x122)] = undefined;
+  }
+  [_0x4f51(0x131)](_0xb5f3df) {
+    if (this[_0x4f51(0x122)]) {
+      throw new Error(FINALIZE_ERROR);
+    }
+    this[_0x4f51(0x12b)][_0x4f51(0x131)](toNodeInput(_0xb5f3df));
+    return this;
+  }
+  ['finalize']() {
+    if (!this[_0x4f51(0x122)]) {
+      this[_0x4f51(0x122)] = this[_0x4f51(0x12b)].digest();
+      this[_0x4f51(0x12b)] = undefined;
+    }
+  }
+  [_0x4f51(0x114)]() {
+    this.finalize();
+    return this[_0x4f51(0x122)][_0x4f51(0x11a)](_0x4f51(0x114));
+  }
+  ['toString']() {
+    return this[_0x4f51(0x114)]();
+  }
+  [_0x4f51(0x127)]() {
+    this[_0x4f51(0x130)]();
+    return Array[_0x4f51(0x11f)](this[_0x4f51(0x122)]);
+  }
+  ['digest']() {
+    return this.array();
+  }
+  [_0x4f51(0x11e)]() {
+    return Uint8Array[_0x4f51(0x11f)](this[_0x4f51(0x127)]())[_0x4f51(0x118)];
+  }
+}
+function addOutputMethods(_0x5b5206, _0xedfafe) {
+  _0x5b5206[_0x4f51(0x114)] = _0x5b5206;
+  _0x5b5206[_0x4f51(0x127)] = function (..._0x1f4953) {
+    return _0xedfafe(..._0x1f4953[_0x4f51(0x11c)](0x0, -0x1))[_0x4f51(0x131)](_0x1f4953[_0x1f4953[_0x4f51(0x12e)] - 0x1])[_0x4f51(0x127)]();
+  };
+  _0x5b5206[_0x4f51(0x12f)] = _0x5b5206[_0x4f51(0x127)];
+  _0x5b5206[_0x4f51(0x11e)] = function (..._0x441fd8) {
+    return _0xedfafe(..._0x441fd8[_0x4f51(0x11c)](0x0, -0x1))[_0x4f51(0x131)](_0x441fd8[_0x441fd8[_0x4f51(0x12e)] - 0x1])[_0x4f51(0x11e)]();
+  };
+  return _0x5b5206;
+}
+function createNodeMethod(_0x192f24) {
+  const _0x566b09 = () => new NodeHasher(crypto[_0x4f51(0x121)](_0x192f24));
+  const _0x3564ca = function (_0x5641f0) {
+    return new NodeHasher(crypto[_0x4f51(0x121)](_0x192f24))[_0x4f51(0x131)](_0x5641f0)[_0x4f51(0x114)]();
+  };
+  addOutputMethods(_0x3564ca, _0x566b09);
+  _0x3564ca.create = _0x566b09;
+  _0x3564ca[_0x4f51(0x131)] = function (_0x24bed6) {
+    return _0x3564ca.create()[_0x4f51(0x131)](_0x24bed6);
+  };
+  return _0x3564ca;
+}
+function _0x55c3() {
+  const _0x4d0575 = ['5tbRrEd', '491076YJzvTe', 'hmac', 'hex', 'crypto', '170jsRdtt', 'create', 'buffer', 'utf8', 'toString', '9nkECUb', 'slice', '3168599dGmyVw', 'arrayBuffer', 'from', '11621007kUgzaY', 'createHash', 'result', 'undefined', '1328823gcIHYi', '6ovQXEz', '2093696pQnxgh', 'array', 'sha256', "finalize already called", 'string', 'hash', '4549364eQsUre', 'isView', 'length', 'digest', 'finalize', 'update', '2144584yfJCOT', 'constructor', 'sha224'];
+  _0x55c3 = function () {
+    return _0x4d0575;
+  };
+  return _0x55c3();
+}
+function createNodeHmacMethod(_0x2e4837) {
+  const _0x212147 = _0x1390df => new NodeHasher(crypto.createHmac(_0x2e4837, toNodeInput(_0x1390df)));
+  const _0x5b13a5 = function (_0x325297, _0x253e5f) {
+    return new NodeHasher(crypto.createHmac(_0x2e4837, toNodeInput(_0x325297)))[_0x4f51(0x131)](_0x253e5f)[_0x4f51(0x114)]();
+  };
+  addOutputMethods(_0x5b13a5, _0x212147);
+  _0x5b13a5.create = _0x212147;
+  _0x5b13a5[_0x4f51(0x131)] = function (_0x121a37, _0x4b707b) {
+    return _0x5b13a5[_0x4f51(0x117)](_0x121a37)[_0x4f51(0x131)](_0x4b707b);
+  };
+  return _0x5b13a5;
+}
+const sha256 = createNodeMethod('sha256');
+const sha224 = createNodeMethod(_0x4f51(0x110));
+function _0x4f51(_0x425664, _0x53abf3) {
+  _0x425664 = _0x425664 - 0x110;
+  const _0x55c331 = _0x55c3();
+  let _0x4f5196 = _0x55c331[_0x425664];
+  return _0x4f5196;
+}
+sha256[_0x4f51(0x128)] = sha256;
+sha256.sha224 = sha224;
+sha256[_0x4f51(0x113)] = createNodeHmacMethod(_0x4f51(0x128));
+sha224[_0x4f51(0x113)] = createNodeHmacMethod(_0x4f51(0x110));
+module.exports = sha256;

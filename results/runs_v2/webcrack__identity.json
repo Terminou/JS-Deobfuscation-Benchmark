@@ -1,0 +1,306 @@
+{
+  "target": "dataset/02_deobfuscated/webcrack/identity",
+  "timeoutMs": 1800000,
+  "results": [
+    {
+      "id": "func_01_binarySearch",
+      "outcome": "pass",
+      "ms": 801,
+      "tests": 8
+    },
+    {
+      "id": "func_02_binarySearchBounds",
+      "outcome": "pass",
+      "ms": 794,
+      "tests": 5
+    },
+    {
+      "id": "func_03_levenshtein",
+      "outcome": "pass",
+      "ms": 625,
+      "tests": 1
+    },
+    {
+      "id": "func_04_damerauLevenshtein",
+      "outcome": "pass",
+      "ms": 386,
+      "tests": 18
+    },
+    {
+      "id": "func_05_unionFind",
+      "outcome": "pass",
+      "ms": 358,
+      "tests": 1
+    },
+    {
+      "id": "func_06_naturalCompare",
+      "outcome": "pass",
+      "ms": 356,
+      "tests": 14
+    },
+    {
+      "id": "func_07_toposort",
+      "outcome": "pass",
+      "ms": 496,
+      "tests": 9
+    },
+    {
+      "id": "func_08_deque",
+      "outcome": "pass",
+      "ms": 393,
+      "tests": 52
+    },
+    {
+      "id": "func_09_dijkstra",
+      "outcome": "pass",
+      "ms": 360,
+      "tests": 5
+    },
+    {
+      "id": "func_10_priorityQueue",
+      "outcome": "pass",
+      "ms": 360,
+      "tests": 24
+    },
+    {
+      "id": "func_11_sortedArray",
+      "outcome": "pass",
+      "ms": 358,
+      "tests": 18
+    },
+    {
+      "id": "func_12_jaroWinkler",
+      "outcome": "pass",
+      "ms": 353,
+      "tests": 3
+    },
+    {
+      "id": "func_13_mersenneTwister",
+      "outcome": "pass",
+      "ms": 3946,
+      "tests": 3
+    },
+    {
+      "id": "func_14_stringSimilarity",
+      "outcome": "pass",
+      "ms": 358,
+      "tests": 11
+    },
+    {
+      "id": "func_15_combinatorics",
+      "outcome": "pass",
+      "ms": 954,
+      "tests": 118
+    },
+    {
+      "id": "func_16_isEmail",
+      "outcome": "pass",
+      "ms": 333,
+      "tests": 3
+    },
+    {
+      "id": "func_17_isUrl",
+      "outcome": "pass",
+      "ms": 341,
+      "tests": 32
+    },
+    {
+      "id": "func_18_isUri",
+      "outcome": "pass",
+      "ms": 342,
+      "tests": 4
+    },
+    {
+      "id": "func_19_isJson",
+      "outcome": "pass",
+      "ms": 495,
+      "tests": 37
+    },
+    {
+      "id": "func_20_isBase64",
+      "outcome": "pass",
+      "ms": 348,
+      "tests": 1
+    },
+    {
+      "id": "func_21_msDuration",
+      "outcome": "pass",
+      "ms": 361,
+      "tests": 49
+    },
+    {
+      "id": "func_22_isUuid",
+      "outcome": "pass",
+      "ms": 995,
+      "tests": 54
+    },
+    {
+      "id": "func_23_uuidValidate",
+      "outcome": "pass",
+      "ms": 391,
+      "tests": 8
+    },
+    {
+      "id": "func_24_luhn",
+      "outcome": "pass",
+      "ms": 378,
+      "tests": 36
+    },
+    {
+      "id": "func_25_jwtDecode",
+      "outcome": "pass",
+      "ms": 536,
+      "tests": 15
+    },
+    {
+      "id": "func_26_pluralize",
+      "outcome": "pass",
+      "ms": 861,
+      "tests": 4901
+    },
+    {
+      "id": "func_27_wordWrap",
+      "outcome": "pass",
+      "ms": 353,
+      "tests": 13
+    },
+    {
+      "id": "func_28_byteSize",
+      "outcome": "pass",
+      "ms": 365,
+      "tests": 30
+    },
+    {
+      "id": "func_29_isHexColor",
+      "outcome": "pass",
+      "ms": 353,
+      "tests": 1
+    },
+    {
+      "id": "func_30_queryString",
+      "outcome": "pass",
+      "ms": 360,
+      "tests": 20
+    },
+    {
+      "id": "func_31_objectPath",
+      "outcome": "pass",
+      "ms": 379,
+      "tests": 90
+    },
+    {
+      "id": "func_32_union",
+      "outcome": "pass",
+      "ms": 355,
+      "tests": 5
+    },
+    {
+      "id": "func_33_flatten",
+      "outcome": "pass",
+      "ms": 352,
+      "tests": 2
+    },
+    {
+      "id": "func_34_unique",
+      "outcome": "pass",
+      "ms": 378,
+      "tests": 4
+    },
+    {
+      "id": "func_35_difference",
+      "outcome": "pass",
+      "ms": 378,
+      "tests": 8
+    },
+    {
+      "id": "func_36_intersect",
+      "outcome": "pass",
+      "ms": 354,
+      "tests": 4
+    },
+    {
+      "id": "func_37_groupBy",
+      "outcome": "pass",
+      "ms": 351,
+      "tests": 3
+    },
+    {
+      "id": "func_38_deepEqual",
+      "outcome": "pass",
+      "ms": 370,
+      "tests": 110
+    },
+    {
+      "id": "func_39_cloneDeep",
+      "outcome": "pass",
+      "ms": 377,
+      "tests": 136
+    },
+    {
+      "id": "func_40_deepMerge",
+      "outcome": "pass",
+      "ms": 374,
+      "tests": 52
+    },
+    {
+      "id": "func_41_base64",
+      "outcome": "pass",
+      "ms": 358,
+      "tests": 5
+    },
+    {
+      "id": "func_42_md5",
+      "outcome": "pass",
+      "ms": 361,
+      "tests": 8
+    },
+    {
+      "id": "func_43_sha256",
+      "outcome": "pass",
+      "ms": 473,
+      "tests": 918
+    },
+    {
+      "id": "func_44_sha1",
+      "outcome": "pass",
+      "ms": 463,
+      "tests": 441
+    },
+    {
+      "id": "func_45_crc32",
+      "outcome": "pass",
+      "ms": 404,
+      "tests": 187
+    },
+    {
+      "id": "func_46_base32",
+      "outcome": "pass",
+      "ms": 372,
+      "tests": 7
+    },
+    {
+      "id": "func_47_rc4",
+      "outcome": "pass",
+      "ms": 701,
+      "tests": 41
+    },
+    {
+      "id": "func_48_sha3",
+      "outcome": "pass",
+      "ms": 544,
+      "tests": 1061
+    },
+    {
+      "id": "func_49_bitTwiddle",
+      "outcome": "pass",
+      "ms": 362,
+      "tests": 15
+    },
+    {
+      "id": "func_50_hashSum",
+      "outcome": "pass",
+      "ms": 356,
+      "tests": 2
+    }
+  ]
+}

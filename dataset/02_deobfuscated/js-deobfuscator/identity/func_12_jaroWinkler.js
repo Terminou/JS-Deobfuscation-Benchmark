@@ -1,0 +1,79 @@
+(function (_0x3c7fb1) {
+  "use strict";
+  function _0x33d2f6(_0x12f495, _0xb17462) {
+    for (var _0x2d969a in _0xb17462) {
+      if (_0xb17462.hasOwnProperty(_0x2d969a)) {
+        _0x12f495[_0x2d969a] = _0xb17462[_0x2d969a];
+      }
+    }
+    return _0x12f495;
+  }
+  function _0x5d02a5(_0x1eadd8, _0x31f1da, _0x41dc28) {
+    var _0x27a648 = 0;
+    var _0x4c1120 = {caseSensitive: true};
+    var _0x8e19aa = _0x33d2f6(_0x4c1120, _0x41dc28);
+    var _0x46ba19;
+    var _0x3fb6bf;
+    if (_0x1eadd8.length === 0 || _0x31f1da.length === 0) {
+      return 0;
+    }
+    if (!_0x8e19aa.caseSensitive) {
+      _0x1eadd8 = _0x1eadd8.toUpperCase();
+      _0x31f1da = _0x31f1da.toUpperCase();
+    }
+    if (_0x1eadd8 === _0x31f1da) {
+      return 1;
+    }
+    var _0x2ca33e = Math.floor(Math.max(_0x1eadd8.length, _0x31f1da.length) / 2) - 1;
+    var _0x457500 = new Array(_0x1eadd8.length);
+    var _0x5ec536 = new Array(_0x31f1da.length);
+    for (_0x46ba19 = 0; _0x46ba19 < _0x1eadd8.length; _0x46ba19++) {
+      var _0x5a892c = _0x46ba19 >= _0x2ca33e ? _0x46ba19 - _0x2ca33e : 0;
+      var _0x508cba = _0x46ba19 + _0x2ca33e <= _0x31f1da.length - 1 ? _0x46ba19 + _0x2ca33e : _0x31f1da.length - 1;
+      for (_0x3fb6bf = _0x5a892c; _0x3fb6bf <= _0x508cba; _0x3fb6bf++) {
+        if (_0x457500[_0x46ba19] !== true && _0x5ec536[_0x3fb6bf] !== true && _0x1eadd8[_0x46ba19] === _0x31f1da[_0x3fb6bf]) {
+          ++_0x27a648;
+          _0x457500[_0x46ba19] = _0x5ec536[_0x3fb6bf] = true;
+          break;
+        }
+      }
+    }
+    if (_0x27a648 === 0) {
+      return 0;
+    }
+    var _0x55a76c = 0;
+    var _0x3fbd2e = 0;
+    for (_0x46ba19 = 0; _0x46ba19 < _0x1eadd8.length; _0x46ba19++) {
+      if (_0x457500[_0x46ba19] === true) {
+        for (_0x3fb6bf = _0x55a76c; _0x3fb6bf < _0x31f1da.length; _0x3fb6bf++) {
+          if (_0x5ec536[_0x3fb6bf] === true) {
+            _0x55a76c = _0x3fb6bf + 1;
+            break;
+          }
+        }
+        if (_0x1eadd8[_0x46ba19] !== _0x31f1da[_0x3fb6bf]) {
+          ++_0x3fbd2e;
+        }
+      }
+    }
+    var _0x39d6e5 = (_0x27a648 / _0x1eadd8.length + _0x27a648 / _0x31f1da.length + (_0x27a648 - _0x3fbd2e / 2) / _0x27a648) / 3;
+    var _0x58b385 = 0;
+    var _0x12098c = 0.1;
+    if (_0x39d6e5 > 0.7) {
+      while (_0x1eadd8[_0x58b385] === _0x31f1da[_0x58b385] && _0x58b385 < 4) {
+        ++_0x58b385;
+      }
+      _0x39d6e5 = _0x39d6e5 + _0x58b385 * _0x12098c * (1 - _0x39d6e5);
+    }
+    return _0x39d6e5;
+  }
+  if (typeof define === "function" && define.amd) {
+    define([], function () {
+      return _0x5d02a5;
+    });
+  } else if (typeof exports === "object") {
+    module.exports = _0x5d02a5;
+  } else {
+    _0x3c7fb1.distance = _0x5d02a5;
+  }
+}(this));
